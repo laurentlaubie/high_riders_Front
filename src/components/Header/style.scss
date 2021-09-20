@@ -1,0 +1,38 @@
+.header {
+  box-shadow: 0 20px 20px -30px rgba(0,0,0,.4); 
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  height: 20vh;
+
+
+  &__logo {
+    width: 250px;
+    transform: scale(1.8);
+  }
+
+  &__nav {
+    margin: auto;
+    color: #606c38;
+    font-size: larger;
+
+    &__acceuil {
+      margin-right: 10em;
+    }
+
+    &__spots {
+      margin-right: 10em;
+    }
+  }
+
+  &__search {
+    width:25%;
+    height: 6vh;
+    margin: auto;
+  }
+
+  &__user {
+    width: 50px;
+    margin-right: 4em;
+  }
+}
