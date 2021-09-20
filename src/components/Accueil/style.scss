@@ -1,0 +1,13 @@
+.home__background {
+  max-width: 100vw;
+  height: auto;
+}
+
+.card {
+  width: 90vw;
+  padding: 1em;
+
+  &__img {
+    width: 100%;
+  }
+}
