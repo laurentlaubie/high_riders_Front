@@ -8,8 +8,8 @@ import Spots from '../Spots';
 // == Composant
 const App = () => (
   <div className="app">
+    <Header />
     <Switch>
-      <Header />
       <Route exact path="/">
         <Accueil />
       </Route>
