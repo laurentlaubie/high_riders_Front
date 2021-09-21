@@ -5,6 +5,7 @@ import Accueil from '../Accueil';
 import Evenements from '../Evenements';
 import Spots from '../Spots';
 import Connection from '../Connection';
+import Register from '../Register';
 
 // == Composant
 const App = () => (
@@ -22,6 +23,9 @@ const App = () => (
       </Route>
       <Route path="/connexion">
         <Connection />
+      </Route>
+      <Route path="/inscription">
+        <Register />
       </Route>
     </Switch>
   </div>

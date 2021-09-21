@@ -8,6 +8,7 @@ const Connection = () => (
       <input className="connection__form__email" placeholder="e-mail ..." />
       <input className="connection__form__mdp" placeholder="mot de passe ..." />
       <Link className="connection__form__link" to=""><p>Mot de passe oublié ?</p></Link>
+      <Link className="connection__form__link" to=""><p>Inscription</p></Link>
     </form>
   </div>
 );
