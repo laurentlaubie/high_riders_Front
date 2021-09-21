@@ -19,8 +19,8 @@ const App = () => (
       <Route path="/resultats">
         liste resultats
       </Route>
-      <Route path="/creer-profil">
-        creer profil
+      <Route path="/inscription">
+        <Register />
       </Route>
       <Route path="/connexion">
         <Connection />
@@ -42,6 +42,9 @@ const App = () => (
       </Route>
       <Route path="/evenements">
         <Evenements />
+      </Route>
+      <Route path="/evenements/:id">
+        evenement (id)
       </Route>
       <Route path="/Legal_notice">
         <LegalNotice />
@@ -66,9 +69,6 @@ const App = () => (
       </Route>
       <Route>
         404
-      </Route>
-      <Route path="/inscription">
-        <Register />
       </Route>
     </Switch>
   </div>
