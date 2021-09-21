@@ -13,8 +13,8 @@ const Header = () => (
       <NavLink className="header__nav__spots" to="/spots">Spots</NavLink>
       <NavLink className="header__nav__events" to="/evenements">Évènements</NavLink>
     </div>
-    <input className="header__search" placeholder="Search ..." />
-    <Link className="header__user" to="/connection"><img src={userIcon} alt="user" /></Link>
+    <input className="header__search" placeholder="search ..." />
+    <Link className="header__user" to="/connexion"><img src={userIcon} alt="user" /></Link>
   </div>
 );
 
