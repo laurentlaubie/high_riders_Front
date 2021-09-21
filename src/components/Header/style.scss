@@ -5,13 +5,19 @@
   justify-content: space-between;
   height: 20vh;
 
+  &__menu {
+    width: 50px;
+    margin-left: 4em;
+  }
 
   &__logo {
+    margin-left: -2em;
     width: 250px;
     transform: scale(1.8);
   }
 
   &__nav {
+    display: none;
     margin: auto;
     color: #606c38;
     font-size: larger;
@@ -26,13 +32,81 @@
   }
 
   &__search {
+    display: none;
     width:25%;
     height: 6vh;
     margin: auto;
+    padding: 1em;
   }
 
   &__user {
     width: 50px;
+    margin-left: -2.4em;
     margin-right: 4em;
+    
+  }
+}
+
+@media (min-width:720px) {
+  .header {
+    box-shadow: 0 20px 20px -30px rgba(0,0,0,.4); 
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    height: 20vh;
+
+    &__menu {
+      display: none;
+      width: 50px;
+      margin-left: 1em;
+    }
+
+    &__logo {
+      margin-left: 0;
+      width: 250px;
+      transform: scale(1.8);
+    }
+
+    &__nav {
+      display: inline-block;
+      margin: auto;
+      color: #606c38;
+      font-size: larger;
+
+      &__acceuil {
+        margin-right: 1em;
+      }
+
+      &__spots {
+        margin-right: 1em;
+      }
+
+      &__events {
+        margin-right: 1em;
+      }
+    }
+
+    &__search {
+      display: inline-block;
+      min-width:20%;
+      height: 6vh;
+      margin: auto;
+      padding: 1em;
+      margin-right: 1em;
+      border-top-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+      border: .1em solid #606c38;
+      color: #606c38;
+
+      &::placeholder {
+        color: #606c38;
+      }
+    }
+
+    &__user {
+      width: 50px;
+      margin: auto;
+      margin-right: 4.4em;
+    }
   }
 }
