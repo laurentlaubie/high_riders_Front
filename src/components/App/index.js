@@ -20,7 +20,7 @@ const App = () => (
       <Route path="/evenements">
         <Evenements />
       </Route>
-      <Route path="/connection">
+      <Route path="/connexion">
         <Connection />
       </Route>
     </Switch>
