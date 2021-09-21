@@ -14,14 +14,53 @@ const App = () => (
       <Route exact path="/">
         <Homepage />
       </Route>
+      <Route path="/resultats">
+        liste resultats
+      </Route>
+      <Route path="/creer-profil">
+        creer profil
+      </Route>
+      <Route path="/connexion">
+        <Connection />
+      </Route>
+      <Route path="/mot-de-passe-oublie">
+        mot de passe oublie
+      </Route>
+      <Route path="/profil">
+        profil
+      </Route>
       <Route path="/spots">
         <Spots />
+      </Route>
+      <Route path="/spots/:id">
+        spot (id)
+      </Route>
+      <Route path="/ajout-spot">
+        ajout spot
       </Route>
       <Route path="/evenements">
         <Evenements />
       </Route>
-      <Route path="/connection">
-        <Connection />
+      <Route path="/evenements/:id">
+        evenement (id)
+      </Route>
+      <Route path="/ajout-evenement">
+        ajout-evenement
+      </Route>
+      <Route path="/nous-contacter">
+        nous contacter
+      </Route>
+      <Route path="/mentions-legales">
+        mentions legales
+      </Route>
+      <Route path="/a-propos">
+        a propos
+      </Route>
+      <Route path="/plan-du-site">
+        plan du site
+      </Route>
+      <Route>
+        404
       </Route>
     </Switch>
   </div>
