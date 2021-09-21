@@ -1,13 +1,17 @@
 // == Import composants
 import Card from 'src/components/Card';
+import data from 'src/data';
 
 // == Import persos
-import background from 'src/assets/images/background.jpg';
 import './style.scss';
 
 const Homepage = () => (
   <div>
-    <img src={background} alt="Illustration" className="home__background" />
+    <img
+      src="https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      alt="Illustration"
+      className="home__background"
+    />
     <div>
       <h2>Bienvenue sur High Riders</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at lacus sit amet
@@ -17,7 +21,11 @@ const Homepage = () => (
     </div>
     <div>
       <h1>Derniers évènements</h1>
-      <Card fondCard="https://images.pexels.com/photos/1619299/pexels-photo-1619299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+      {data.map((item) => <Card fondCard={item.image} key={item.id} />)}
+      <h1>Meilleurs spots</h1>
+      {data.map((item) => <Card fondCard={item.image} key={item.id} />)}
+      <h1>Derniers spots ajoutés</h1>
+      {data.map((item) => <Card fondCard={item.image} key={item.id} />)}
     </div>
   </div>
 );
