@@ -2,7 +2,7 @@
 import { Route, Switch } from 'react-router-dom';
 import Header from 'src/components/Header';
 import Homepage from '../Homepage';
-import Evenements from '../Evenements';
+import Events from '../Events';
 import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
@@ -41,7 +41,7 @@ const App = () => (
         ajout spot
       </Route>
       <Route path="/evenements">
-        <Evenements />
+        <Events />
       </Route>
       <Route path="/evenements/:id">
         evenement (id)
