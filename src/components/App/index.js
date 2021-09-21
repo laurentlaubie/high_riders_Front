@@ -1,7 +1,7 @@
 // == Import
 import { Route, Switch } from 'react-router-dom';
 import Header from 'src/components/Header';
-import Accueil from '../Accueil';
+import Homepage from '../Homepage';
 import Evenements from '../Evenements';
 import Spots from '../Spots';
 
@@ -11,7 +11,7 @@ const App = () => (
     <Header />
     <Switch>
       <Route exact path="/">
-        <Accueil />
+        <Homepage />
       </Route>
       <Route path="/spots">
         <Spots />
