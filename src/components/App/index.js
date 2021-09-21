@@ -4,6 +4,7 @@ import Header from 'src/components/Header';
 import Homepage from '../Homepage';
 import Evenements from '../Evenements';
 import Spots from '../Spots';
+import Connection from '../Connection';
 
 // == Composant
 const App = () => (
@@ -18,6 +19,9 @@ const App = () => (
       </Route>
       <Route path="/evenements">
         <Evenements />
+      </Route>
+      <Route path="/connection">
+        <Connection />
       </Route>
     </Switch>
   </div>
