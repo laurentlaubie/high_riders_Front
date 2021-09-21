@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import highridersLogo from './highridersLogo.png';
 import userIcon from './userIcon.svg';
 import menuIcon from './menuIcon.svg';
@@ -13,8 +13,8 @@ const Header = () => (
       <NavLink className="header__nav__spots" to="/spots">Spots</NavLink>
       <NavLink className="header__nav__events" to="/evenements">Évènements</NavLink>
     </div>
-    <input className="header__search" placeholder="Search ..." />
-    <img className="header__user" src={userIcon} alt="user" />
+    <input className="header__search" placeholder="search ..." />
+    <Link className="header__user" to="/connexion"><img src={userIcon} alt="user" /></Link>
   </div>
 );
 

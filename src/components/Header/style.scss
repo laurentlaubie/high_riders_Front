@@ -26,9 +26,10 @@
 
   &__user {
     width: 50px;
+    margin: auto;
     margin-left: -2.4em;
-    margin-right: 4em;
-    
+    margin-right: 4em; 
+    transform: scale(1.8);
   }
 }
 

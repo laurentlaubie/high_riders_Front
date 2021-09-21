@@ -1,0 +1,121 @@
+.connection {
+  width: 100%;
+  height: 100vh;
+
+
+  &__form {
+    border: #606038 .1em solid;
+    margin: auto;
+    margin-top: 10em;
+    width: 70%;
+    height: 20em;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+
+    & h1 {
+      text-align: center;
+      color: #606038;
+      margin-top: 2em;
+    }
+
+    &__email {
+      display: flex;
+      margin: auto;
+      height: 2em;
+      width: 70%;
+      border-top-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+      border: .1em solid #606c38;
+      color: #606c38;
+      padding-left: 1em;
+
+      &::placeholder {
+        color: #606038;
+      }
+    }
+
+    &__mdp {
+      display: flex;
+      margin: auto;
+      height: 2em;
+      width: 70%;
+      border-top-left-radius: 1em;
+      border-bottom-right-radius: 1em;
+      border: .1em solid #606c38;
+      color: #606c38;
+      padding-left: 1em;
+
+      &::placeholder {
+        color: #606038;
+      }
+    }
+
+    &__link {
+      margin: auto;
+      color: #606038;
+    }
+  }
+}
+
+@media (min-width:720px) {
+  .connection {
+    width: 100%;
+    height: 100vh;
+  
+  
+    &__form {
+      border: #606038 .1em solid;
+      margin: auto;
+      margin-top: 10em;
+      width: 40%;
+      height: 20em;
+      flex-direction: column;
+      display: flex;
+      justify-content: space-between;
+  
+      & h1 {
+        text-align: center;
+        color: #606038;
+        margin-top: 2em;
+      }
+  
+      &__email {
+        display: flex;
+        margin: auto;
+        height: 2em;
+        width: 70%;
+        border-top-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        border: .1em solid #606c38;
+        color: #606c38;
+        padding-left: 1em;
+
+        &::placeholder {
+          color: #606038;
+        }
+      }
+  
+      &__mdp {
+        display: flex;
+        margin: auto;
+        height: 2em;
+        width: 70%;
+        border-top-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        border: .1em solid #606c38;
+        color: #606c38;
+        padding-left: 1em;
+
+        &::placeholder {
+          color: #606038;
+        }
+      }
+  
+      &__link {
+        margin: auto;
+        color: #606038;
+      }
+    }
+  }
+}
