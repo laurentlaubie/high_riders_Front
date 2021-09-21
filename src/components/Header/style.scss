@@ -3,7 +3,7 @@
   text-align: center;
   display: flex;
   justify-content: space-between;
-  height: 20vh;
+  height: 8em;
 
   &__menu {
     width: 50px;
@@ -18,25 +18,10 @@
 
   &__nav {
     display: none;
-    margin: auto;
-    color: #606c38;
-    font-size: larger;
-
-    &__acceuil {
-      margin-right: 10em;
-    }
-
-    &__spots {
-      margin-right: 10em;
-    }
   }
 
   &__search {
     display: none;
-    width:25%;
-    height: 6vh;
-    margin: auto;
-    padding: 1em;
   }
 
   &__user {
@@ -53,7 +38,7 @@
     text-align: center;
     display: flex;
     justify-content: space-between;
-    height: 20vh;
+    height: 8em;
 
     &__menu {
       display: none;
@@ -89,7 +74,7 @@
     &__search {
       display: inline-block;
       min-width:20%;
-      height: 6vh;
+      height: 2em;
       margin: auto;
       padding: 1em;
       margin-right: 1em;
