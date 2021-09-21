@@ -3,7 +3,7 @@ import background from 'src/assets/images/background.jpg';
 import fondCard from 'src/assets/images/fondCard.jpg';
 import './style.scss';
 
-const Accueil = () => (
+const Homepage = () => (
   <div>
     <img src={background} alt="Illustration" className="home__background" />
     <div>
@@ -28,4 +28,4 @@ const Accueil = () => (
   </div>
 );
 
-export default Accueil;
+export default Homepage;
