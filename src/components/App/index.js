@@ -4,6 +4,7 @@ import Header from 'src/components/Header';
 import Homepage from '../Homepage';
 import Evenements from '../Evenements';
 import Spots from '../Spots';
+import Mentionslégales from '../Legal_notice'
 import Connection from '../Connection';
 import Register from '../Register';
 
@@ -42,6 +43,9 @@ const App = () => (
       <Route path="/evenements">
         <Evenements />
       </Route>
+      <Route path="/Legal_notice">
+        <Mentionslégales>
+        </Route>
       <Route path="/evenements/:id">
         evenement (id)
       </Route>
@@ -67,8 +71,7 @@ const App = () => (
         <Register />
       </Route>
     </Switch>
-  </div>
-);
+  );
 
 // == Export
 export default App;
