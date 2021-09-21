@@ -4,6 +4,7 @@ import Header from 'src/components/Header';
 import Homepage from '../Homepage';
 import Evenements from '../Evenements';
 import Spots from '../Spots';
+import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
 import Register from '../Register';
 
@@ -41,6 +42,12 @@ const App = () => (
       </Route>
       <Route path="/evenements">
         <Evenements />
+      </Route>
+      <Route path="/evenements/:id">
+        evenement (id)
+      </Route>
+      <Route path="/Legal_notice">
+        <LegalNotice />
       </Route>
       <Route path="/evenements/:id">
         evenement (id)

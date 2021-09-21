@@ -1,9 +1,11 @@
+// == Import composants
+import Card from 'src/components/Card';
+
 // == Import persos
 import background from 'src/assets/images/background.jpg';
-import fondCard from 'src/assets/images/fondCard.jpg';
 import './style.scss';
 
-const Accueil = () => (
+const Homepage = () => (
   <div>
     <img src={background} alt="Illustration" className="home__background" />
     <div>
@@ -15,17 +17,9 @@ const Accueil = () => (
     </div>
     <div>
       <h1>Derniers évènements</h1>
-      <div className="card">
-        <img src={fondCard} alt="Event 1" className="card__img" />
-        <span>Nom de la ville</span>
-        <span>15 Oct. 2021</span>
-        <h2>Nom de l'evenement</h2>
-        <h3>Disciplines pratiquées : </h3>
-        <span>VTT</span>
-        <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam at lacus sit amet felis...</p>
-      </div>
+      <Card fondCard="https://images.pexels.com/photos/1619299/pexels-photo-1619299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
     </div>
   </div>
 );
 
-export default Accueil;
+export default Homepage;
