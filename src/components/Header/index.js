@@ -1,7 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
-import highridersLogo from './highridersLogo.png';
-import userIcon from './userIcon.svg';
-import menuIcon from './menuIcon.svg';
+import highridersLogo from 'src/assets/images/highridersLogo.png';
+import menuIcon from 'src/assets/images/menuIcon.svg';
+import userIcon from 'src/assets/images/userIcon.svg';
 import './style.scss';
 
 const Header = () => (
