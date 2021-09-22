@@ -12,6 +12,10 @@
 
   &__logo {
     margin: 1em;
+
+    &__img {
+      height: 100%;
+    }
   }
 
   &__nav {
@@ -24,6 +28,11 @@
 
   &__user {
     height: 100%;
+    padding: 1em;
+
+    &__img {
+      height: 100%;
+    }
   }
 }
 
