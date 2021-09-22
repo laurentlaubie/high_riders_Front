@@ -1,8 +1,56 @@
 .card {
-  width: 90vw;
-  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 0.5em;
+  border-radius: 0.2em;
+  background-color: white;
+  box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.15);
+  margin: 0 0 1em 0;
 
   &__img {
     width: 100%;
+  }
+
+  &__infos {
+    min-width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8em 0 0 0;
+    font-size: 0.7em;
+
+    &__city {
+      border: solid 0.2em #4b702d;
+      color: #4b702d;
+      padding: 0.25em;
+      font-weight: 700;
+    }
+
+    &__date {
+      margin: 0 0 0 1em;
+      color: rgb(53, 53, 53);
+    }
+  }
+
+  h2 {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin: 0.5em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+    margin: 0 0 0.5em 0;
+  }
+
+  &__type {
+    font-weight: 700;
+    text-decoration: #4b702d underline;
+  }
+
+  p {
+    text-align: center;
   }
 }

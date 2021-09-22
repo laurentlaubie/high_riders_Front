@@ -2,20 +2,39 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const Card = ({ fondCard }) => (
+const Card = ({
+  id,
+  image,
+  city,
+  saisonDate,
+  title,
+  typeSpot,
+  description,
+}) => (
   <div className="card">
-    <img src={fondCard} alt="Event 1" className="card__img" />
-    <span>Nom de la ville</span>
-    <span>15 Oct. 2021</span>
-    <h2>Nom de l'evenement</h2>
-    <h3>Disciplines pratiquées : </h3>
-    <span>VTT</span>
-    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam at lacus sit amet felis...</p>
+    <img src={image} alt={`Event ${id}`} className="card__img" />
+    <div className="card__infos">
+      <span className="card__infos__city">{city}</span>
+      <span className="card__infos__date">{saisonDate}</span>
+    </div>
+    <h2>{title}</h2>
+    <h3>Disciplines pratiquées : <span className="card__type">{typeSpot}</span></h3>
+    <p>{description}</p>
   </div>
 );
 
 Card.propTypes = {
-  fondCard: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  saisonDate: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  typeSpot: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
+
+Card.defaultProps = {
+  description: null,
 };
 
 export default Card;
