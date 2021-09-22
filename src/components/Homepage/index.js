@@ -6,11 +6,11 @@ import data from 'src/data';
 import './style.scss';
 
 const Homepage = () => (
-  <div>
+  <div className="homepage">
     <img
       src="https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
       alt="Illustration"
-      className="home__background"
+      className="homepage__background"
     />
     <div>
       <h2>Bienvenue sur High Riders</h2>
