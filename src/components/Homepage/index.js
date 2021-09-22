@@ -12,39 +12,30 @@ const Homepage = () => (
       alt="Illustration"
       className="homepage__background"
     />
-    <div>
+    <div className="homepage__welcome">
       <h2>Bienvenue sur High Riders</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at lacus sit amet
         felis rutrum sodales sed eget est. Praesent consequat, eros in blandit pulvinar,
         lorem magna tincidunt augue, at volutpat tortor ligula ac augue.
       </p>
     </div>
-    <div>
-      <div>
+    <div className="homepage__cards">
+      <div className="homepage__elem">
         <h1>Derniers évènements</h1>
         {data.map((item) => (
-          <Card
-            key={item.id}
-            fondCard={item.image}
-          />
+          <Card key={item.id} {...item} />
         ))}
       </div>
-      <div>
+      <div className="homepage__elem">
         <h1>Meilleurs spots</h1>
         {data.map((item) => (
-          <Card
-            key={item.id}
-            fondCard={item.image}
-          />
+          <Card key={item.id} {...item} />
         ))}
       </div>
-      <div>
+      <div className="homepage__elem">
         <h1>Derniers spots ajoutés</h1>
         {data.map((item) => (
-          <Card
-            key={item.id}
-            fondCard={item.image}
-          />
+          <Card key={item.id} {...item} />
         ))}
       </div>
     </div>
