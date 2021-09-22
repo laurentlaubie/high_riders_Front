@@ -9,6 +9,12 @@
   box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.15);
   margin: 0 1em 1em 1em;
   text-align: center;
+  transition: .3s cubic-bezier(0.25, 0, 0, 1);
+  
+  &:hover {
+    transform: scale(1.02);
+    transition: .3s cubic-bezier(0.25, 0, 0, 1);
+  }
 
   &__img {
     width: 100%;
