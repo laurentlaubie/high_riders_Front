@@ -5,6 +5,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+#root {
+  max-width: 100vw;
+}
+
 /* 
   // or you can import your own font
   @font-face {
