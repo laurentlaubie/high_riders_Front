@@ -20,12 +20,33 @@ const Homepage = () => (
       </p>
     </div>
     <div>
-      <h1>Derniers évènements</h1>
-      {data.map((item) => <Card fondCard={item.image} key={item.id} />)}
-      <h1>Meilleurs spots</h1>
-      {data.map((item) => <Card fondCard={item.image} key={item.id} />)}
-      <h1>Derniers spots ajoutés</h1>
-      {data.map((item) => <Card fondCard={item.image} key={item.id} />)}
+      <div>
+        <h1>Derniers évènements</h1>
+        {data.map((item) => (
+          <Card
+            key={item.id}
+            fondCard={item.image}
+          />
+        ))}
+      </div>
+      <div>
+        <h1>Meilleurs spots</h1>
+        {data.map((item) => (
+          <Card
+            key={item.id}
+            fondCard={item.image}
+          />
+        ))}
+      </div>
+      <div>
+        <h1>Derniers spots ajoutés</h1>
+        {data.map((item) => (
+          <Card
+            key={item.id}
+            fondCard={item.image}
+          />
+        ))}
+      </div>
     </div>
   </div>
 );
