@@ -5,15 +5,15 @@
   align-items: center;
 
   &__background {
+    position: absolute;
     width: 100%;
   }
 
   &__welcome {
-    background-color: white;
-    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.15);
-    border-radius: 0.3em;
+    background-color: #FCFBFE;
+    border-radius: 0.3em 0.3em 0 0;
     position: relative;
-    top: -5em;
+    top: 20em;
     width: 90%;
     padding: 1em;
     text-align: center;
@@ -30,12 +30,16 @@
   }
 
   &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    top: -4em;
+    top: 20em;
     width: 90%;
+    background-color: #FCFBFE;
   }
 
-  &__elem {
+  &__list {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,6 +50,72 @@
       font-size: 2em;
       font-weight: 700;
       margin: 0.5em 0;
+    }
+
+    &__elem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width:1000px) {
+  .homepage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    &__background {
+      position: absolute;
+      width: 100%;
+    }
+  
+    &__welcome {
+      background-color: #FCFBFE;
+      border-radius: 0.3em 0.3em 0 0;
+      position: relative;
+      top: 20em;
+      width: 90%;
+      padding: 1em;
+      text-align: center;
+  
+      h2 {
+        color: #4b702d;
+        font-size: 1.7em;
+        margin: 0 0 0.5em 0;
+      }
+  
+      p {
+        font-size: 1.1em;
+      }
+    }
+  
+    &__cards {
+      position: relative;
+      top: 20em;
+      width: 90%;
+      background-color: #fcfbfe;
+    }
+  
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        text-align: center;
+        color: #4b702d;
+        font-size: 2em;
+        font-weight: 700;
+        margin: 0.5em 0;
+      }
+
+      &__elem {
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }

@@ -7,14 +7,15 @@
   border-radius: 0.2em;
   background-color: white;
   box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.15);
-  margin: 0 0 1em 0;
+  margin: 0 1em 1em 1em;
+  text-align: center;
 
   &__img {
     width: 100%;
   }
 
   &__infos {
-    min-width: 30%;
+    min-width: 15%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,11 +47,9 @@
   }
 
   &__type {
+    font-size: 1.3em;
     font-weight: 700;
     text-decoration: #4b702d underline;
-  }
-
-  p {
-    text-align: center;
+    margin: 0 0 0.5em 0;
   }
 }
