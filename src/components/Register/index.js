@@ -1,18 +1,43 @@
 import './style.scss';
 import avatar from './avatar.png';
+import editIcon from './editIcon.svg';
 
 const Register = () => (
   <div className="register">
-    <h1 className="register__title">Créer votre profil</h1>
+    <h1 className="register__title">Votre profil</h1>
     <img className="register__avatar" src={avatar} alt="avatar" />
-    <input className="register__form" placeholder="nom ..." />
-    <input className="register__form" placeholder="prenom ..." />
-    <input className="register__form" placeholder="pseudo ..." />
-    <input className="register__form" placeholder="email ..." />
-    <input className="register__form" placeholder="mot de passe ..." />
-    <input className="register__form" placeholder="description ..." />
-    <input className="register__form" placeholder="ville ..." />
-    <input className="register__form" placeholder="équipement ..." />
+    <div className="register__form">
+      <input className="register__form--input" placeholder="nom ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
+    <div className="register__form">
+      <input className="register__form--input" placeholder="prenom ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
+    <div className="register__form">
+      <input className="register__form--input" placeholder="pseudo ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
+    <div className="register__form">
+      <input className="register__form--input" placeholder="email ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
+    <div className="register__form">
+      <input className="register__form--input" placeholder="password ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
+    <div className="register__form">
+      <input className="register__form--input" placeholder="description ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
+    <div className="register__form">
+      <input className="register__form--input" placeholder="ville ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
+    <div className="register__form">
+      <input className="register__form--input" placeholder="équipement ..." />
+      <img className="register__form--image" src={editIcon} alt="edit" />
+    </div>
     <select className="register__selector">
       <option>discipline</option>
       <option>b</option>
