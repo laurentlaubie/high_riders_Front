@@ -6,7 +6,7 @@
   },
   "rules": {
     "brace-style": ["error", "stroustrup"],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": 0,
     "no-param-reassign": [
       "error",
       {
