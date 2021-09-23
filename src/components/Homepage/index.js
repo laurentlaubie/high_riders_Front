@@ -20,23 +20,29 @@ const Homepage = () => (
       </p>
     </div>
     <div className="homepage__cards">
-      <div className="homepage__elem">
+      <div className="homepage__list">
         <h1>Derniers évènements</h1>
-        {data.map((item) => (
-          <Card key={item.id} {...item} />
-        ))}
+        <div className="homepage__list__elem">
+          {data.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
+        </div>
       </div>
-      <div className="homepage__elem">
+      <div className="homepage__list">
         <h1>Meilleurs spots</h1>
-        {data.map((item) => (
-          <Card key={item.id} {...item} />
-        ))}
+        <div className="homepage__list__elem">
+          {data.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
+        </div>
       </div>
-      <div className="homepage__elem">
+      <div className="homepage__list">
         <h1>Derniers spots ajoutés</h1>
-        {data.map((item) => (
-          <Card key={item.id} {...item} />
-        ))}
+        <div className="homepage__list__elem">
+          {data.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
+        </div>
       </div>
     </div>
   </div>

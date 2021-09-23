@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 
@@ -11,16 +12,17 @@ const Card = ({
   typeSpot,
   description,
 }) => (
-  <div className="card">
+  <Link className="card">
     <img src={image} alt={`Event ${id}`} className="card__img" />
     <div className="card__infos">
       <span className="card__infos__city">{city}</span>
       <span className="card__infos__date">{saisonDate}</span>
     </div>
     <h2>{title}</h2>
-    <h3>Disciplines pratiquées : <span className="card__type">{typeSpot}</span></h3>
+    <h3>Disciplines pratiquées : </h3>
+    <span className="card__type">{typeSpot}</span>
     <p>{description}</p>
-  </div>
+  </Link>
 );
 
 Card.propTypes = {
