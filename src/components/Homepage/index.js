@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 
 import Card from 'src/components/Card';
-import data from 'src/data';
+// import data from 'src/data';
 
 // == Import persos
 import './style.scss';
@@ -32,7 +32,7 @@ const Homepage = () => {
           <h1>Derniers évènements</h1>
           <div className="homepage__list__elem">
             {lastsEvents.map((item) => (
-              <Card key={item.id} {...item} />
+              <Card key={item.id} {...item} typeCard="evenements" />
             ))}
           </div>
         </div>
@@ -40,7 +40,7 @@ const Homepage = () => {
           <h1>Meilleurs spots</h1>
           <div className="homepage__list__elem">
             {bestsSpots.map((item) => (
-              <Card key={item.id} {...item} />
+              <Card key={item.id} {...item} typeCard="spots" />
             ))}
           </div>
         </div>
@@ -48,7 +48,7 @@ const Homepage = () => {
           <h1>Derniers spots ajoutés</h1>
           <div className="homepage__list__elem">
             {lastsSpots.map((item) => (
-              <Card key={item.id} {...item} />
+              <Card key={item.id} {...item} typeCard="spots" />
             ))}
           </div>
         </div>
