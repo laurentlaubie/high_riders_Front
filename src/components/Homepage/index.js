@@ -13,17 +13,19 @@ const Homepage = () => {
   const lastsSpots = useSelector((state) => state.lastsSpots);
   return (
     <div className="homepage">
-      <img
-        src="https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt="Illustration"
-        className="homepage__background"
-      />
-      <div className="homepage__welcome">
-        <h2>Bienvenue sur High Riders</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at lacus sit amet
-          felis rutrum sodales sed eget est. Praesent consequat, eros in blandit pulvinar,
-          lorem magna tincidunt augue, at volutpat tortor ligula ac augue.
-        </p>
+      <div className="homepage__welcome-container">
+        <img
+          src="https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="Illustration"
+          className="homepage__background"
+        />
+        <div className="homepage__welcome">
+          <h2>Bienvenue sur High Riders</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at lacus sit amet
+            felis rutrum sodales sed eget est. Praesent consequat, eros in blandit pulvinar,
+            lorem magna tincidunt augue, at volutpat tortor ligula ac augue.
+          </p>
+        </div>
       </div>
       <div className="homepage__cards">
         <div className="homepage__list">
