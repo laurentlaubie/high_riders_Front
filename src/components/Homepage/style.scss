@@ -11,8 +11,8 @@
   &__welcome {
     background-color: #FCFBFE;
     border-radius: 0.3em;
-    position: relative;
-    top: -20em;
+    position: absolute;
+    top: 20vw;
     width: 90%;
     padding: 1em;
     text-align: center;
@@ -36,6 +36,7 @@
     top: -5em;
     width: 90%;
     background-color: #FCFBFE;
+    border-radius: 0.2em;
   }
 
   &__list {
@@ -75,8 +76,8 @@
       background-color: #FCFBFE;
       border-radius: 0.2em;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: relative;
-      top: -20em;
+      position: absolute;
+      top: 20vw;
       width: 90%;
       padding: 1em;
       text-align: center;
@@ -96,6 +97,7 @@
       position: relative;
       width: 90%;
       background-color: #fcfbfe;
+      border-radius: 0.2em;
     }
   
     &__list {
