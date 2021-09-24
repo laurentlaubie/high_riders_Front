@@ -29,7 +29,7 @@ const Homepage = () => {
         <div className="homepage__list">
           <h1>Derniers évènements</h1>
           <div className="homepage__list__elem">
-            {data.map((item) => (
+            {lastsEvents.map((item) => (
               <Card key={item.id} {...item} />
             ))}
           </div>
@@ -37,7 +37,7 @@ const Homepage = () => {
         <div className="homepage__list">
           <h1>Meilleurs spots</h1>
           <div className="homepage__list__elem">
-            {data.map((item) => (
+            {bestsSpots.map((item) => (
               <Card key={item.id} {...item} />
             ))}
           </div>
@@ -45,7 +45,7 @@ const Homepage = () => {
         <div className="homepage__list">
           <h1>Derniers spots ajoutés</h1>
           <div className="homepage__list__elem">
-            {data.map((item) => (
+            {lastsSpots.map((item) => (
               <Card key={item.id} {...item} />
             ))}
           </div>

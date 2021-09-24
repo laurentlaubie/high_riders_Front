@@ -15,12 +15,12 @@ const Card = ({
   <Link className="card">
     <img src={image} alt={`Event ${id}`} className="card__img" />
     <div className="card__infos">
-      <span className="card__infos__city">{city}</span>
+      {city && <span className="card__infos__city">{city}</span>}
       <span className="card__infos__date">{saisonDate}</span>
     </div>
     <h2>{title}</h2>
     <h3>Disciplines pratiquées : </h3>
-    <span className="card__type">{typeSpot}</span>
+    {typeSpot ? <span className="card__type">{typeSpot}</span> : <span className="card__type">Non spécifié</span>}
     <p>{description}</p>
   </Link>
 );
