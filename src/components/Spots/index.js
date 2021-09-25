@@ -1,7 +1,7 @@
 // == Import composants
 import Card from 'src/components/Card';
 import data from 'src/data';
-import map from './map.jpg';
+import BasicMap from 'src/components/BasicMap';
 
 // == Import persos
 import './style.scss';
@@ -19,7 +19,7 @@ const spotList = () => (
       <input className="spotList__filter--search" type="search" placeholder="Recherche de spots ..."/>
     </div>
     <div className="spotList__image">
-      <img src={map} alt="map" className="spotList__image--img" />
+      <BasicMap />
     </div>
     <div className="spotList__cards">  
       <div className="spotList__list">
