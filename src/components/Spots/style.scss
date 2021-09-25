@@ -29,18 +29,6 @@
     }
   }
 
-  &__image {
-    width: 80%;
-    background-image: url(./map.jpg);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: white;
-    padding: 2rem 1rem 1rem;
-  }
-
   &__cards {
     display: flex;
     flex-direction: column;
@@ -101,18 +89,6 @@
       &--search {
         height: 2rem;
       }
-    }
-  
-    &__image {
-      width: 40%;
-      background-image: url(./map.jpg);
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: white;
-      padding: 2rem 1rem 1rem;
     }
   
     &__cards {
