@@ -61,7 +61,9 @@ const Spot = () => {
           <span className="spot__stats__name">{spotId.openingHours}-{spotId.closedHours}</span>
         </div>
       </div>
-      <BasicMap className="spot__map" />
+      <div className="spot__map">
+        <BasicMap />
+      </div>
     </div>
   );
 };
