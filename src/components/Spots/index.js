@@ -1,7 +1,7 @@
 // == Import composants
 import Card from 'src/components/Card';
 import data from 'src/data';
-import map from './map.jpg';
+import BasicMap from 'src/components/BasicMap';
 
 // == Import persos
 import './style.scss';
@@ -19,28 +19,21 @@ const spotList = () => (
       <input className="spotList__filter--search" type="search" placeholder="Recherche de spots ..." />
     </div>
     <div className="spotList__image">
-      <img src={map} alt="map" className="spotList__image--img" />
+      <BasicMap />
     </div>
     <div className="spotList__cards">
       <div className="spotList__list">
-        <h1>Meilleurs spots</h1>
+        {/* <h1>Spots</h1> */}
         <div className="spotList__list__elem">
           {data.map((item) => (
             <Card key={item.id} {...item} typeCard="spots" />
           ))}
-        </div>
-      </div>
-      <div className="spotList__list">
-        <h1>Derniers spots ajoutés</h1>
-        <div className="spotList__list__elem">
           {data.map((item) => (
             <Card key={item.id} {...item} typeCard="spots" />
           ))}
-        </div>
-      </div>
-      <div className="spotList__list">
-        <h1>Derniers évènements</h1>
-        <div className="spotList__list__elem">
+          {data.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
           {data.map((item) => (
             <Card key={item.id} {...item} typeCard="spots" />
           ))}
