@@ -18,7 +18,7 @@ const spotList = () => (
       </select>
       <input className="spotList__filter--search" type="search" placeholder="Recherche de spots ..." />
     </div>
-    <div className="spotList__image">
+    <div className="spotList__map">
       <BasicMap />
     </div>
     <div className="spotList__cards">

@@ -55,6 +55,7 @@
         &__button {
           border: none;
           background-color: transparent;
+          color: white;
           padding: 0.35em;
           font-weight: 700;
           font-size: 0.8em;
@@ -98,5 +99,9 @@
     &__name {
       font-size: 0.8em;
     }
+  }
+
+  &__map {
+    width: 200px;
   }
 }

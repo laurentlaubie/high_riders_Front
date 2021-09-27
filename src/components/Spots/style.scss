@@ -29,6 +29,13 @@
     }
   }
 
+  &__map {
+    width: 72vw;
+    height: 50vh;
+    z-index: 0;
+    margin: 2rem 0;
+  }
+
   &__cards {
     display: flex;
     flex-direction: column;
@@ -119,7 +126,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
         grid-template-rows: auto;
-        grid-gap: 0.05em;
+        grid-gap: 1em;
       }
     }
   }
