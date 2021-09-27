@@ -5,11 +5,11 @@ import './style.scss';
 
 const BasicMap = () => {
   const [center, setCenter] = useState({ lat: 46.50, lng: 2.00 });
-  const ZOOM_LEVEL = 9;
+  const zoom = 6;
   const mapRef = useRef();
 
   return (
-    <MapContainer center={center} zoom={ZOOM_LEVEL} ref={mapRef}>
+    <MapContainer center={center} zoom={zoom} ref={mapRef}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
