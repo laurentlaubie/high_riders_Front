@@ -1,7 +1,8 @@
 // import PropTypes from 'prop-types';
-
 import { useParams } from 'react-router-dom';
 import { findSpot } from 'src/selectors/spot';
+
+import BasicMap from 'src/components/BasicMap';
 
 import './style.scss';
 import data from 'src/data';
@@ -19,7 +20,7 @@ const Spot = () => {
       <div className="spot__infos">
         <div className="spot__infos__meta">
           <div className="spot__infos__meta__container">
-            <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '0'}</span>
+            <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '156'}</span>
             <button type="button" className="spot__infos__meta__container__button">J'aime</button>
           </div>
           <span className="spot__infos__meta__event">{spotId.status === 1 ? 'Spot Officiel' : 'Spot Local'}</span>
@@ -60,6 +61,7 @@ const Spot = () => {
           <span className="spot__stats__name">{spotId.openingHours}-{spotId.closedHours}</span>
         </div>
       </div>
+      <BasicMap className="spot__map" />
     </div>
   );
 };
