@@ -26,16 +26,16 @@ const spotList = () => (
         {/* <h1>Spots</h1> */}
         <div className="spotList__list__elem">
           {data.map((item) => (
-            <Card key={item.id} {...item} />
+            <Card key={item.id} {...item} typeCard="spots" />
+          ))}
+          {data.map((item) => (
+            <Card key={item.id} {...item} typeCard="spots" />
           ))}
           {data.map((item) => (
             <Card key={item.id} {...item} />
           ))}
           {data.map((item) => (
-            <Card key={item.id} {...item} />
-          ))}
-          {data.map((item) => (
-            <Card key={item.id} {...item} />
+            <Card key={item.id} {...item} typeCard="spots" />
           ))}
         </div>
       </div>

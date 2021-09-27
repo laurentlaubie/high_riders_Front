@@ -11,9 +11,10 @@ const Card = ({
   title,
   typeSpot,
   description,
+  typeCard,
 }) => (
-  <Link className="card">
-    <img src={image} alt={`Event ${id}`} className="card__img" />
+  <Link to={`/${typeCard}/${id}`} className="card">
+    <img src={image} alt={title} className="card__img" />
     <div className="card__infos">
       {city && <span className="card__infos__city">{city}</span>}
       <span className="card__infos__date">{saisonDate}</span>
@@ -33,6 +34,7 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   typeSpot: PropTypes.string.isRequired,
   description: PropTypes.string,
+  typeCard: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
