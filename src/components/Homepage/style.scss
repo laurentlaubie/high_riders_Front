@@ -90,7 +90,6 @@
     }
   
     &__cards {
-      position: relative;
       width: 90%;
       background-color: #fcfbfe;
       border-radius: 0.2em;
@@ -110,8 +109,12 @@
       }
 
       &__elem {
-        display: flex;
-        flex-direction: row;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
+        grid-template-rows: auto;
+        grid-gap: 0.05em;
       }
     }
   }
