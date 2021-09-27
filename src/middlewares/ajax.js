@@ -3,8 +3,8 @@ import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST } from '../actions/spots';
 
 const api = axios.create({
-  baseURL: 'http://ec2-18-234-237-249.compute-1.amazonaws.com/api/v1',
-  // baseURL: 'http://localhost:8000/api/v1',
+  // baseURL: 'http://ec2-18-234-237-249.compute-1.amazonaws.com/api/v1',
+  baseURL: 'http://localhost:8000/api/v1',
 });
 
 const ajax = (store) => (next) => (action) => {

@@ -1,7 +1,8 @@
 // import PropTypes from 'prop-types';
-
 import { useParams } from 'react-router-dom';
 import { findSpot } from 'src/selectors/spot';
+
+// import BasicMap from 'src/components/BasicMap';
 
 import './style.scss';
 import data from 'src/data';
