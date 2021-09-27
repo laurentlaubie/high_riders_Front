@@ -1,7 +1,7 @@
 // == Import
 import { Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Homepage from '../Homepage';
@@ -11,13 +11,23 @@ import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
 import Register from '../Register';
 import { fetchHomeLasts } from '../../actions/home';
+import { fetchSpotsList } from '../../actions/spots';
+import Spot from '../Spots/Spot';
 
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.home.loading);
+
   useEffect(() => {
     dispatch(fetchHomeLasts());
-  });
+    dispatch(fetchSpotsList());
+  }, []);
+
+  if (loading) {
+    return 'chargement ...';
+  }
+
   return (
     <div className="app">
       <Header />
@@ -40,19 +50,19 @@ const App = () => {
         <Route path="/profil">
           profil
         </Route>
-        <Route path="/spots">
+        <Route path="/spots" exact>
           <Spots />
         </Route>
-        <Route path="/spots/:id">
-          spot (id)
+        <Route path="/spots/:id" exact>
+          <Spot />
         </Route>
         <Route path="/ajout-spot">
           ajout spot
         </Route>
-        <Route path="/evenements">
+        <Route path="/evenements" exact>
           <Events />
         </Route>
-        <Route path="/evenements/:id">
+        <Route path="/evenements/:id" exact>
           evenement (id)
         </Route>
         <Route path="/Legal_notice">

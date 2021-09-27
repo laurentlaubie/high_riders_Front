@@ -10,6 +10,7 @@ const reducer = (state = initialState, action = {}) => {
     case 'SAVE_HOME_LASTS':
       return {
         ...state,
+        loading: false,
         lastsEvents: action.lastsEvents,
         bestsSpots: action.bestsSpots,
         lastsSpots: action.lastsSpots,
