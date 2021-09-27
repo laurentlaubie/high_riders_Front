@@ -8,9 +8,9 @@ import Card from 'src/components/Card';
 import './style.scss';
 
 const Homepage = () => {
-  const lastsEvents = useSelector((state) => state.lastsEvents);
-  const bestsSpots = useSelector((state) => state.bestsSpots);
-  const lastsSpots = useSelector((state) => state.lastsSpots);
+  const lastsEvents = useSelector((state) => state.home.lastsEvents);
+  const bestsSpots = useSelector((state) => state.home.bestsSpots);
+  const lastsSpots = useSelector((state) => state.home.lastsSpots);
   return (
     <div className="homepage">
       <div className="homepage__welcome-container">
