@@ -32,8 +32,7 @@
   &__map {
     width: 72vw;
     height: 50vh;
-    z-index: 0;
-    margin: 2rem 0;
+    margin: 2rem 0 0 0;
   }
 
   &__cards {
@@ -97,13 +96,21 @@
         height: 2rem;
       }
     }
+
+    &__map {
+      width: 54vw;
+      height: 70vh;
+      z-index: 0;
+      margin: 2rem 0;
+    }
   
     &__cards {
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       position: relative;
-      width: 70%;
+      width: 90%;
       background-color: #FCFBFE;
     }
   
@@ -111,6 +118,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
   
       h1 {
         text-align: center;

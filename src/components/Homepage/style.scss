@@ -11,8 +11,7 @@
   &__welcome {
     background-color: #FCFBFE;
     border-radius: 0.3em;
-    // position: relative;
-    width: 90%;
+    width: 100%;
     padding: 1em;
     text-align: center;
 
@@ -31,7 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    width: 100%;
     background-color: #FCFBFE;
     border-radius: 0.2em;
   }
@@ -39,7 +38,6 @@
   &__list {
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     h1 {
       text-align: center;
@@ -104,15 +102,15 @@
     }
   
     &__cards {
-      width: 90%;
+      width: 100%;
       background-color: #fcfbfe;
       border-radius: 0.2em;
     }
   
     &__list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      width: 90%;
+      max-width: 120em;
 
       h1 {
         text-align: center;
@@ -128,7 +126,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
         grid-template-rows: auto;
-        grid-gap: 0.05em;
+        grid-gap: 1em;
       }
     }
   }
