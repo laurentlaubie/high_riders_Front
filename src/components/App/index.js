@@ -1,7 +1,7 @@
 // == Import
 import { Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Homepage from '../Homepage';
@@ -17,16 +17,11 @@ import Spot from '../Spots/Spot';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.home.loading);
 
   useEffect(() => {
     dispatch(fetchHomeLasts());
     dispatch(fetchSpotsList());
   }, []);
-
-  if (loading) {
-    return 'chargement ...';
-  }
 
   return (
     <div className="app">

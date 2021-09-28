@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { FETCH_HOME_LASTS } from '../actions/home';
-import { FETCH_SPOTS_LIST } from '../actions/spots';
+import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 
 const api = axios.create({
-  baseURL: 'http://ec2-54-91-202-234.compute-1.amazonaws.com/api/v1',
+  baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
   // baseURL: 'http://localhost:8000/api/v1',
 });
 
@@ -31,6 +31,21 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch({
           type: 'SAVE_SPOTS_LIST',
           spotsList: res.data,
+        });
+        // console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === FETCH_SPOT_ID) {
+    api.get(`/spots/${action.id}`)
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'SAVE_SPOT_ID',
+          newSpot: res.data,
         });
         // console.log(res.data);
       })
