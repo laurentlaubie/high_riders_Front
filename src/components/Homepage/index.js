@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 
 import Card from 'src/components/Card';
-import data from 'src/data';
+// import data from 'src/data';
 
 // == Import persos
 import './style.scss';
@@ -11,9 +11,6 @@ const Homepage = () => {
   const lastsEvents = useSelector((state) => state.home.lastsEvents);
   const bestsSpots = useSelector((state) => state.home.bestsSpots);
   const lastsSpots = useSelector((state) => state.home.lastsSpots);
-  console.log(lastsEvents);
-  console.log(bestsSpots);
-  console.log(lastsSpots);
   return (
     <div className="homepage">
       <div className="homepage__welcome-container">
@@ -34,7 +31,7 @@ const Homepage = () => {
         <div className="homepage__list">
           <h1>Derniers évènements</h1>
           <div className="homepage__list__elem">
-            {data.map((item) => (
+            {lastsEvents.map((item) => (
               <Card key={item.id} {...item} typeCard="evenements" />
             ))}
           </div>
@@ -42,7 +39,7 @@ const Homepage = () => {
         <div className="homepage__list">
           <h1>Meilleurs spots</h1>
           <div className="homepage__list__elem">
-            {data.map((item) => (
+            {bestsSpots.map((item) => (
               <Card key={item.id} {...item} typeCard="spots" />
             ))}
           </div>
@@ -50,7 +47,7 @@ const Homepage = () => {
         <div className="homepage__list">
           <h1>Derniers spots ajoutés</h1>
           <div className="homepage__list__elem">
-            {data.map((item) => (
+            {lastsSpots.map((item) => (
               <Card key={item.id} {...item} typeCard="spots" />
             ))}
           </div>
