@@ -14,9 +14,9 @@ const ajax = (store) => (next) => (action) => {
         // success
         store.dispatch({
           type: 'SAVE_HOME_LASTS',
-          lastsEvents: res.data[0],
-          bestsSpots: res.data[1],
-          lastsSpots: res.data[2],
+          lastsEvents: res.data[1],
+          bestsSpots: res.data[2],
+          lastsSpots: res.data[0],
         });
       })
       .catch((err) => {
