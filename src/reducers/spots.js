@@ -1,4 +1,5 @@
 export const initialState = {
+  spotId: {},
   spotsList: [],
 };
 
@@ -8,6 +9,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         spotsList: action.spotsList,
+      };
+    case 'SAVE_SPOT_ID':
+      return {
+        ...state,
+        spotId: action.currentSpot,
+      };
+    case 'CLEAR_SPOT_ID':
+      return {
+        ...state,
+        spotId: {},
       };
     default:
       return state;

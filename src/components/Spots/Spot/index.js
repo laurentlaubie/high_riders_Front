@@ -1,16 +1,38 @@
 // import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { findSpot } from 'src/selectors/spot';
+import axios from 'axios';
 
 import BasicMap from 'src/components/BasicMap';
 
 import './style.scss';
-import data from 'src/data';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+// import data from 'src/data';
 
 const Spot = () => {
   const { id } = useParams();
-  const spotId = findSpot(data, Number(id));
-  // console.log(spotId);
+  const dispatch = useDispatch();
+  const spotId = useSelector((state) => state.spots.spotId);
+  // console.log(spotId)
+
+  const getSpotId = () => {
+    axios.get(`http://ec2-54-91-202-234.compute-1.amazonaws.com/api/v1/spots/${id}`)
+      .then((res) => {
+        dispatch({
+          type: 'SAVE_SPOT_ID',
+          currentSpot: res.data,
+        });
+      })
+      .catch((err) => {
+        alert('Erreur lors de la récupération du spot');
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    getSpotId();
+  });
+
   return (
     <div className="spot">
       <div className="spot__title__container">
@@ -20,11 +42,12 @@ const Spot = () => {
       <div className="spot__infos">
         <div className="spot__infos__meta">
           <div className="spot__infos__meta__container">
-            <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '156'}</span>
+            <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '0'}</span>
             <button type="button" className="spot__infos__meta__container__button">J'aime</button>
           </div>
           <span className="spot__infos__meta__event">{spotId.status === 1 ? 'Spot Officiel' : 'Spot Local'}</span>
         </div>
+        <span className="spot__infos__description__tag">Déscription :</span>
         <p className="spot__infos__description">{spotId.description}</p>
       </div>
       <div className="spot__stats">
