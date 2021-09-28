@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
+import Result from 'src/components/Result';
 import Homepage from '../Homepage';
 import Events from '../Events';
 import Spots from '../Spots';
@@ -13,6 +14,7 @@ import Register from '../Register';
 import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
+
 
 // == Composant
 const App = () => {
@@ -36,7 +38,7 @@ const App = () => {
           <Homepage />
         </Route>
         <Route path="/resultats">
-          liste resultats
+          <Result />
         </Route>
         <Route path="/inscription">
           <Register />
