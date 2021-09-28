@@ -97,6 +97,13 @@
         height: 2rem;
       }
     }
+
+    &__map {
+      width: 54vw;
+      height: 70vh;
+      z-index: 0;
+      margin: 2rem 0;
+    }
   
     &__cards {
       display: flex;
