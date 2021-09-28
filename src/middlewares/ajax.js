@@ -22,9 +22,6 @@ const ajax = (store) => (next) => (action) => {
       .catch((err) => {
         // error
         console.log(err);
-      })
-      .finally(() => {
-        // always executed
       });
   }
   if (action.type === FETCH_SPOTS_LIST) {
@@ -40,9 +37,6 @@ const ajax = (store) => (next) => (action) => {
       .catch((err) => {
         // error
         console.log(err);
-      })
-      .finally(() => {
-        // always executed
       });
   }
   next(action);
