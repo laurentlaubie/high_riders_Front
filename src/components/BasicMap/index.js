@@ -1,5 +1,5 @@
 // import React from 'react';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import spots from 'src/data';
 import './style.scss';
