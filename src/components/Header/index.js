@@ -3,6 +3,7 @@ import highridersLogo from 'src/assets/images/highridersLogo.png';
 import menuIcon from 'src/assets/images/menuIcon.svg';
 import userIcon from 'src/assets/images/userIcon.svg';
 import './style.scss';
+import Search from 'src/components/Search';
 
 const Header = () => (
   <div className="header">
@@ -13,7 +14,7 @@ const Header = () => (
       <NavLink className="header__nav__item" to="/spots">Spots</NavLink>
       <NavLink className="header__nav__item" to="/evenements">Évènements</NavLink>
     </div>
-    <input className="header__search" placeholder="search ..." />
+    <Search />
     <Link className="header__user" to="/connexion"><img className="header__user__img" src={userIcon} alt="user" /></Link>
   </div>
 );

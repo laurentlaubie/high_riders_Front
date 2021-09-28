@@ -26,9 +26,9 @@ const App = () => {
     dispatch(fetchSpotsList());
   }, []);
 
-  if (loading) {
-    return 'chargement ...';
-  }
+  // if (loading) {
+  //   return 'chargement ...';
+  // }
 
   return (
     <div className="app">
