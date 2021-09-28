@@ -20,11 +20,12 @@ const Spot = () => {
       <div className="spot__infos">
         <div className="spot__infos__meta">
           <div className="spot__infos__meta__container">
-            <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '156'}</span>
+            <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '0'}</span>
             <button type="button" className="spot__infos__meta__container__button">J'aime</button>
           </div>
           <span className="spot__infos__meta__event">{spotId.status === 1 ? 'Spot Officiel' : 'Spot Local'}</span>
         </div>
+        <span className="spot__infos__description__tag">Déscription :</span>
         <p className="spot__infos__description">{spotId.description}</p>
       </div>
       <div className="spot__stats">
