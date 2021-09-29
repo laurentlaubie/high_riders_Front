@@ -122,5 +122,53 @@
 }
 
 @media (min-width:1000px) {
-  
+  .spot {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+      width: 90%;
+      max-width: 50em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      // doc areas : https://css-tricks.com/snippets/css/complete-guide-grid/
+      grid-template-areas:
+        "header header"
+        "stats data"
+        "stats map"
+        "soon soon";
+      grid-gap: 1em;
+    }
+
+    &__title__container {
+      width: 100%;
+      grid-area: header;
+    }
+
+    &__infos {
+      
+    }
+
+    &__stats {
+      grid-area: stats;
+      // align-self: center;
+    }
+
+    &__map {
+      width: 100%;
+      height: 15em;
+    }
+
+    &__soon {
+      height: 10em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-area: soon;
+      border: #4b702d 0.1em solid;
+      margin: 0 0 1em 0;
+    }
+  }
 }
