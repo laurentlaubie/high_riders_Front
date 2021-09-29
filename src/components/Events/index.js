@@ -1,8 +1,9 @@
-const Evenements = () => (
-  <div>Evenements</div>
-);
+// == Import composants
+import Card from 'src/components/Card';
+import data from 'src/data';
+import BasicMap from 'src/components/BasicMap';
 
-const eventList = () => (
+const Events = () => (
   <div className="eventList">
     <h1 className="eventList__title">Liste des evènements</h1>
     <div className="eventList__filter">
@@ -39,4 +40,4 @@ const eventList = () => (
   </div>
 );
 
-export default Evenements;
+export default Events;
