@@ -3,6 +3,7 @@ export const initialState = {
   spotId: {},
   spotsList: [],
   spotsCate: [],
+  spotsDeparts: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -12,6 +13,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         spotsList: action.spotsList,
         spotsCate: action.spotsCate,
+        spotsDeparts: action.spotsDepar,
       };
     case 'SAVE_SPOT_ID':
       return {

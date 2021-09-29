@@ -32,6 +32,7 @@ const ajax = (store) => (next) => (action) => {
           type: 'SAVE_SPOTS_LIST',
           spotsList: res.data[0],
           spotsCate: res.data[1],
+          spotsDepar: res.data[2],
         });
         // console.log(res.data);
       })

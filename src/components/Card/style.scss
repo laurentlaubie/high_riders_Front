@@ -75,7 +75,9 @@
   &__stats {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    margin-top: auto;
+    padding: 0.2em;
     
     &__likes {
       display: flex;

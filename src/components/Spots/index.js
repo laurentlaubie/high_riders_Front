@@ -9,15 +9,21 @@ import { useSelector } from 'react-redux';
 
 const spotList = () => {
   const spotDataList = useSelector((state) => state.spots.spotsList);
+  const spotsCate = useSelector((state) => state.spots.spotsCate);
+  const spotsDeparts = useSelector((state) => state.spots.spotsDeparts);
   return (
     <div className="spotList">
       <h1 className="spotList__title">Liste des spots</h1>
       <div className="spotList__filter">
         <select className="spotList__filter__selector">
           <option className="spotList__filter__selector--county">Département</option>
+          {spotsDeparts.map((elem) => (
+            <option key={elem.id} value={elem.title}>{elem.title}</option>
+          ))}
         </select>
         <select className="spotList__filter__selector">
-          <option className="spotList__filter__selector--category">Disciplines</option>
+          <option className="spotList__filter__selector--category" value="">Disciplines</option>
+          {spotsCate.map((elem) => <option key={elem.id} value={elem.title}>{elem.title}</option>)}
         </select>
         <input className="spotList__filter--search" type="search" placeholder="Recherche de spots ..." />
       </div>
