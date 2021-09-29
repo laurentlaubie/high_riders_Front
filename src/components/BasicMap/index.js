@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import {
   MapContainer,
@@ -5,6 +6,7 @@ import {
   Marker,
   Popup,
 } from 'react-leaflet';
+
 import spots from 'src/data';
 import './style.scss';
 
