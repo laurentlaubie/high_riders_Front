@@ -23,13 +23,13 @@ const BasicMap = ({
         position={[spot.latitude, spot.longitude]}
         key={spot.id}
       >
-        <Popup>
-          { spot.title }
+        <Popup openOn>
+          {spot.title}
         </Popup>
       </Marker>
     ))}
     <Marker position={coordinates}>
-      <Popup popupopen>
+      <Popup>
         {popupTitle}
       </Popup>
     </Marker>

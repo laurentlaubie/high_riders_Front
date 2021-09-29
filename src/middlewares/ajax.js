@@ -30,9 +30,10 @@ const ajax = (store) => (next) => (action) => {
         // success
         store.dispatch({
           type: 'SAVE_SPOTS_LIST',
-          spotsList: res.data,
+          spotsList: res.data[0],
+          spotsCate: res.data[1],
         });
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         // error
