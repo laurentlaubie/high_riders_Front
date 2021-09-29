@@ -44,11 +44,17 @@ const Spot = () => {
           </div>
           <span className="spot__infos__description__tag">Déscription :</span>
           <p className="spot__infos__description">{spotId.description}</p>
+          <span className="spot__infos__description__tag">Accès à l'évènement</span>
+          <p className="spot__infos__description">{spotId.accessibility || 'Pas d\'infos'}</p>
         </div>
         <div className="spot__stats">
           <div className="spot__stats__container">
             <span className="spot__stats__tag">Localisation</span>
             <span className="spot__stats__name">{spotId.city}</span>
+          </div>
+          <div className="spot__stats__container">
+            <span className="spot__stats__tag">Département</span>
+            <span className="spot__stats__name">{spotId.departement.title}</span>
           </div>
           {spotId.saison_date ? (
             <div className="spot__stats__container">
@@ -62,9 +68,11 @@ const Spot = () => {
           </div>
           <div className="spot__stats__container">
             <span className="spot__stats__tag">Disciplines</span>
-            {spotId.categories.map((elem) => (
-              <span className="spot__stats__name">{elem.title}</span>
-            ))}
+            <span className="spot__stats__name spot__stats__name--cate">
+              {spotId.categories.map((elem) => (
+                <span>{elem.title}</span>
+              ))}
+            </span>
           </div>
           <div className="spot__stats__container">
             <span className="spot__stats__tag">Difficulté</span>
@@ -78,22 +86,32 @@ const Spot = () => {
             <span className="spot__stats__tag">Tarif</span>
             <span className="spot__stats__name">{spotId.price ? `${spotId.price} €` : '0 €'}</span>
           </div>
-          {spotId.accessibility ? (
-            <div className="spot__stats__container">
-              <span className="spot__stats__tag">Accès à l'évènement</span>
-              <span className="spot__stats__name">{spotId.accessibility}</span>
-            </div>
-          ) : ''}
           <div className="spot__stats__container">
             <span className="spot__stats__tag">Horaires</span>
             <span className="spot__stats__name">{spotId.openingHours}-{spotId.closed_hours}</span>
+          </div>
+          <div className="spot__stats__container">
+            <span className="spot__stats__tag">Nombre d'utilisateurs</span>
+            <span className="spot__stats__name">{spotId.numbers_users}</span>
+          </div>
+          <div className="spot__stats__container">
+            <span className="spot__stats__tag">Note Moyenne</span>
+            <span className="spot__stats__name">{spotId.average_rating}</span>
+          </div>
+          <div className="spot__stats__container">
+            <span className="spot__stats__tag">Dénivelé positif</span>
+            <span className="spot__stats__name">{spotId.d_positif}</span>
+          </div>
+          <div className="spot__stats__container">
+            <span className="spot__stats__tag">Dénivelé négatif</span>
+            <span className="spot__stats__name">{spotId.d_negatif}</span>
           </div>
         </div>
         <div className="spot__map">
           <BasicMap
             zoom={13}
             coordinates={[spotId.latitude, spotId.longitude]}
-            popupTitle={`${spotId.title}, ${spotId.city}`}
+            popupTitle={`${spotId.title}, ${spotId.address}`}
           />
         </div>
       </div>
