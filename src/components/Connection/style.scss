@@ -1,17 +1,20 @@
 .connection {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 
   &__form {
     border: #606038 .1em solid;
-    margin: auto;
     margin-top: 10em;
     width: 70%;
     height: 20em;
     flex-direction: column;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     & h1 {
       text-align: center;
@@ -21,7 +24,6 @@
 
     &__email {
       display: flex;
-      margin: auto;
       height: 2em;
       width: 70%;
       border-top-left-radius: 1em;
@@ -37,7 +39,6 @@
 
     &__mdp {
       display: flex;
-      margin: auto;
       height: 2em;
       width: 70%;
       border-top-left-radius: 1em;
@@ -51,8 +52,12 @@
       }
     }
 
+    &__button {
+      min-width: 6em;
+      width: 20%;
+    }
+
     &__link {
-      margin: auto;
       color: #606038;
     }
   }
@@ -61,7 +66,7 @@
 @media (min-width:720px) {
   .connection {
     width: 100%;
-    height: 100vh;
+    height: 100%;
   
   
     &__form {
