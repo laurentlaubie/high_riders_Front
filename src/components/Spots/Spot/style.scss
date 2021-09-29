@@ -143,22 +143,21 @@
     }
 
     &__title__container {
-      width: 100%;
       grid-area: header;
     }
 
     &__infos {
-      
+      grid-area: data;
     }
 
     &__stats {
       grid-area: stats;
-      // align-self: center;
     }
 
     &__map {
       width: 100%;
       height: 15em;
+      grid-area: map;
     }
 
     &__soon {
