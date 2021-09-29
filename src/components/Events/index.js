@@ -3,6 +3,9 @@ import Card from 'src/components/Card';
 import data from 'src/data';
 import BasicMap from 'src/components/BasicMap';
 
+// == Import persos
+import './style.scss';
+
 const Events = () => (
   <div className="eventList">
     <h1 className="eventList__title">Liste des evènements</h1>
