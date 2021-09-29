@@ -11,6 +11,12 @@ const Homepage = () => {
   const lastsEvents = useSelector((state) => state.home.lastsEvents);
   const bestsSpots = useSelector((state) => state.home.bestsSpots);
   const lastsSpots = useSelector((state) => state.home.lastsSpots);
+  const loading = useSelector((state) => state.home.loading);
+
+  if (loading) {
+    return 'chargement ...';
+  }
+
   return (
     <div className="homepage">
       <div className="homepage__welcome-container">

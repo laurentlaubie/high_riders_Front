@@ -21,7 +21,7 @@
   &__img {
     width: 100%;
     object-fit: cover;
-    height: max(10rem, 25vh);
+    height: 20em;
   }
 
   &__infos {
@@ -36,11 +36,12 @@
       border: solid 0.2em #4b702d;
       color: #4b702d;
       padding: 0.25em;
+      margin: 0 1em 0 1em;
       font-weight: 700;
     }
 
     &__date {
-      margin: 0 0 0 1em;
+      margin: 0 1em 0 1em;
       color: rgb(53, 53, 53);
     }
   }
@@ -56,10 +57,29 @@
     margin: 0 0 0.5em 0;
   }
 
+  &__container {
+
+    &__type {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   &__type {
     font-size: 1.1em;
     font-weight: 700;
     text-decoration: #4b702d underline;
     margin: 0 0 0.5em 0;
+  }
+
+  &__stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    &__likes {
+      display: flex;
+      align-items: center;
+    }
   }
 }
