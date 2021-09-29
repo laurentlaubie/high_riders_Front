@@ -119,6 +119,11 @@
     width: 100vw;
     height: 15em;
   }
+
+  &__soon {
+    display: none;
+  }
+  
 }
 
 @media (min-width:1000px) {
