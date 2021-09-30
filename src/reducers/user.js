@@ -1,7 +1,13 @@
 const initialState = {
   logged: false,
+  name: '',
+  firstname: '',
+  nickname: '',
   email: '',
   password: '',
+  description: '',
+  city: '',
+  gear: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -15,8 +21,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        name: '',
+        firstname: '',
+        nickname: '',
         email: '',
         password: '',
+        description: '',
+        city: '',
+        gear: '',
       };
     default:
       return state;

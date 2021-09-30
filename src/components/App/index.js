@@ -10,7 +10,7 @@ import Events from '../Events';
 import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
-import Register from '../Register';
+import Profile from '../Profile/ProfileForm';
 import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
@@ -36,7 +36,7 @@ const App = () => {
           <Result />
         </Route>
         <Route path="/inscription">
-          <Register />
+          <Profile />
         </Route>
         <Route path="/connexion">
           <Connection />
