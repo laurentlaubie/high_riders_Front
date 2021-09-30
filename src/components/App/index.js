@@ -1,7 +1,7 @@
 // == Import
 import { Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
@@ -15,10 +15,10 @@ import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 
-
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
+  const logged = useSelector((state) => state.user.logged);
 
   useEffect(() => {
     dispatch(fetchHomeLasts());
@@ -44,9 +44,11 @@ const App = () => {
         <Route path="/mot-de-passe-oublie">
           mot de passe oublie
         </Route>
-        <Route path="/profil">
-          profil
-        </Route>
+        {logged && (
+          <Route path="/profil">
+            profil
+          </Route>
+        )}
         <Route path="/spots" exact>
           <Spots />
         </Route>

@@ -1,19 +1,15 @@
 const initialState = {
+  logged: false,
   email: '',
   password: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'CHANGE_EMAIL_VALUE':
+    case 'CHANGE_VALUE':
       return {
         ...state,
-        email: action.value,
-      };
-    case 'CHANGE_PASSWORD_VALUE':
-      return {
-        ...state,
-        password: action.value,
+        [action.key]: action.value,
       };
     case 'SAVE_USER':
       return {
