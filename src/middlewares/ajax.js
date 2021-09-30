@@ -58,17 +58,19 @@ const ajax = (store) => (next) => (action) => {
   }
   if (action.type === 'LOGIN') {
     const state = store.getState();
-    api.post('/login', {
-      email: state.user.email,
+    api.post('/login_check', {
+      username: state.user.email,
       password: state.user.password,
     })
       .then((res) => {
         // success
+        const userToken = res.data.token;
+        localStorage.setItem('token', userToken);
         api.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
         store.dispatch({
           type: 'SAVE_USER',
         });
-        // console.log(res.data);
+        // console.log(res);
       })
       .catch((err) => {
         // error
