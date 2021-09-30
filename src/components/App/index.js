@@ -47,46 +47,45 @@ const App = () => {
         <Route path="/inscription">
           <Register />
         </Route>
-        <Route path="/connexion">
-          <Connection />
-        </Route>
+        {!logged
+          && (
+          <Route path="/connexion">
+            <Connection />
+          </Route>
+          )}
         <Route path="/mot-de-passe-oublie">
           mot de passe oublie
         </Route>
-        {logged && (
-          <Route path="/profil">
-            profil
-          </Route>
-        )}
         <Route path="/spots" exact>
           <Spots />
-        </Route>
-        <Route path="/spots/:id" exact>
-          <Spot />
-        </Route>
-        <Route path="/ajout-spot">
-          ajout spot
         </Route>
         <Route path="/evenements" exact>
           <Events />
         </Route>
-        <Route path="/evenements/:id" exact>
-          evenement (id)
-        </Route>
-        <Route path="/Legal_notice">
-          <LegalNotice />
-        </Route>
-        <Route path="/evenements/:id">
-          evenement (id)
-        </Route>
-        <Route path="/ajout-evenement">
-          ajout-evenement
-        </Route>
+        {logged && (
+          <>
+            <Route path="/profil">
+              profil
+            </Route>
+            <Route path="/spots/:id" exact>
+              <Spot />
+            </Route>
+            <Route path="/ajout-spot">
+              ajout spot
+            </Route>
+            <Route path="/evenements/:id" exact>
+              evenement (id)
+            </Route>
+            <Route path="/ajout-evenement">
+              ajout-evenement
+            </Route>
+          </>
+        )}
         <Route path="/nous-contacter">
           nous contacter
         </Route>
         <Route path="/mentions-legales">
-          mentions legales
+          <LegalNotice />
         </Route>
         <Route path="/a-propos">
           a propos
