@@ -64,12 +64,12 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
-        const userToken = res.data.token;
-        localStorage.setItem('token', userToken);
         api.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
         store.dispatch({
           type: 'SAVE_USER',
         });
+        localStorage.setItem('token', res.data.token);
+        // browserHistory.push('/isauthenticated');
         // console.log(res);
       })
       .catch((err) => {

@@ -4,10 +4,19 @@ import menuIcon from 'src/assets/images/menuIcon.svg';
 // import userIcon from 'src/assets/images/userIcon.svg';
 import './style.scss';
 import Search from 'src/components/Search';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
+
+  const handleLogout = () => {
+    dispatch({
+      type: 'LOGOUT',
+    });
+    localStorage.removeItem('token');
+  };
+
   return (
     <div className="header">
       <img className="header__menu" src={menuIcon} alt="menu" />
@@ -19,11 +28,16 @@ const Header = () => {
       </div>
       <Search className="header__input" />
       {logged
-        ? <Link className="header_button header_button--profil" to="/profil">Profil</Link>
+        ? (
+          <div className="header__buttons">
+            <Link className="header__button header__button--black" to="/profil">Profil</Link>
+            <Link onClick={handleLogout} type="button" className="header__button header__button--white">Deconnexion</Link>
+          </div>
+        )
         : (
-          <div className="header_buttons">
-            <Link className="header_button header_button--login" to="/connexion">Se connecter</Link>
-            <Link className="header_button header_button--register" to="/inscription">S'inscrire</Link>
+          <div className="header__buttons">
+            <Link className="header__button header__button--black" to="/connexion">Se connecter</Link>
+            <Link className="header__button header__button--white" to="/inscription">S'inscrire</Link>
           </div>
         )}
 

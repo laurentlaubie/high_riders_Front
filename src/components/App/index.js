@@ -25,6 +25,14 @@ const App = () => {
     dispatch(fetchSpotsList());
   }, []);
 
+  // Check for token and update application state if required
+  const token = localStorage.getItem('token');
+  if (token) {
+    dispatch({
+      type: 'SAVE_USER',
+    });
+  }
+
   return (
     <div className="app">
       <Header />
