@@ -10,7 +10,8 @@ import Events from '../Events';
 import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
-import Profile from '../Profile/ProfileForm';
+import ProfileSettings from '../ProfileSettings/ProfileForm';
+import Profile from '../Profile';
 import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
@@ -18,7 +19,7 @@ import Spot from '../Spots/Spot';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  const logged = useSelector((state) => state.user.logged);
+  const logged = true;
 
   useEffect(() => {
     dispatch(fetchHomeLasts());
@@ -36,7 +37,7 @@ const App = () => {
           <Result />
         </Route>
         <Route path="/inscription">
-          <Profile />
+          <ProfileSettings />
         </Route>
         <Route path="/connexion">
           <Connection />
@@ -46,7 +47,7 @@ const App = () => {
         </Route>
         {logged && (
           <Route path="/profil">
-            profil
+            <Profile />
           </Route>
         )}
         <Route path="/spots" exact>
