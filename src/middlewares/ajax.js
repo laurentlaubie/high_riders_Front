@@ -58,8 +58,8 @@ const ajax = (store) => (next) => (action) => {
   }
   if (action.type === 'LOGIN') {
     const state = store.getState();
-    api.post('/login', {
-      email: state.user.email,
+    api.post('/login_check', {
+      username: state.user.email,
       password: state.user.password,
     })
       .then((res) => {
@@ -68,7 +68,9 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch({
           type: 'SAVE_USER',
         });
-        // console.log(res.data);
+        localStorage.setItem('token', res.data.token);
+        // browserHistory.push('/isauthenticated');
+        // console.log(res);
       })
       .catch((err) => {
         // error

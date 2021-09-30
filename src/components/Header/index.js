@@ -1,13 +1,22 @@
 import { NavLink, Link } from 'react-router-dom';
 import highridersLogo from 'src/assets/images/highridersLogo.png';
 import menuIcon from 'src/assets/images/menuIcon.svg';
-import userIcon from 'src/assets/images/userIcon.svg';
+// import userIcon from 'src/assets/images/userIcon.svg';
 import './style.scss';
 import Search from 'src/components/Search';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
+
+  const handleLogout = () => {
+    dispatch({
+      type: 'LOGOUT',
+    });
+    localStorage.removeItem('token');
+  };
+
   return (
     <div className="header">
       <img className="header__menu" src={menuIcon} alt="menu" />
@@ -17,8 +26,24 @@ const Header = () => {
         <NavLink className="header__nav__item" to="/spots">Spots</NavLink>
         <NavLink className="header__nav__item" to="/evenements">Évènements</NavLink>
       </div>
-      <Search />
-      <Link className="header__user" to={!logged ? '/connexion' : '/profil'}><img className="header__user__img" src={userIcon} alt="user" /></Link>
+      <Search className="header__input" />
+      {logged
+        ? (
+          <div className="header__buttons">
+            <Link className="header__button header__button--black" to="/profil">Profil</Link>
+            <Link onClick={handleLogout} type="button" className="header__button header__button--white">Deconnexion</Link>
+          </div>
+        )
+        : (
+          <div className="header__buttons">
+            <Link className="header__button header__button--black" to="/connexion">Se connecter</Link>
+            <Link className="header__button header__button--white" to="/inscription">S'inscrire</Link>
+          </div>
+        )}
+
+      {/* <Link className="header__user" to={!logged ? '/connexion' : '/profil'}>
+        <img className="header__user__img" src={userIcon} alt="user" />
+      </Link> */}
     </div>
   );
 };

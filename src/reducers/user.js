@@ -18,6 +18,11 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
+    case 'LOGOUT':
+      return {
+        ...state,
+        logged: false,
+      };
     default:
       return state;
   }

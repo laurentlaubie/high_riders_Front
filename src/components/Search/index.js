@@ -10,6 +10,7 @@ const search = () => {
   };
   return (
     <input
+      className="header__input"
       value={userSearch}
       onChange={changeField}
     />
