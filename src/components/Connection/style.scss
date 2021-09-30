@@ -1,58 +1,34 @@
 .connection {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-
-  &__form {
-    border: #606038 .1em solid;
-    margin: auto;
-    margin-top: 10em;
-    width: 70%;
-    height: 20em;
-    flex-direction: column;
+  &-form {
+    width: 100%;
+    max-width: 25em;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
 
-    & h1 {
-      text-align: center;
-      color: #606038;
-      margin-top: 2em;
+    h1 {
+      width: 100%;
+      color: #283618;
+      padding-left: 5%;
+      font-size: 1.5em;
+      font-weight: 700;
     }
 
-    &__email {
-      display: flex;
-      margin: auto;
-      height: 2em;
-      width: 70%;
-      border-top-left-radius: 1em;
-      border-bottom-right-radius: 1em;
-      border: .1em solid #606c38;
-      color: #606c38;
-      padding-left: 1em;
-
-      &::placeholder {
-        color: #606038;
-      }
-    }
-
-    &__mdp {
-      display: flex;
-      margin: auto;
-      height: 2em;
-      width: 70%;
-      border-top-left-radius: 1em;
-      border-bottom-right-radius: 1em;
-      border: .1em solid #606c38;
-      color: #606c38;
-      padding-left: 1em;
-
-      &::placeholder {
-        color: #606038;
-      }
+    &__links {
+      font-size: 0.7em;
     }
 
     &__link {
-      margin: auto;
       color: #606038;
     }
   }
@@ -61,7 +37,7 @@
 @media (min-width:720px) {
   .connection {
     width: 100%;
-    height: 100vh;
+    height: 100%;
   
   
     &__form {

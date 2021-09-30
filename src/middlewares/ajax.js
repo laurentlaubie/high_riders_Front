@@ -56,6 +56,26 @@ const ajax = (store) => (next) => (action) => {
         console.log(err);
       });
   }
+  if (action.type === 'LOGIN') {
+    const state = store.getState();
+    api.post('/login', {
+      email: state.user.email,
+      password: state.user.password,
+    })
+      .then((res) => {
+        // success
+        api.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
+        store.dispatch({
+          type: 'SAVE_USER',
+        });
+        // console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+        alert('Echec d\'authentification');
+      });
+  }
   next(action);
 };
 
