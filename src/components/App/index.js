@@ -14,6 +14,7 @@ import Register from '../Register';
 import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
+import Footer from '../Footer';
 
 // == Composant
 const App = () => {
@@ -97,6 +98,7 @@ const App = () => {
           404
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 };
