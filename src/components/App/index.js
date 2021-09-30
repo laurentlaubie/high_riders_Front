@@ -38,9 +38,12 @@ const App = () => {
         <Route path="/inscription">
           <Register />
         </Route>
-        <Route path="/connexion">
-          <Connection />
-        </Route>
+        {!logged
+          && (
+          <Route path="/connexion">
+            <Connection />
+          </Route>
+          )}
         <Route path="/mot-de-passe-oublie">
           mot de passe oublie
         </Route>
