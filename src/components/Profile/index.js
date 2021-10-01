@@ -1,8 +1,15 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchProfile } from '../../actions/profile';
 import './style.scss';
 import avatar from './avatar.png';
 
 const Profil = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProfile());
+  }, []);
+
   const lastname = useSelector((state) => state.user.lastname);
   const firstname = useSelector((state) => state.user.firstname);
   const pseudo = useSelector((state) => state.user.pseudo);

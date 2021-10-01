@@ -29,16 +29,6 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_PROFILE':
       return {
         ...state,
-        id: '',
-        lastname: '',
-        firstname: '',
-        pseudo: '',
-        email: '',
-        password: '',
-        presentation: '',
-        city: '',
-        equipement: '',
-        departement: '',
       };
     default:
       return state;

@@ -123,7 +123,11 @@ const ajax = (store) => (next) => (action) => {
       });
   }
   if (action.type === FETCH_PROFILE) {
-    api.get(`/users/${action.id}`)
+    api.get('/users', {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
+    })
       .then((res) => {
         // success
         store.dispatch({
