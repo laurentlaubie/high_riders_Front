@@ -15,6 +15,7 @@ import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
+import AddSpotForm from '../Spots/AddSpotForm';
 
 // == Composant
 const App = () => {
@@ -71,7 +72,7 @@ const App = () => {
               <Spot />
             </Route>
             <Route path="/ajout-spot">
-              ajout spot
+              <AddSpotForm />
             </Route>
             <Route path="/evenements/:id" exact>
               evenement (id)

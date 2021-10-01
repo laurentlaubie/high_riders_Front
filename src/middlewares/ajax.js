@@ -69,7 +69,7 @@ const ajax = (store) => (next) => (action) => {
           type: 'SAVE_USER',
         });
         localStorage.setItem('token', res.data.token);
-        // console.log(res);
+        console.log(res);
       })
       .catch((err) => {
         // error
