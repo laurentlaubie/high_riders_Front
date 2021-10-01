@@ -1,11 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import Input from './Input';
 import avatar from './avatar.png';
 
 import './style.scss';
+import { fetchProfile } from '../../actions/profile';
 
 const ProfileForm = () => {
   const dispatch = useDispatch();
+  const id = useSelector((state) => state.user.id);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,6 +16,10 @@ const ProfileForm = () => {
       type: 'ADD_PROFILE',
     });
   };
+
+  useEffect(() => {
+    dispatch(fetchProfile(id));
+  }, []);
 
   return (
     <form onSubmit={handleSubmit} className="profile__form">

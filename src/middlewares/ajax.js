@@ -123,14 +123,14 @@ const ajax = (store) => (next) => (action) => {
       });
   }
   if (action.type === FETCH_PROFILE) {
-    api.get('/users')
+    api.get(`/users/${action.id}`)
       .then((res) => {
         // success
         store.dispatch({
           type: 'GET_PROFILE',
           newProfile: res.data,
         });
-        // console.log(res.data);
+         console.log(res.data);
       })
       .catch((err) => {
         // error

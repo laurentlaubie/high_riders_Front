@@ -1,5 +1,6 @@
 const initialState = {
   logged: false,
+  id: '',
   lastname: '',
   firstname: '',
   pseudo: '',
@@ -28,6 +29,7 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_PROFILE':
       return {
         ...state,
+        id: '',
         lastname: '',
         firstname: '',
         pseudo: '',

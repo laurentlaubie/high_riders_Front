@@ -14,7 +14,6 @@ import ProfileSettings from '../ProfileSettings/ProfileForm';
 import Profile from '../Profile';
 import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
-import { fetchProfile } from '../../actions/profile';
 import Spot from '../Spots/Spot';
 
 // == Composant
@@ -25,7 +24,6 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchHomeLasts());
     dispatch(fetchSpotsList());
-    dispatch(fetchProfile());
   }, []);
 
   return (
