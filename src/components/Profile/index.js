@@ -10,6 +10,7 @@ const Profil = () => {
   const presentation = useSelector((state) => state.user.presentation);
   const city = useSelector((state) => state.user.city);
   const equipement = useSelector((state) => state.user.equipement);
+  const departement = useSelector((state) => state.user.departement);
 
   return (
     <div className="profil">
@@ -18,6 +19,7 @@ const Profil = () => {
       <p className="name">{lastname}</p>
       <p className="firstname">{firstname}</p>
       <p className="nickname">{pseudo}</p>
+      <p className="county">{departement}</p>
       <p className="email">{email}</p>
       <p className="description">{presentation}</p>
       <p className="city">{city}</p>

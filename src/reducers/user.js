@@ -25,7 +25,7 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
       };
-    /* case 'NEW_USER':
+    case 'GET_PROFILE':
       return {
         ...state,
         lastname: '',
@@ -36,7 +36,8 @@ const reducer = (state = initialState, action = {}) => {
         presentation: '',
         city: '',
         equipement: '',
-      }; */
+        departement: '',
+      };
     default:
       return state;
   }

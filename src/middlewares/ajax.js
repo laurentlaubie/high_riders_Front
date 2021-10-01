@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
+import { FETCH_PROFILE } from '../actions/profile';
 
 const api = axios.create({
   baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
@@ -115,6 +116,21 @@ const ajax = (store) => (next) => (action) => {
           type: 'NEW_USER',
         }); */
         console.log(res);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === FETCH_PROFILE) {
+    api.get('/users')
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'GET_PROFILE',
+          newProfile: res.data,
+        });
+        // console.log(res.data);
       })
       .catch((err) => {
         // error

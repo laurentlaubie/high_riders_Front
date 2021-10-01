@@ -1,7 +1,7 @@
 // == Import
 import { Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
@@ -14,6 +14,7 @@ import ProfileSettings from '../ProfileSettings/ProfileForm';
 import Profile from '../Profile';
 import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
+import { fetchProfile } from '../../actions/profile';
 import Spot from '../Spots/Spot';
 
 // == Composant
@@ -24,6 +25,7 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchHomeLasts());
     dispatch(fetchSpotsList());
+    dispatch(fetchProfile());
   }, []);
 
   return (
