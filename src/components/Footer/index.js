@@ -3,10 +3,10 @@ import './style.scss';
 
 const Footer = () => (
   <div className="footer">
-    <NavLink className="footer__nav__item" exact to="/LegalNotice">Mentions légales</NavLink>
-    <NavLink className="footer__nav__item" to="/AboutUs">A propos de nous</NavLink>
-    <NavLink className="footer__nav__item" to="/SiteMap">Plan de site</NavLink>
-    <NavLink className="footer__nav__item" to="/ContactUs">Nous contacter</NavLink>
+    <NavLink className="footer__nav__item" to="/mentions-legales">Mentions légales</NavLink>
+    <NavLink className="footer__nav__item" to="/a-propos">A propos de nous</NavLink>
+    <NavLink className="footer__nav__item" to="/plan-du-site">Plan de site</NavLink>
+    <NavLink className="footer__nav__item" to="/nous-contacter">Nous contacter</NavLink>
   </div>
 );
 
