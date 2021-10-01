@@ -1,13 +1,14 @@
 const initialState = {
   logged: false,
-  name: '',
+  lastname: '',
   firstname: '',
-  nickname: '',
+  pseudo: '',
   email: '',
   password: '',
-  description: '',
+  presentation: '',
   city: '',
-  gear: '',
+  equipement: '',
+  departement: '01',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,15 +22,21 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
-        name: '',
-        firstname: '',
-        nickname: '',
         email: '',
         password: '',
-        description: '',
-        city: '',
-        gear: '',
       };
+    /* case 'NEW_USER':
+      return {
+        ...state,
+        lastname: '',
+        firstname: '',
+        pseudo: '',
+        email: '',
+        password: '',
+        presentation: '',
+        city: '',
+        equipement: '',
+      }; */
     default:
       return state;
   }

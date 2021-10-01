@@ -11,7 +11,7 @@ const Input = ({ inputKey, ...props }) => {
   const handleChange = (event) => {
     dispatch({
       type: 'CHANGE_VALUE',
-      newValue: event.target.value,
+      value: event.target.value,
       key: inputKey,
     });
   };

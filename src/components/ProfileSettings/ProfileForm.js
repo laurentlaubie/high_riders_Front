@@ -10,7 +10,7 @@ const ProfileForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'SAVE_USER',
+      type: 'ADD_PROFILE',
     });
   };
 
@@ -21,7 +21,7 @@ const ProfileForm = () => {
       <Input
         type="text"
         placeholder="Nom"
-        inputKey="name"
+        inputKey="lastname"
         className="profile__form--input"
       />
       <Input
@@ -33,7 +33,7 @@ const ProfileForm = () => {
       <Input
         type="text"
         placeholder="Pseudo"
-        inputKey="nickname"
+        inputKey="pseudo"
         className="profile__form--input"
       />
       <Input
@@ -54,7 +54,7 @@ const ProfileForm = () => {
       <Input
         type="text"
         placeholder="Description"
-        inputKey="description"
+        inputKey="presentation"
         className="profile__form--input"
       />
       <Input
@@ -66,7 +66,7 @@ const ProfileForm = () => {
       <Input
         type="text"
         placeholder="Equipement"
-        inputKey="gear"
+        inputKey="equipement"
         className="profile__form--input"
       />
       {/* <div className="spot__stats__container">
