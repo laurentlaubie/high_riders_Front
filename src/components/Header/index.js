@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import highridersLogo from 'src/assets/images/highridersLogo.png';
 import menuIcon from 'src/assets/images/menuIcon.svg';
 // import userIcon from 'src/assets/images/userIcon.svg';
@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const logged = useSelector((state) => state.user.logged);
 
   const handleLogout = () => {
@@ -15,6 +16,7 @@ const Header = () => {
       type: 'LOGOUT',
     });
     localStorage.removeItem('token');
+    history.push('/connexion');
   };
 
   return (

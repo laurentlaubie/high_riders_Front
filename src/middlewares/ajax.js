@@ -69,7 +69,6 @@ const ajax = (store) => (next) => (action) => {
           type: 'SAVE_USER',
         });
         localStorage.setItem('token', res.data.token);
-        // browserHistory.push('/isauthenticated');
         // console.log(res);
       })
       .catch((err) => {
