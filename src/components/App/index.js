@@ -1,6 +1,5 @@
 // == Import
 import { Route, Switch } from 'react-router-dom';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
@@ -11,21 +10,14 @@ import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
 import Register from '../Register';
-import { fetchHomeLasts } from '../../actions/home';
-import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
-import AddSpotForm from '../Spots/AddSpotForm';
+import AddSpot from '../Spots/AddSpot';
 
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
-
-  useEffect(() => {
-    dispatch(fetchHomeLasts());
-    dispatch(fetchSpotsList());
-  }, []);
 
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
@@ -72,7 +64,7 @@ const App = () => {
               <Spot />
             </Route>
             <Route path="/ajout-spot">
-              <AddSpotForm />
+              <AddSpot />
             </Route>
             <Route path="/evenements/:id" exact>
               evenement (id)

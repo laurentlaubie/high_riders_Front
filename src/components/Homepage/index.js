@@ -1,17 +1,24 @@
 // == Import composants
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Card from 'src/components/Card';
+import { fetchHomeLasts } from '../../actions/home';
 // import data from 'src/data';
 
 // == Import persos
 import './style.scss';
 
 const Homepage = () => {
+  const dispatch = useDispatch();
   const lastsEvents = useSelector((state) => state.home.lastsEvents);
   const bestsSpots = useSelector((state) => state.home.bestsSpots);
   const lastsSpots = useSelector((state) => state.home.lastsSpots);
   const loading = useSelector((state) => state.home.loading);
+
+  useEffect(() => {
+    dispatch(fetchHomeLasts());
+  }, []);
 
   if (loading) {
     return 'chargement ...';

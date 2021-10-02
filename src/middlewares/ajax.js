@@ -41,6 +41,31 @@ const ajax = (store) => (next) => (action) => {
         console.log(err);
       });
   }
+  if (action.type === 'SEND_NEW_SPOT') {
+    const state = store.getState();
+    api.post('/spots/', {
+      title: state.spots.newTitle,
+      image: state.spots.newImage,
+      description: state.spots.newDescription,
+      address: state.spots.newAddress,
+      city: state.spots.newCity,
+      openingHours: state.spots.newOpeningHours,
+      type_spot: state.spots.newTypeSpot,
+      // categories: state.spots.newCategories,
+      // departement: state.spots.newDepartement,
+    })
+      .then((res) => {
+        // success
+        // store.dispatch({
+        //   type: 'SAVE_SPOTS_LIST',
+        // });
+        console.log(res);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
   if (action.type === FETCH_SPOT_ID) {
     api.get(`/spots/${action.id}`)
       .then((res) => {
@@ -69,7 +94,10 @@ const ajax = (store) => (next) => (action) => {
           type: 'SAVE_USER',
         });
         localStorage.setItem('token', res.data.token);
-        console.log(res);
+        // on décode le token pour aller chercher son id
+        // const decodedToken = jwt_decode(userToken);
+        // on va chercher les données de l'utilisateur connecté
+        // store.dispatch(loadConnectedUserData(decodedToken.id));
       })
       .catch((err) => {
         // error

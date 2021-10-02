@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Field from './Field';
+import Field from 'src/components/Field';
 
 import './style.scss';
 
