@@ -25,7 +25,7 @@ const Select = ({
         name={name}
       >
         {data.map((item) => (
-          <option key={item.id} value={item.id}>{item.title}</option>
+          <option key={item.id || item.title} value={item.id || item.title}>{item.title}</option>
         ))}
       </select>
 

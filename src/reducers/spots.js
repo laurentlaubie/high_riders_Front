@@ -26,6 +26,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.key]: action.value,
       };
+    // case 'HOUR_CHANGE':
+    //   return {
+    //     ...state,
+    //     newOpeningHours: action.newHour,
+    //   };
     default:
       return state;
   }

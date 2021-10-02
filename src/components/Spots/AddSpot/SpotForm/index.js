@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Field from '../../../Field';
@@ -19,11 +19,24 @@ const SpotForm = ({
   departement,
   sendData,
 }) => {
+  // const dispatch = useDispatch();
   const spotsCate = useSelector((state) => state.spots.spotsCate);
   const departs = useSelector((state) => state.spots.spotsDeparts);
+  const spotTypes = [
+    {
+      title: 'Bike Park',
+    },
+    {
+      title: 'Local Spot',
+    },
+  ];
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    // dispatch({
+    //   type: 'HOUR_CHANGE',
+    //   newHour: openingHours.replace(':', 'h'),
+    // });
     sendData();
   };
 
@@ -62,15 +75,17 @@ const SpotForm = ({
         />
         <Field
           name="newOpeningHours"
+          // type="time"
           placeholder="Horaires d'ouverture"
           onChange={changeField}
           value={openingHours}
         />
-        <Field
+        <Select
+          value={typeSpot}
           name="newTypeSpot"
+          data={spotTypes}
           placeholder="Type de spot"
           onChange={changeField}
-          value={typeSpot}
         />
         <Select
           value={category}
