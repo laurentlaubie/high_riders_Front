@@ -51,8 +51,8 @@ const ajax = (store) => (next) => (action) => {
       city: state.spots.newCity,
       openingHours: state.spots.newOpeningHours,
       type_spot: state.spots.newTypeSpot,
-      // categories: state.spots.newCategories,
-      // departement: state.spots.newDepartement,
+      categories: [state.spots.newCategory],
+      departement: [state.spots.newDepartement],
     })
       .then((res) => {
         // success

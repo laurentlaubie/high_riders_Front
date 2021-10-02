@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Field from '../../../Field';
+import Select from '../../../Select';
 import './style.scss';
 
 const SpotForm = ({
@@ -13,14 +15,18 @@ const SpotForm = ({
   city,
   openingHours,
   typeSpot,
-  categories,
+  category,
   departement,
   sendData,
 }) => {
+  const spotsCate = useSelector((state) => state.spots.spotsCate);
+  const departs = useSelector((state) => state.spots.spotsDeparts);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     sendData();
   };
+
   return (
     <div className="login-form">
       <form autoComplete="off" className="login-form__element" onSubmit={handleSubmit}>
@@ -66,17 +72,19 @@ const SpotForm = ({
           onChange={changeField}
           value={typeSpot}
         />
-        <Field
-          name="newCategories"
+        <Select
+          value={category}
+          name="newCategory"
+          data={spotsCate}
           placeholder="Discipline"
           onChange={changeField}
-          value={categories}
         />
-        <Field
-          name="newDepartement"
-          placeholder="Departement"
-          onChange={changeField}
+        <Select
           value={departement}
+          name="newDepartement"
+          data={departs}
+          placeholder="Département"
+          onChange={changeField}
         />
         <Link to="/spots">Annuler</Link>
         <button type="submit">Valider</button>
@@ -93,7 +101,7 @@ SpotForm.propTypes = {
   city: PropTypes.string,
   openingHours: PropTypes.string,
   typeSpot: PropTypes.string,
-  categories: PropTypes.string,
+  category: PropTypes.string,
   departement: PropTypes.string,
   changeField: PropTypes.func.isRequired,
   sendData: PropTypes.func.isRequired,
@@ -107,7 +115,7 @@ SpotForm.defaultProps = {
   city: '',
   openingHours: '',
   typeSpot: '',
-  categories: '',
+  category: '',
   departement: '',
 };
 

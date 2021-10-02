@@ -1,6 +1,8 @@
 // import PropTypes from 'prop-types';
 
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchSpotsList } from '../../../actions/spots';
 import SpotForm from './SpotForm';
 import './style.scss';
 
@@ -13,8 +15,12 @@ const AddSpot = () => {
   const city = useSelector((state) => state.spots.newCity);
   const openingHours = useSelector((state) => state.spots.newOpeningHours);
   const typeSpot = useSelector((state) => state.spots.newTypeSpot);
-  const categories = useSelector((state) => state.spots.newCategories);
+  const category = useSelector((state) => state.spots.newCategory);
   const departement = useSelector((state) => state.spots.newDepartement);
+
+  useEffect(() => {
+    dispatch(fetchSpotsList());
+  }, []);
 
   const changeField = (value, key) => {
     dispatch({
@@ -42,7 +48,7 @@ const AddSpot = () => {
           city={city}
           openingHours={openingHours}
           typeSpot={typeSpot}
-          categories={categories}
+          category={category}
           departement={departement}
           changeField={changeField}
           sendData={sendData}
