@@ -13,6 +13,9 @@ import Register from '../Register';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
 import AddSpot from '../Spots/AddSpot';
+import ContactUs from '../ContactUs';
+import AboutUs from '../AboutUs';
+import SiteMap from '../SiteMap';
 
 // == Composant
 const App = () => {
@@ -82,16 +85,16 @@ const App = () => {
           </Route>
         )}
         <Route path="/nous-contacter">
-          nous contacter
+          <ContactUs />
         </Route>
         <Route path="/mentions-legales">
           <LegalNotice />
         </Route>
         <Route path="/a-propos">
-          a propos
+          <AboutUs />
         </Route>
         <Route path="/plan-du-site">
-          plan du site
+          <SiteMap />
         </Route>
         <Route>
           404
