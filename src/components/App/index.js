@@ -24,6 +24,7 @@ const App = () => {
   if (token) {
     dispatch({
       type: 'SAVE_USER',
+      token: token,
     });
   }
 
@@ -56,23 +57,29 @@ const App = () => {
           <Events />
         </Route>
         {logged && (
-          <>
-            <Route path="/profil">
-              profil
-            </Route>
-            <Route path="/spots/:id" exact>
-              <Spot />
-            </Route>
-            <Route path="/ajout-spot">
-              <AddSpot />
-            </Route>
-            <Route path="/evenements/:id" exact>
-              evenement (id)
-            </Route>
-            <Route path="/ajout-evenement">
-              ajout-evenement
-            </Route>
-          </>
+          <Route path="/profil">
+            profil
+          </Route>
+        )}
+        {logged && (
+          <Route path="/spots/:id" exact>
+            <Spot />
+          </Route>
+        )}
+        {logged && (
+          <Route path="/ajout-spot">
+            <AddSpot />
+          </Route>
+        )}
+        {logged && (
+          <Route path="/evenements/:id" exact>
+            evenement (id)
+          </Route>
+        )}
+        {logged && (
+          <Route path="/ajout-evenement">
+            ajout-evenement
+          </Route>
         )}
         <Route path="/nous-contacter">
           nous contacter

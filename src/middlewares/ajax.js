@@ -1,4 +1,6 @@
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
+import { useHistory } from 'react-router-dom';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 
@@ -84,18 +86,22 @@ const ajax = (store) => (next) => (action) => {
   if (action.type === 'LOGIN') {
     const state = store.getState();
     api.post('/login_check', {
-      username: state.user.email,
-      password: state.user.password,
+      // username: state.user.email,
+      // password: state.user.password,
+      username: 'front@oclock.io',
+      password: 'demotest',
     })
       .then((res) => {
         // success
         api.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
         store.dispatch({
           type: 'SAVE_USER',
+          token: res.data.token,
         });
         localStorage.setItem('token', res.data.token);
         // on décode le token pour aller chercher son id
-        // const decodedToken = jwt_decode(userToken);
+        const decodedToken = jwtDecode(res.data.token);
+        console.log(decodedToken);
         // on va chercher les données de l'utilisateur connecté
         // store.dispatch(loadConnectedUserData(decodedToken.id));
       })
