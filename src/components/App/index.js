@@ -1,5 +1,5 @@
 // == Import
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -15,6 +15,9 @@ import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
+import ContactUs from '../ContactUs';
+import AboutUs from '../AboutUs';
+import SiteMap from '../SiteMap';
 
 // == Composant
 const App = () => {
@@ -25,6 +28,13 @@ const App = () => {
     dispatch(fetchHomeLasts());
     dispatch(fetchSpotsList());
   }, []);
+
+  // -- gestion du scroll
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scroll(0, 0);
+    // console.log('le pathname a changé');
+  }, [pathname]);
 
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
@@ -82,16 +92,16 @@ const App = () => {
           </>
         )}
         <Route path="/nous-contacter">
-          nous contacter
+          <ContactUs />
         </Route>
         <Route path="/mentions-legales">
           <LegalNotice />
         </Route>
         <Route path="/a-propos">
-          a propos
+          <AboutUs />
         </Route>
         <Route path="/plan-du-site">
-          plan du site
+          <SiteMap />
         </Route>
         <Route>
           404
