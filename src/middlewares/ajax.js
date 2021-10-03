@@ -52,7 +52,7 @@ const ajax = (store) => (next) => (action) => {
       openingHours: state.spots.newOpeningHours,
       type_spot: state.spots.newTypeSpot,
       categories: [state.spots.newCategory],
-      departement: [state.spots.newDepartement],
+      // departement: [state.spots.newDepartement],
     })
       .then((res) => {
         // success

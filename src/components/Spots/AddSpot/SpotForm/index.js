@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Field from '../../../Field';
@@ -22,13 +23,8 @@ const SpotForm = ({
   // const dispatch = useDispatch();
   const spotsCate = useSelector((state) => state.spots.spotsCate);
   const departs = useSelector((state) => state.spots.spotsDeparts);
-  const spotTypes = [
-    {
-      title: 'Bike Park',
-    },
-    {
-      title: 'Local Spot',
-    },
+  const spotTypes = [{ title: 'Bike Park' },
+    { title: 'Local Spot' },
   ];
 
   const handleSubmit = (evt) => {
@@ -39,6 +35,24 @@ const SpotForm = ({
     // });
     sendData();
   };
+
+  // const [inputList, setInputList] = useState([]);
+  // const [incr, setIncr] = useState(0);
+
+  // const addSelectOnClick = () => {
+  //   setIncr(incr + 1);
+  //   console.log(incr);
+  //   setInputList(inputList.concat(
+  //     <Select
+  //       key={incr}
+  //       value={`${category}${incr}`}
+  //       name={`newCategory${incr}`}
+  //       data={spotsCate}
+  //       placeholder="Discipline"
+  //       onChange={changeField}
+  //     />,
+  //   ));
+  // };
 
   return (
     <div className="login-form">
@@ -94,6 +108,8 @@ const SpotForm = ({
           placeholder="Discipline"
           onChange={changeField}
         />
+        {/* {inputList} */}
+        {/* <button type="button" onClick={addSelectOnClick}>Ajouter un discipline</button> */}
         <Select
           value={departement}
           name="newDepartement"
