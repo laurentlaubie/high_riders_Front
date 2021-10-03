@@ -15,13 +15,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
-        email: '',
-        password: '',
+        token: action.token,
       };
     case 'LOGOUT':
       return {
         ...state,
         logged: false,
+        email: '',
+        password: '',
       };
     default:
       return state;

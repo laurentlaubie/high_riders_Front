@@ -5,14 +5,23 @@ import BasicMap from 'src/components/BasicMap';
 
 // == Import persos
 import './style.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { fetchSpotsList } from '../../actions/spots';
 
 const spotList = () => {
+  const dispatch = useDispatch();
   const spotDataList = useSelector((state) => state.spots.spotsList);
   const spotsCate = useSelector((state) => state.spots.spotsCate);
   const spotsDeparts = useSelector((state) => state.spots.spotsDeparts);
+
+  useEffect(() => {
+    dispatch(fetchSpotsList());
+  }, []);
   return (
     <div className="spotList">
+      <Link className="spotList__add" to="/ajout-spot">Ajouter un spot</Link>
       <h1 className="spotList__title">Liste des spots</h1>
       <div className="spotList__filter">
         <select className="spotList__filter__selector">

@@ -33,7 +33,7 @@ const Header = () => {
         ? (
           <div className="header__buttons">
             <Link className="header__button header__button--black" to="/profil">Profil</Link>
-            <Link onClick={handleLogout} type="button" className="header__button header__button--white">Deconnexion</Link>
+            <button onClick={handleLogout} type="button" className="header__button header__button--white">Deconnexion</button>
           </div>
         )
         : (

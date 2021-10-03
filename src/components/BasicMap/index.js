@@ -23,7 +23,7 @@ const BasicMap = ({
       />
       {spots.map((spot) => (
         <Marker
-          position={[spot.latitude, spot.longitude]}
+          position={[spot.latitude || 0, spot.longitude || 0]}
           key={spot.id}
         >
           <Popup openOn>

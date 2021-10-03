@@ -1,0 +1,47 @@
+.login-form {
+  width: 100%;
+  max-width: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  
+  &__element {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__stayconnected {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+    font-size: 0.7em;
+  }
+
+  &__label-checkbox {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: #606038;
+  }
+
+  &__button {
+    font-size: 0.8em;
+    width: 100%;
+    height: 2.5em;
+    color: #fff;
+    background-color: #283618;
+    border-radius: .2em;
+    border: none;
+    padding: 0.7em;
+    margin: 1em;
+  }
+}

@@ -1,6 +1,5 @@
 // == Import
-import { Route, Switch, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
@@ -11,10 +10,9 @@ import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
 import Register from '../Register';
-import { fetchHomeLasts } from '../../actions/home';
-import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
+import AddSpot from '../Spots/AddSpot';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
@@ -24,23 +22,12 @@ const App = () => {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.user.logged);
 
-  useEffect(() => {
-    dispatch(fetchHomeLasts());
-    dispatch(fetchSpotsList());
-  }, []);
-
-  // -- gestion du scroll
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scroll(0, 0);
-    // console.log('le pathname a changé');
-  }, [pathname]);
-
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
   if (token) {
     dispatch({
       type: 'SAVE_USER',
+      token: token,
     });
   }
 
@@ -73,23 +60,29 @@ const App = () => {
           <Events />
         </Route>
         {logged && (
-          <>
-            <Route path="/profil">
-              profil
-            </Route>
-            <Route path="/spots/:id" exact>
-              <Spot />
-            </Route>
-            <Route path="/ajout-spot">
-              ajout spot
-            </Route>
-            <Route path="/evenements/:id" exact>
-              evenement (id)
-            </Route>
-            <Route path="/ajout-evenement">
-              ajout-evenement
-            </Route>
-          </>
+          <Route path="/profil">
+            profil
+          </Route>
+        )}
+        {logged && (
+          <Route path="/spots/:id" exact>
+            <Spot />
+          </Route>
+        )}
+        {logged && (
+          <Route path="/ajout-spot">
+            <AddSpot />
+          </Route>
+        )}
+        {logged && (
+          <Route path="/evenements/:id" exact>
+            evenement (id)
+          </Route>
+        )}
+        {logged && (
+          <Route path="/ajout-evenement">
+            ajout-evenement
+          </Route>
         )}
         <Route path="/nous-contacter">
           <ContactUs />

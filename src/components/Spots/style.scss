@@ -4,6 +4,19 @@
   flex-direction: column;
   align-items: center;
 
+  &__add {
+    position: fixed;
+    z-index: 3;
+    right: 2em;
+    font-size: 1em;
+    height: 2.5em;
+    color: #fff;
+    background-color: #283618;
+    border-radius: .2em;
+    padding: 0.7em;
+    margin: 1em;
+  }
+
   &__title {
     text-align: center;
     color: #4b702d;
