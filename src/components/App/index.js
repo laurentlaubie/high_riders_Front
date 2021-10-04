@@ -18,6 +18,7 @@ import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
 import Event from '../Events/Event';
+import AddEvent from '../Events/AddEvent';
 
 // == Composant
 const App = () => {
@@ -92,7 +93,7 @@ const App = () => {
         )}
         {logged && (
           <Route path="/ajout-evenement">
-            ajout-evenement
+            <AddEvent />
           </Route>
         )}
         <Route path="/nous-contacter">

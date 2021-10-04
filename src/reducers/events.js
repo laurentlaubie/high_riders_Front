@@ -21,6 +21,11 @@ const reducer = (state = initialState, action = {}) => {
         eventId: action.newEvent,
         loading: false,
       };
+    case 'CHANGE_EVENT_VALUE':
+      return {
+        ...state,
+        [action.key]: action.value,
+      };
     default:
       return state;
   }

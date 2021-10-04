@@ -19,6 +19,7 @@ const spotList = () => {
   useEffect(() => {
     dispatch(fetchSpotsList());
   }, []);
+
   return (
     <div className="spotList">
       <Link className="spotList__add" to="/ajout-spot">Ajouter un spot</Link>

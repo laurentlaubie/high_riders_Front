@@ -7,6 +7,7 @@ import BasicMap from 'src/components/BasicMap';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Events = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Events = () => {
 
   return (
     <div className="eventList">
+      <Link className="eventList__add" to="/ajout-evenement">Ajouter un évènement</Link>
       <h1 className="eventList__title">Liste des evènements</h1>
       <div className="eventList__filter">
         <select className="eventList__filter__selector">
