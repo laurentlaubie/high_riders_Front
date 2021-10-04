@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
+import ErrorNotAuthorized from 'src/components/ErrorNotAuthorized';
 import Homepage from '../Homepage';
 import Events from '../Events';
 import Spots from '../Spots';
@@ -16,7 +17,7 @@ import AddSpot from '../Spots/AddSpot';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
-import ErrorNotFound from '../ErrorNotFound'
+import ErrorNotFound from '../ErrorNotFound';
 
 // == Composant
 const App = () => {
@@ -96,6 +97,9 @@ const App = () => {
         </Route>
         <Route path="/plan-du-site">
           <SiteMap />
+        </Route>
+        <Route path="/erreur">
+          <ErrorNotAuthorized />
         </Route>
         <Route>
           <ErrorNotFound />
