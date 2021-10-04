@@ -38,8 +38,8 @@ const Events = () => {
         </select>
         <input className="eventList__filter--search" type="search" placeholder="Recherche d'evènements ..." />
       </div>
-      <div className="eventList__image">
-        <BasicMap />
+      <div className="eventList__map">
+        <BasicMap data={eventsList} />
       </div>
       <div className="eventList__cards">
         <div className="eventList__list">
