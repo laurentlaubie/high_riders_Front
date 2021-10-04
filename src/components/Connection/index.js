@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import LoginForm from '../LoginForm';
 import './style.scss';
 
@@ -7,6 +8,7 @@ const Connection = () => {
   const dispatch = useDispatch();
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
+  const logged = useSelector((state) => state.user.logged);
 
   const changeField = (value, key) => {
     dispatch({
@@ -21,6 +23,12 @@ const Connection = () => {
       type: 'LOGIN',
     });
   };
+
+  useEffect(() => {
+    if (logged) {
+      <Redirect to="/" />;
+    }
+  }, []);
 
   return (
     <div className="connection">
