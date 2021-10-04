@@ -127,6 +127,21 @@ const ajax = (store) => (next) => (action) => {
         console.log(err);
       });
   }
+  if (action.type === 'FETCH_EVENT_ID') {
+    api.get(`/events/${action.id}`)
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'SAVE_EVENT_ID',
+          newEvent: res.data,
+        });
+        // console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
   next(action);
 };
 

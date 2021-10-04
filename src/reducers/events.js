@@ -1,4 +1,6 @@
 const initialState = {
+  loading: true,
+  eventId: {},
   eventsList: [],
   eventsCate: [],
   eventsDepar: [],
@@ -12,6 +14,12 @@ const reducer = (state = initialState, action = {}) => {
         eventsList: action.eventsList,
         eventsCate: action.eventsCate,
         eventsDepar: action.eventsDepar,
+      };
+    case 'SAVE_EVENT_ID':
+      return {
+        ...state,
+        eventId: action.newEvent,
+        loading: false,
       };
     default:
       return state;

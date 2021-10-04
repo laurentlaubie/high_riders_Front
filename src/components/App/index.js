@@ -16,6 +16,7 @@ import AddSpot from '../Spots/AddSpot';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
+import Event from '../Events/Event';
 
 // == Composant
 const App = () => {
@@ -76,7 +77,7 @@ const App = () => {
         )}
         {logged && (
           <Route path="/evenements/:id" exact>
-            evenement (id)
+            <Event />
           </Route>
         )}
         {logged && (

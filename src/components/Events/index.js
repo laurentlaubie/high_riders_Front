@@ -14,9 +14,6 @@ const Events = () => {
   const eventsDepar = useSelector((state) => state.events.eventsDepar);
   const eventsCateg = useSelector((state) => state.events.eventsCate);
 
-  console.log(eventsDepar);
-  console.log(eventsCateg);
-
   useEffect(() => {
     dispatch({
       type: 'FETCH_EVENTS_DATA',
@@ -49,7 +46,7 @@ const Events = () => {
           <h1>Tous les évènements disponibles en France</h1>
           <div className="eventList__list__elem">
             {eventsList.map((item) => (
-              <Card key={item.id} {...item} typeCard="events" />
+              <Card key={item.id} {...item} typeCard="evenements" />
             ))}
           </div>
         </div>
