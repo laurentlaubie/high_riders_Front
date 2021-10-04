@@ -16,6 +16,7 @@ import AddSpot from '../Spots/AddSpot';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
+import ErrorNotFound from '../ErrorNotFound'
 
 // == Composant
 const App = () => {
@@ -97,7 +98,7 @@ const App = () => {
           <SiteMap />
         </Route>
         <Route>
-          404
+          <ErrorNotFound />
         </Route>
       </Switch>
       <Footer />
