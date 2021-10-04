@@ -34,14 +34,10 @@ const reducer = (state = initialState, action = {}) => {
     case 'NEW_USER':
       return {
         ...state,
-        lastname: '',
-        firstname: '',
-        pseudo: '',
-        email: '',
-        password: '',
-        presentation: '',
-        city: '',
-        equipement: '',
+      };
+    case 'GET_PROFILE':
+      return {
+        ...state,
       };
     default:
       return state;

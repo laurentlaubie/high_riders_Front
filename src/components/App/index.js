@@ -1,6 +1,7 @@
 // == Import
 import { Route, Switch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
@@ -11,6 +12,8 @@ import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
 import ProfileSettings from '../ProfileSettings/ProfileForm';
 import Profile from '../Profile';
+import { fetchHomeLasts } from '../../actions/home';
+import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
 import AddSpot from '../Spots/AddSpot';
@@ -21,7 +24,7 @@ import SiteMap from '../SiteMap';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  const logged = useSelector((state) => state.user.logged);
+  const logged = true;
 
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
@@ -45,6 +48,9 @@ const App = () => {
         <Route path="/inscription">
           <ProfileSettings />
         </Route>
+        <Route path="/connexion">
+          <Connection />
+        </Route>
         {!logged
           && (
           <Route path="/connexion">
@@ -54,6 +60,11 @@ const App = () => {
         <Route path="/mot-de-passe-oublie">
           mot de passe oublie
         </Route>
+        {logged && (
+          <Route path="/profil">
+            <Profile />
+          </Route>
+        )}
         <Route path="/spots" exact>
           <Spots />
         </Route>
