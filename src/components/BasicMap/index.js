@@ -39,13 +39,14 @@ BasicMap.propTypes = {
   zoom: PropTypes.number,
   coordinates: PropTypes.array,
   popupTitle: PropTypes.string,
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
 };
 
 BasicMap.defaultProps = {
   zoom: 6,
   coordinates: [46.50, 2.00],
   popupTitle: '',
+  data: [],
 };
 
 export default BasicMap;
