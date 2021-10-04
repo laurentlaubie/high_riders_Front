@@ -4,6 +4,19 @@
   flex-direction: column;
   align-items: center;
 
+  &__add {
+    position: fixed;
+    z-index: 3;
+    right: 2em;
+    font-size: 1em;
+    height: 2.5em;
+    color: #fff;
+    background-color: #283618;
+    border-radius: .2em;
+    padding: 0.7em;
+    margin: 1em;
+  }
+
   &__title {
     text-align: center;
     color: #4b702d;
@@ -27,6 +40,12 @@
     &--search {
       height: 2rem;
     }
+  }
+
+  &__map {
+    width: 72vw;
+    height: 50vh;
+    margin: 2rem 0 0 0;
   }
 
   &__cards {
@@ -90,13 +109,21 @@
         height: 2rem;
       }
     }
+
+    &__map {
+      width: 54vw;
+      height: 70vh;
+      z-index: 0;
+      margin: 2rem 0;
+    }
   
     &__cards {
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       position: relative;
-      width: 70%;
+      width: 90%;
       background-color: #FCFBFE;
     }
   
@@ -104,6 +131,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
   
       h1 {
         text-align: center;
@@ -119,7 +147,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
         grid-template-rows: auto;
-        grid-gap: 0.05em;
+        grid-gap: 1em;
       }
     }
   }
