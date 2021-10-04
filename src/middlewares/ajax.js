@@ -1,6 +1,5 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { useHistory } from 'react-router-dom';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 
@@ -84,7 +83,7 @@ const ajax = (store) => (next) => (action) => {
       });
   }
   if (action.type === 'LOGIN') {
-    const state = store.getState();
+    // const state = store.getState();
     api.post('/login_check', {
       // username: state.user.email,
       // password: state.user.password,
@@ -109,6 +108,23 @@ const ajax = (store) => (next) => (action) => {
         // error
         console.log(err);
         alert('Echec d\'authentification');
+      });
+  }
+  if (action.type === 'FETCH_EVENTS_DATA') {
+    api.get('/events/')
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'SAVE_EVENTS_LIST',
+          eventsList: res.data[0],
+          eventsCate: res.data[1],
+          eventsDepar: res.data[2],
+        });
+        // console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
       });
   }
   next(action);
