@@ -15,16 +15,25 @@ import Profile from '../Profile';
 import { fetchHomeLasts } from '../../actions/home';
 import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
+import Footer from '../Footer';
+import AddSpot from '../Spots/AddSpot';
+import ContactUs from '../ContactUs';
+import AboutUs from '../AboutUs';
+import SiteMap from '../SiteMap';
 
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
   const logged = true;
 
-  useEffect(() => {
-    dispatch(fetchHomeLasts());
-    dispatch(fetchSpotsList());
-  }, []);
+  // Check for token and update application state if required
+  const token = localStorage.getItem('token');
+  if (token) {
+    dispatch({
+      type: 'SAVE_USER',
+      token: token,
+    });
+  }
 
   return (
     <div className="app">
@@ -42,6 +51,12 @@ const App = () => {
         <Route path="/connexion">
           <Connection />
         </Route>
+        {!logged
+          && (
+          <Route path="/connexion">
+            <Connection />
+          </Route>
+          )}
         <Route path="/mot-de-passe-oublie">
           mot de passe oublie
         </Route>
@@ -53,43 +68,51 @@ const App = () => {
         <Route path="/spots" exact>
           <Spots />
         </Route>
-        <Route path="/spots/:id" exact>
-          <Spot />
-        </Route>
-        <Route path="/ajout-spot">
-          ajout spot
-        </Route>
         <Route path="/evenements" exact>
           <Events />
         </Route>
-        <Route path="/evenements/:id" exact>
-          evenement (id)
-        </Route>
-        <Route path="/Legal_notice">
-          <LegalNotice />
-        </Route>
-        <Route path="/evenements/:id">
-          evenement (id)
-        </Route>
-        <Route path="/ajout-evenement">
-          ajout-evenement
-        </Route>
+        {logged && (
+          <Route path="/profil">
+            <Profile />
+          </Route>
+        )}
+        {logged && (
+          <Route path="/spots/:id" exact>
+            <Spot />
+          </Route>
+        )}
+        {logged && (
+          <Route path="/ajout-spot">
+            <AddSpot />
+          </Route>
+        )}
+        {logged && (
+          <Route path="/evenements/:id" exact>
+            evenement (id)
+          </Route>
+        )}
+        {logged && (
+          <Route path="/ajout-evenement">
+            ajout-evenement
+          </Route>
+        )}
         <Route path="/nous-contacter">
-          nous contacter
+          <ContactUs />
         </Route>
         <Route path="/mentions-legales">
-          mentions legales
+          <LegalNotice />
         </Route>
         <Route path="/a-propos">
-          a propos
+          <AboutUs />
         </Route>
         <Route path="/plan-du-site">
-          plan du site
+          <SiteMap />
         </Route>
         <Route>
           404
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 };

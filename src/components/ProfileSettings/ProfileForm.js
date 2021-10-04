@@ -4,7 +4,6 @@ import avatar from './avatar.png';
 
 import './style.scss';
 
-
 const ProfileForm = () => {
   const dispatch = useDispatch();
 

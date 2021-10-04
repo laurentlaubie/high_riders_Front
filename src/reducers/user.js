@@ -1,6 +1,5 @@
 const initialState = {
   logged: false,
-  id: '',
   lastname: '',
   firstname: '',
   pseudo: '',
@@ -23,8 +22,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        token: action.token,
+      };
+    case 'LOGOUT':
+      return {
+        ...state,
+        logged: false,
         email: '',
         password: '',
+      };
+    case 'NEW_USER':
+      return {
+        ...state,
       };
     case 'GET_PROFILE':
       return {

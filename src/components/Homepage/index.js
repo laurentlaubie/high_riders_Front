@@ -1,17 +1,24 @@
 // == Import composants
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Card from 'src/components/Card';
+import { fetchHomeLasts } from '../../actions/home';
 // import data from 'src/data';
 
 // == Import persos
 import './style.scss';
 
 const Homepage = () => {
+  const dispatch = useDispatch();
   const lastsEvents = useSelector((state) => state.home.lastsEvents);
   const bestsSpots = useSelector((state) => state.home.bestsSpots);
   const lastsSpots = useSelector((state) => state.home.lastsSpots);
   const loading = useSelector((state) => state.home.loading);
+
+  useEffect(() => {
+    dispatch(fetchHomeLasts());
+  }, []);
 
   if (loading) {
     return 'chargement ...';
@@ -27,10 +34,21 @@ const Homepage = () => {
         />
         <div className="homepage__welcome">
           <h2>Bienvenue sur High Riders</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at lacus sit amet
-            felis rutrum sodales sed eget est. Praesent consequat, eros in blandit pulvinar,
-            lorem magna tincidunt augue, at volutpat tortor ligula ac augue.
-          </p>
+          <div className="homepage__welcome__description">
+            <p>👉Tu veux créer un événement pour retrouver tes collègues et taper des tricks
+              sur ton spot ?
+            </p>
+            <p>👉Tu veux découvrir un nouveau spot ?</p>
+            <p>👉Tu veux rencontrer de nouveaux riders ?”</p>
+            <p>Retrouve les meilleurs spots de Vtt 🚴 de ta région sur O’Riders, un site
+              communautaire fait PAR et POUR les Riders de France. “
+            </p>
+            <p>Crée ton spot préféré, note et commente ton événement.</p>
+            <p>Parcours une liste des meilleurs spots, ou mieux encore, filtres en fonction
+              de tes critères.
+            </p>
+            <p>Dépêche-toi, connecte-toi au plus vite et part à l'aventure."</p>
+          </div>
         </div>
       </div>
       <div className="homepage__cards">

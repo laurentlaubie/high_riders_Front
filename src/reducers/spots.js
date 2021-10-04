@@ -21,6 +21,16 @@ const reducer = (state = initialState, action = {}) => {
         spotId: action.newSpot,
         loading: false,
       };
+    case 'CHANGE_SPOT_VALUE':
+      return {
+        ...state,
+        [action.key]: action.value,
+      };
+    // case 'HOUR_CHANGE':
+    //   return {
+    //     ...state,
+    //     newOpeningHours: action.newHour,
+    //   };
     default:
       return state;
   }
