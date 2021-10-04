@@ -11,7 +11,12 @@
 
   &__menu {
     margin: 0.8em;
-    // cursor: pointer;
+    cursor: pointer;
+
+    &--active {
+      position: absolute;
+      left: 15em;
+    }
   }
 
   &__logo {
@@ -23,6 +28,7 @@
   }
 
   &__nav {
+    padding: 1em 0 0 0;
     position: absolute;
     left: 0em;
     width: 15em;
@@ -32,12 +38,15 @@
     color: #606c38;
     background-color: white;
     transform: translateX(-100%);
+    transition: 0.2s;
 
     &--active {
       transform: translateX(0%);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     &__item {
+
       padding: 0.8em;
     }
   }
@@ -64,12 +73,12 @@
     margin: 1em;
 
     &--black {
-      min-width: 10em;
     }
 
     &--white {
       border: #283618 solid 0.15em;
       background-color: #5e6852;
+      display: none;
     }
   }
 
@@ -104,6 +113,7 @@
     }
 
     &__nav {
+      box-shadow: none;
       position: relative;
       height: 100%;
       background-color: transparent;
@@ -144,7 +154,6 @@
   
     &__button {
       font-size: 1em;
-      width: 100%;
       height: 2.5em;
       color: #fff;
       background-color: #283618;
@@ -159,6 +168,7 @@
       &--white {
         border: #283618 solid 0.15em;
         background-color: #5e6852;
+        display: block;
       }
     }
 
