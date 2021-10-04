@@ -3,9 +3,14 @@ import jwtDecode from 'jwt-decode';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 
+const connectedToken = localStorage.getItem('token');
+
 const api = axios.create({
   baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
   // baseURL: 'http://localhost:8000/api/v1',
+  headers: {
+    Authorization: `bearer ${connectedToken}`,
+  },
 });
 
 const ajax = (store) => (next) => (action) => {

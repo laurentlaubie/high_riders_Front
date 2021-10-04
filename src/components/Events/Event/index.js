@@ -13,7 +13,6 @@ const Event = () => {
   const dispatch = useDispatch();
   const eventId = useSelector((state) => state.events.eventId);
   const loading = useSelector((state) => state.events.loading);
-  console.log(eventId);
 
   const getEventId = () => {
     dispatch({
@@ -25,8 +24,6 @@ const Event = () => {
   useEffect(() => {
     getEventId();
   }, []);
-
-  // const { latitude, longitude } = eventId;
 
   return (
     <>
@@ -51,22 +48,22 @@ const Event = () => {
               <p className="event__infos__description">{eventId.accessibility || 'Pas d\'infos'}</p>
             </div>
             <div className="event__stats">
-              <div className="event__stats__container">
+              {/* <div className="event__stats__container">
                 <span className="event__stats__tag">Localisation</span>
                 <span className="event__stats__name">{eventId.city}</span>
-              </div>
+              </div> */}
               <div className="event__stats__container">
                 <span className="event__stats__tag">Département</span>
                 <span className="event__stats__name">{eventId.departement.title}</span>
               </div>
-              {eventId.saison_date ? (
+              {eventId.date_event ? (
                 <div className="event__stats__container">
-                  <span className="event__stats__tag">Date des saisons</span>
-                  <span className="event__stats__name">{eventId.saison_date}</span>
+                  <span className="event__stats__tag">Date de l'évènement</span>
+                  <span className="event__stats__name">{eventId.date_event}</span>
                 </div>
               ) : ''}
               <div className="event__stats__container">
-                <span className="event__stats__tag">Type de event</span>
+                <span className="event__stats__tag">Type d'évènement</span>
                 <span className="event__stats__name">{eventId.type_event}</span>
               </div>
               <div className="event__stats__container">
@@ -81,14 +78,14 @@ const Event = () => {
                 <span className="event__stats__tag">Difficulté</span>
                 <span className="event__stats__name">{eventId.difficulty}</span>
               </div>
-              <div className="event__stats__container">
+              {/* <div className="event__stats__container">
                 <span className="event__stats__tag">Dénivelé positif</span>
                 <span className="event__stats__name">{eventId.d_positif || '-'}</span>
               </div>
               <div className="event__stats__container">
                 <span className="event__stats__tag">Dénivelé négatif</span>
                 <span className="event__stats__name">{eventId.d_negatif || '-'}</span>
-              </div>
+              </div> */}
               <div className="event__stats__container">
                 <span className="event__stats__tag">Site internet</span>
                 <a className="event__stats__name event__stats__name--link" href={eventId.link}>Lien du site</a>
@@ -99,22 +96,22 @@ const Event = () => {
               </div>
               <div className="event__stats__container">
                 <span className="event__stats__tag">Horaires</span>
-                <span className="event__stats__name">{eventId.openingHours}-{eventId.closed_hours}</span>
+                <span className="event__stats__name">{eventId.opening_hours}-{eventId.closed_hours}</span>
               </div>
-              <div className="event__stats__container">
-                <span className="event__stats__tag">Nombre d'utilisateurs</span>
-                <span className="event__stats__name">{eventId.numbers_users}</span>
-              </div>
-              <div className="event__stats__container">
+              {/* <div className="event__stats__container">
                 <span className="event__stats__tag">Note Moyenne</span>
                 <span className="event__stats__name">{eventId.average_rating}</span>
+              </div> */}
+              <div className="event__stats__container">
+                <span className="event__stats__tag">Nombre de participants</span>
+                <span className="event__stats__name">{eventId.participation_user}</span>
               </div>
             </div>
             <div className="event__map">
               <BasicMap
                 zoom={13}
                 coordinates={[eventId.latitude, eventId.longitude]}
-                popupTitle={`${eventId.title}, ${eventId.address}`}
+                popupTitle={eventId.title}
               />
             </div>
             <div className="event__soon">
