@@ -98,7 +98,7 @@ const App = () => {
         <Route path="/plan-du-site">
           <SiteMap />
         </Route>
-        <Route path="/erreur">
+        <Route path="/403">
           <ErrorNotAuthorized />
         </Route>
         <Route>
