@@ -3,10 +3,13 @@ import { useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
+import commentsData from 'src/comments-data';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchSpotId } from '../../../actions/spots';
+import Comments from '../../Comments';
+import Field from '../../Field';
 // import data from 'src/data';
 
 const Spot = () => {
@@ -14,7 +17,17 @@ const Spot = () => {
   const dispatch = useDispatch();
   const spotId = useSelector((state) => state.spots.spotId);
   const loading = useSelector((state) => state.spots.loading);
-  // console.log(spotId);
+  const newcomment = useSelector((state) => state.spots.newComment);
+  // const commentsData = useSelector((state) => state.spots.spotId.comments);
+  console.log(commentsData);
+
+  const changeField = (value, key) => {
+    dispatch({
+      type: 'CHANGE_SPOT_VALUE',
+      value: value,
+      key: key,
+    });
+  };
 
   const getSpotId = () => {
     dispatch(fetchSpotId(id));
@@ -115,8 +128,17 @@ const Spot = () => {
               popupTitle={`${spotId.title}, ${spotId.address}`}
             />
           </div>
-          <div className="spot__soon">
-            <p>Bientot...</p>
+          <div className="spot__comments">
+            <Field
+              name="newComment"
+              placeholder="Ajouter un commentaire"
+              onChange={changeField}
+              value={newcomment}
+              className="spot__comments__input"
+            />
+            {commentsData
+              ? <Comments comments={commentsData} />
+              : <p>Pas encore de commentaires ...</p>}
           </div>
         </div>
       </div>

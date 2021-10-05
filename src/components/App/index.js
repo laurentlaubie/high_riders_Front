@@ -1,16 +1,20 @@
 // == Import
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
 import ErrorNotAuthorized from 'src/components/ErrorNotAuthorized';
+import { useEffect } from 'react';
 import Homepage from '../Homepage';
 import Events from '../Events';
 import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
-import Register from '../Register';
+import ProfileSettings from '../ProfileSettings/ProfileForm';
+import Profile from '../Profile';
+import { fetchHomeLasts } from '../../actions/home';
+import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
 import AddSpot from '../Spots/AddSpot';
@@ -18,20 +22,31 @@ import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
 import ErrorNotFound from '../ErrorNotFound';
+import Event from '../Events/Event';
+import AddEvent from '../Events/AddEvent';
 
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  const logged = useSelector((state) => state.user.logged);
+  const logged = true;
 
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
+  const pseudo = localStorage.getItem('pseudo');
+  const userid = localStorage.getItem('userid');
   if (token) {
     dispatch({
       type: 'SAVE_USER',
+      pseudo: pseudo,
+      userId: userid,
       token: token,
     });
   }
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
 
   return (
     <div className="app">
@@ -44,7 +59,10 @@ const App = () => {
           <Result />
         </Route>
         <Route path="/inscription">
-          <Register />
+          <ProfileSettings />
+        </Route>
+        <Route path="/connexion">
+          <Connection />
         </Route>
         {!logged
           && (
@@ -55,6 +73,11 @@ const App = () => {
         <Route path="/mot-de-passe-oublie">
           mot de passe oublie
         </Route>
+        {logged && (
+          <Route path="/profil">
+            <Profile />
+          </Route>
+        )}
         <Route path="/spots" exact>
           <Spots />
         </Route>
@@ -63,7 +86,7 @@ const App = () => {
         </Route>
         {logged && (
           <Route path="/profil">
-            profil
+            <Profile />
           </Route>
         )}
         {logged && (
@@ -78,12 +101,12 @@ const App = () => {
         )}
         {logged && (
           <Route path="/evenements/:id" exact>
-            evenement (id)
+            <Event />
           </Route>
         )}
         {logged && (
           <Route path="/ajout-evenement">
-            ajout-evenement
+            <AddEvent />
           </Route>
         )}
         <Route path="/nous-contacter">

@@ -1,7 +1,14 @@
 const initialState = {
   logged: false,
+  lastname: '',
+  firstname: '',
+  pseudo: '',
   email: '',
   password: '',
+  presentation: '',
+  city: '',
+  equipement: '',
+  departement: '01',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -15,6 +22,8 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        pseudo: action.pseudo,
+        userId: action.userId,
         token: action.token,
       };
     case 'LOGOUT':
@@ -23,6 +32,17 @@ const reducer = (state = initialState, action = {}) => {
         logged: false,
         email: '',
         password: '',
+        pseudo: '',
+        userId: '',
+        token: '',
+      };
+    case 'NEW_USER':
+      return {
+        ...state,
+      };
+    case 'GET_PROFILE':
+      return {
+        ...state,
       };
     default:
       return state;

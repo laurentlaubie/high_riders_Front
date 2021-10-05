@@ -117,8 +117,10 @@ const SpotForm = ({
           placeholder="Département"
           onChange={changeField}
         />
-        <Link to="/spots">Annuler</Link>
-        <button type="submit">Valider</button>
+        <div className="login-form__validate">
+          <Link to="/spots">Annuler</Link>
+          <button type="submit" className="login-form__button">Valider</button>
+        </div>
       </form>
     </div>
   );

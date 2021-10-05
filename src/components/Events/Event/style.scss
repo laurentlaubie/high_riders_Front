@@ -1,4 +1,4 @@
-.spot {
+.event {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -126,6 +126,35 @@
     height: 15em;
   }
 
+  &__participate {
+    margin-top: 1em;
+    height: 2em;
+    // background-color: #4b702d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__button {
+      font-size: 1em;
+      width: 100%;
+      height: 2.5em;
+      border-radius: .2em;
+      padding: 0.7em;
+      border: none;
+
+      &--dark {
+        color: #fff;
+        background-color: #283618;
+      }
+
+      &--clear {
+        color: #283618;
+        background-color: #ffffff;
+        border: #283618 1px solid;
+      }
+    }
+  }
+
   &__comments {
     display: flex;
     flex-direction: column;
@@ -135,14 +164,15 @@
     padding: 1em;
 
     &__input {
-      // margin-bottom: 2em;
+      margin-bottom: 1em;
+      width: 100%;
     }
   }
   
 }
 
 @media (min-width:1000px) {
-  .spot {
+  .event {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -158,6 +188,7 @@
         "header header"
         "stats data"
         "map map"
+        "participate participate"
         "comments comments";
       grid-gap: 1em;
     }
@@ -188,6 +219,10 @@
       // border: #4b702d 0.1em solid;
       margin: 0 0 1em 0;
       padding: 1em;
+    }
+
+    &__participate {
+      grid-area: participate;
     }
   }
 }

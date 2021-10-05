@@ -19,6 +19,7 @@ const spotList = () => {
   useEffect(() => {
     dispatch(fetchSpotsList());
   }, []);
+
   return (
     <div className="spotList">
       <Link className="spotList__add" to="/ajout-spot">Ajouter un spot</Link>
@@ -37,7 +38,7 @@ const spotList = () => {
         <input className="spotList__filter--search" type="search" placeholder="Recherche de spots ..." />
       </div>
       <div className="spotList__map">
-        <BasicMap />
+        <BasicMap data={spotDataList} />
       </div>
       <div className="spotList__cards">
         <div className="spotList__list">
