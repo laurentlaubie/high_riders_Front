@@ -38,14 +38,10 @@ const Header = () => {
         )
         : (
           <div className="header__buttons">
-            <Link className="header__button header__button--black" to="/connexion">Se connecter</Link>
+            <Link className="header__button header__button--black" to="/connexion">Connexion</Link>
             <Link className="header__button header__button--white" to="/inscription">S'inscrire</Link>
           </div>
         )}
-
-      {/* <Link className="header__user" to={!logged ? '/connexion' : '/profil'}>
-        <img className="header__user__img" src={userIcon} alt="user" />
-      </Link> */}
     </div>
   );
 };

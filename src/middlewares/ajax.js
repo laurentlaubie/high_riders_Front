@@ -100,6 +100,7 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
+        window.location.href = '/';
         api.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
         // on va chercher les données de l'utilisateur connecté
         store.dispatch({
@@ -114,7 +115,6 @@ const ajax = (store) => (next) => (action) => {
         // on décode le token pour aller chercher son id
         // const decodedToken = jwtDecode(res.data.token);
         console.log(res.data.data);
-        window.location.href = '/';
       })
       .catch((err) => {
         // error

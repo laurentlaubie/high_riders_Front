@@ -188,6 +188,7 @@
         "header header"
         "stats data"
         "map map"
+        "participate participate"
         "comments comments";
       grid-gap: 1em;
     }
@@ -218,6 +219,10 @@
       // border: #4b702d 0.1em solid;
       margin: 0 0 1em 0;
       padding: 1em;
+    }
+
+    &__participate {
+      grid-area: participate;
     }
   }
 }
