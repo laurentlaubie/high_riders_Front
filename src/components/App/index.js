@@ -1,10 +1,10 @@
 // == Import
-import { Route, Switch } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
+import { useEffect } from 'react';
 import Homepage from '../Homepage';
 import Events from '../Events';
 import Spots from '../Spots';
@@ -20,6 +20,8 @@ import AddSpot from '../Spots/AddSpot';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
+import Event from '../Events/Event';
+import AddEvent from '../Events/AddEvent';
 
 // == Composant
 const App = () => {
@@ -28,12 +30,21 @@ const App = () => {
 
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
+  const pseudo = localStorage.getItem('pseudo');
+  const userid = localStorage.getItem('userid');
   if (token) {
     dispatch({
       type: 'SAVE_USER',
+      pseudo: pseudo,
+      userId: userid,
       token: token,
     });
   }
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
 
   return (
     <div className="app">
@@ -88,12 +99,12 @@ const App = () => {
         )}
         {logged && (
           <Route path="/evenements/:id" exact>
-            evenement (id)
+            <Event />
           </Route>
         )}
         {logged && (
           <Route path="/ajout-evenement">
-            ajout-evenement
+            <AddEvent />
           </Route>
         )}
         <Route path="/nous-contacter">

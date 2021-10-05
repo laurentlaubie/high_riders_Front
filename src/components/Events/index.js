@@ -7,15 +7,13 @@ import BasicMap from 'src/components/BasicMap';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Events = () => {
   const dispatch = useDispatch();
   const eventsList = useSelector((state) => state.events.eventsList);
   const eventsDepar = useSelector((state) => state.events.eventsDepar);
   const eventsCateg = useSelector((state) => state.events.eventsCate);
-
-  console.log(eventsDepar);
-  console.log(eventsCateg);
 
   useEffect(() => {
     dispatch({
@@ -25,6 +23,7 @@ const Events = () => {
 
   return (
     <div className="eventList">
+      <Link className="eventList__add" to="/ajout-evenement">Ajouter un évènement</Link>
       <h1 className="eventList__title">Liste des evènements</h1>
       <div className="eventList__filter">
         <select className="eventList__filter__selector">
@@ -41,15 +40,15 @@ const Events = () => {
         </select>
         <input className="eventList__filter--search" type="search" placeholder="Recherche d'evènements ..." />
       </div>
-      <div className="eventList__image">
-        <BasicMap />
+      <div className="eventList__map">
+        <BasicMap data={eventsList} />
       </div>
       <div className="eventList__cards">
         <div className="eventList__list">
           <h1>Tous les évènements disponibles en France</h1>
           <div className="eventList__list__elem">
             {eventsList.map((item) => (
-              <Card key={item.id} {...item} typeCard="events" />
+              <Card key={item.id} {...item} typeCard="evenements" />
             ))}
           </div>
         </div>

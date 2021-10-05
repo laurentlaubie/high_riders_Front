@@ -5,7 +5,6 @@ import {
   Marker,
   Popup,
 } from 'react-leaflet';
-import { useSelector } from 'react-redux';
 
 import './style.scss';
 
@@ -13,41 +12,41 @@ const BasicMap = ({
   zoom,
   coordinates,
   popupTitle,
-}) => {
-  const spots = useSelector((state) => state.spots.spotsList);
-  return (
-    <MapContainer center={coordinates} zoom={zoom}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {spots.map((spot) => (
-        <Marker
-          position={[spot.latitude || 0, spot.longitude || 0]}
-          key={spot.id}
-        >
-          <Popup openOn>
-            {spot.title}
-          </Popup>
-        </Marker>
-      ))}
-      <Marker position={coordinates}>
-        <Popup>{popupTitle}</Popup>
+  data,
+}) => (
+  <MapContainer center={coordinates || [46.50, 2.00]} zoom={zoom}>
+    <TileLayer
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+    {data.map((item) => (
+      <Marker
+        position={[item.latitude || 0, item.longitude || 0]}
+        key={item.id}
+      >
+        <Popup openOn>
+          {item.title}
+        </Popup>
       </Marker>
-    </MapContainer>
-  );
-};
+    ))}
+    <Marker position={coordinates}>
+      <Popup>{popupTitle}</Popup>
+    </Marker>
+  </MapContainer>
+);
 
 BasicMap.propTypes = {
   zoom: PropTypes.number,
   coordinates: PropTypes.array,
   popupTitle: PropTypes.string,
+  data: PropTypes.array,
 };
 
 BasicMap.defaultProps = {
   zoom: 6,
   coordinates: [46.50, 2.00],
   popupTitle: '',
+  data: [],
 };
 
 export default BasicMap;

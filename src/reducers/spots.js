@@ -4,6 +4,7 @@ export const initialState = {
   spotsList: [],
   spotsCate: [],
   spotsDeparts: [],
+  newComment: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
