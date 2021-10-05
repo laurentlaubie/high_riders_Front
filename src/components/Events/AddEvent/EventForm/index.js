@@ -12,47 +12,29 @@ const EventForm = ({
   title,
   image,
   description,
-  address,
-  city,
-  openingHours,
-  typeSpot,
+  closingHour,
+  difficulty,
+  dateEvent,
+  openingHour,
+  link,
+  price,
+  accessibility,
+  typeEvent,
   category,
   departement,
   sendData,
 }) => {
   // const dispatch = useDispatch();
-  const spotsCate = useSelector((state) => state.spots.spotsCate);
-  const departs = useSelector((state) => state.spots.spotsDeparts);
-  const spotTypes = [{ title: 'Bike Park' },
-    { title: 'Local Spot' },
+  const eventsCate = useSelector((state) => state.events.eventsCate);
+  const departs = useSelector((state) => state.events.eventsDepar);
+  const eventTypes = [{ title: 'Loisir' },
+    { title: 'Professionel' },
   ];
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    // dispatch({
-    //   type: 'HOUR_CHANGE',
-    //   newHour: openingHours.replace(':', 'h'),
-    // });
     sendData();
   };
-
-  // const [inputList, setInputList] = useState([]);
-  // const [incr, setIncr] = useState(0);
-
-  // const addSelectOnClick = () => {
-  //   setIncr(incr + 1);
-  //   console.log(incr);
-  //   setInputList(inputList.concat(
-  //     <Select
-  //       key={incr}
-  //       value={`${category}${incr}`}
-  //       name={`newCategory${incr}`}
-  //       data={spotsCate}
-  //       placeholder="Discipline"
-  //       onChange={changeField}
-  //     />,
-  //   ));
-  // };
 
   return (
     <div className="login-form">
@@ -76,49 +58,76 @@ const EventForm = ({
           value={description}
         />
         <Field
-          name="newAddress"
-          placeholder="Adresse"
-          onChange={changeField}
-          value={address}
-        />
-        <Field
-          name="newCity"
-          placeholder="Ville"
-          onChange={changeField}
-          value={city}
-        />
-        <Field
-          name="newOpeningHours"
+          name="newOpeningHour"
           // type="time"
           placeholder="Horaires d'ouverture"
           onChange={changeField}
-          value={openingHours}
+          value={openingHour}
         />
-        <Select
-          value={typeSpot}
-          name="newTypeSpot"
-          data={spotTypes}
-          placeholder="Type de spot"
+        <Field
+          name="newClosingHour"
+          placeholder="Horaires de fermeture"
           onChange={changeField}
+          value={closingHour}
+        />
+        <Field
+          name="newDifficulty"
+          type="number"
+          placeholder="Difficulté"
+          onChange={changeField}
+          value={difficulty}
+        />
+        <Field
+          name="newDateEvent"
+          type="date"
+          placeholder="Date de l'évènement"
+          onChange={changeField}
+          value={dateEvent}
+        />
+        <Field
+          name="newLink"
+          placeholder="Lien du site web"
+          onChange={changeField}
+          value={link}
+        />
+        <Field
+          name="newPrice"
+          type="number"
+          placeholder="Prix de l'évènement"
+          onChange={changeField}
+          value={price}
+        />
+        <Field
+          name="newAccessibility"
+          placeholder="Accessibilité"
+          onChange={changeField}
+          value={accessibility}
         />
         <Select
-          value={category}
+          name="newTypeEvent"
+          placeholder="Type d'évènement"
+          onChange={changeField}
+          value={typeEvent}
+          data={eventTypes}
+        />
+        <Select
           name="newCategory"
-          data={spotsCate}
           placeholder="Discipline"
           onChange={changeField}
+          value={category}
+          data={eventsCate}
         />
-        {/* {inputList} */}
-        {/* <button type="button" onClick={addSelectOnClick}>Ajouter un discipline</button> */}
         <Select
-          value={departement}
           name="newDepartement"
-          data={departs}
           placeholder="Département"
           onChange={changeField}
+          value={departement}
+          data={departs}
         />
-        <Link to="/spots">Annuler</Link>
-        <button type="submit">Valider</button>
+        <div className="login-form__validate">
+          <Link to="/evenements">Annuler</Link>
+          <button type="submit" className="login-form__button">Valider</button>
+        </div>
       </form>
     </div>
   );
@@ -128,12 +137,16 @@ EventForm.propTypes = {
   title: PropTypes.string,
   image: PropTypes.string,
   description: PropTypes.string,
-  address: PropTypes.string,
-  city: PropTypes.string,
-  openingHours: PropTypes.string,
-  typeSpot: PropTypes.string,
+  openingHour: PropTypes.string,
+  typeEvent: PropTypes.string,
   category: PropTypes.string,
   departement: PropTypes.string,
+  closingHour: PropTypes.string,
+  difficulty: PropTypes.string,
+  dateEvent: PropTypes.string,
+  link: PropTypes.string,
+  price: PropTypes.string,
+  accessibility: PropTypes.string,
   changeField: PropTypes.func.isRequired,
   sendData: PropTypes.func.isRequired,
 };
@@ -142,12 +155,16 @@ EventForm.defaultProps = {
   title: '',
   image: '',
   description: '',
-  address: '',
-  city: '',
-  openingHours: '',
-  typeSpot: '',
+  openingHour: '',
+  typeEvent: '',
   category: '',
   departement: '',
+  closingHour: '',
+  difficulty: '',
+  dateEvent: '',
+  link: '',
+  price: '',
+  accessibility: '',
 };
 
 export default EventForm;

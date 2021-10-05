@@ -2,24 +2,29 @@
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSpotsList } from '../../../actions/spots';
 import EventForm from './EventForm';
 import './style.scss';
 
 const AddEvent = () => {
   const dispatch = useDispatch();
-  const title = useSelector((state) => state.spots.newTitle);
-  const image = useSelector((state) => state.spots.newImage);
-  const description = useSelector((state) => state.spots.newDescription);
-  const address = useSelector((state) => state.spots.newAddress);
-  const city = useSelector((state) => state.spots.newCity);
-  const openingHours = useSelector((state) => state.spots.newOpeningHours);
-  const typeSpot = useSelector((state) => state.spots.newTypeSpot);
-  const category = useSelector((state) => state.spots.newCategory);
-  const departement = useSelector((state) => state.spots.newDepartement);
+  const title = useSelector((state) => state.events.newTitle);
+  const image = useSelector((state) => state.events.newImage);
+  const description = useSelector((state) => state.events.newDescription);
+  const openingHour = useSelector((state) => state.events.newOpeningHour);
+  const closingHour = useSelector((state) => state.events.newClosingHour);
+  const typeEvent = useSelector((state) => state.events.newTypeEvent);
+  const category = useSelector((state) => state.events.newCategory);
+  const departement = useSelector((state) => state.events.newDepartement);
+  const difficulty = useSelector((state) => state.events.newDifficulty);
+  const link = useSelector((state) => state.events.newLink);
+  const price = useSelector((state) => state.events.newPrice);
+  const accessibility = useSelector((state) => state.events.newAccessibility);
+  const dateEvent = useSelector((state) => state.events.newDateEvent);
 
   useEffect(() => {
-    dispatch(fetchSpotsList());
+    dispatch({
+      type: 'FETCH_EVENTS_DATA',
+    });
   }, []);
 
   const changeField = (value, key) => {
@@ -43,13 +48,17 @@ const AddEvent = () => {
         <EventForm
           title={title}
           image={image}
-          address={address}
           description={description}
-          city={city}
-          openingHours={openingHours}
-          typeSpot={typeSpot}
+          openingHour={openingHour}
+          closingHour={closingHour}
+          typeEvent={typeEvent}
           category={category}
           departement={departement}
+          difficulty={difficulty}
+          link={link}
+          price={price}
+          dateEvent={dateEvent}
+          accessibility={accessibility}
           changeField={changeField}
           sendData={sendData}
         />

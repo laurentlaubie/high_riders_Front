@@ -60,7 +60,7 @@ const ajax = (store) => (next) => (action) => {
       openingHours: state.spots.newOpeningHours,
       type_spot: state.spots.newTypeSpot,
       categories: [state.spots.newCategory],
-      // departement: [state.spots.newDepartement],
+      departement: state.spots.newDepartement,
     })
       .then((res) => {
         // success
@@ -68,6 +68,7 @@ const ajax = (store) => (next) => (action) => {
         //   type: 'SAVE_SPOTS_LIST',
         // });
         console.log(res);
+        window.location.href = '/spots';
       })
       .catch((err) => {
         // error
@@ -139,6 +140,36 @@ const ajax = (store) => (next) => (action) => {
           eventsDepar: res.data[2],
         });
         // console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === 'SEND_NEW_EVENT') {
+    const state = store.getState();
+    api.post('/events/', {
+      title: state.events.newTitle,
+      image: state.events.newImage,
+      description: state.events.newDescription,
+      opening_hours: state.events.newOpeningHour,
+      closed_hours: state.events.newClosingHour,
+      type_event: state.events.newTypeEvent,
+      categories: [state.events.newCategory],
+      departement: state.events.newDepartement,
+      difficulty: state.events.newDifficulty,
+      link: state.events.newLink,
+      price: state.events.newPrice,
+      accessibility: state.events.newAccessibility,
+      date_event: state.events.newDateEvent,
+    })
+      .then((res) => {
+        // success
+        // store.dispatch({
+        //   type: 'SAVE_SPOTS_LIST',
+        // });
+        console.log(res);
+        window.location.href = '/evenements';
       })
       .catch((err) => {
         // error
