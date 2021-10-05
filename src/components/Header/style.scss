@@ -10,8 +10,33 @@
   width: 100vw;
 
   &__menu {
-    margin: 0.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    height: 100%;
+    width: 5em;
+
+    &--line {
+      width: 50%;
+      height: 0.4em;
+      margin: 0.2em;
+      background-color: #283618;
+      transition: 0.3s;
+
+      &1--active {
+        transform: rotate(-45deg) translate(-5px, 4px);
+      }
+
+      &2--active {
+        display: none;
+      }
+
+      &3--active {
+        transform: rotate(45deg) translate(-5px, -4px);
+      }
+    }
 
     &--active {
       position: absolute;
@@ -56,19 +81,21 @@
   }
 
   &__buttons {
-    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
   &__button {
-    width: 100%;
-    height: 50%;
+    width: 90%;
     border-radius: .2em;
     padding: 0.7em;
-
+    margin: 0.3em;
+    
     &--black {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
       background-color: #283618;
     }
@@ -77,7 +104,6 @@
       color: #283618;
       background-color: #ffffff;
       border: #283618 1px solid;
-      margin: 0 2em 0 1em;
     }
   }
 }
