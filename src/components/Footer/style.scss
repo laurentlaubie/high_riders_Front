@@ -1,4 +1,12 @@
 .footer {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+}
+
+@media (min-width:1000px) {
+  .footer {
+    flex-direction: row;
+  }
 }

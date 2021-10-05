@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0.5em;
 
     &__title {
       text-align: center;
@@ -125,8 +126,47 @@
     height: 15em;
   }
 
-  &__soon {
-    display: none;
+  &__participate {
+    margin-top: 1em;
+    height: 2em;
+    // background-color: #4b702d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__button {
+      font-size: 1em;
+      width: 100%;
+      height: 2.5em;
+      border-radius: .2em;
+      padding: 0.7em;
+      border: none;
+
+      &--dark {
+        color: #fff;
+        background-color: #283618;
+      }
+
+      &--clear {
+        color: #283618;
+        background-color: #ffffff;
+        border: #283618 1px solid;
+      }
+    }
+  }
+
+  &__comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 1em 0;
+    padding: 1em;
+
+    &__input {
+      margin-bottom: 1em;
+      width: 100%;
+    }
   }
   
 }
@@ -148,7 +188,7 @@
         "header header"
         "stats data"
         "map map"
-        "soon soon";
+        "comments comments";
       grid-gap: 1em;
     }
 
@@ -170,14 +210,14 @@
       grid-area: map;
     }
 
-    &__soon {
-      height: 10em;
+    &__comments {
       display: flex;
       align-items: center;
       justify-content: center;
-      grid-area: soon;
-      border: #4b702d 0.1em solid;
+      grid-area: comments;
+      // border: #4b702d 0.1em solid;
       margin: 0 0 1em 0;
+      padding: 1em;
     }
   }
 }

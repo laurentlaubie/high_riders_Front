@@ -4,6 +4,7 @@ const initialState = {
   eventsList: [],
   eventsCate: [],
   eventsDepar: [],
+  newComment: '',
 };
 
 const reducer = (state = initialState, action = {}) => {

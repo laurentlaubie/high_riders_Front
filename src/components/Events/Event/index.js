@@ -3,9 +3,12 @@ import { useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
+import commentsData from 'src/comments-data';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Field from '../../Field';
+import Comments from '../../Comments';
 // import data from 'src/data';
 
 const Event = () => {
@@ -13,6 +16,21 @@ const Event = () => {
   const dispatch = useDispatch();
   const eventId = useSelector((state) => state.events.eventId);
   const loading = useSelector((state) => state.events.loading);
+  const newcomment = useSelector((state) => state.events.newComment);
+
+  const changeField = (value, key) => {
+    dispatch({
+      type: 'CHANGE_EVENT_VALUE',
+      value: value,
+      key: key,
+    });
+  };
+
+  const [participate, setParticipate] = useState(false);
+
+  const handleToggleParticipate = () => {
+    setParticipate(!participate);
+  };
 
   const getEventId = () => {
     dispatch({
@@ -48,10 +66,6 @@ const Event = () => {
               <p className="event__infos__description">{eventId.accessibility || 'Pas d\'infos'}</p>
             </div>
             <div className="event__stats">
-              {/* <div className="event__stats__container">
-                <span className="event__stats__tag">Localisation</span>
-                <span className="event__stats__name">{eventId.city}</span>
-              </div> */}
               <div className="event__stats__container">
                 <span className="event__stats__tag">Département</span>
                 <span className="event__stats__name">{eventId.departement.title}</span>
@@ -78,14 +92,7 @@ const Event = () => {
                 <span className="event__stats__tag">Difficulté</span>
                 <span className="event__stats__name">{eventId.difficulty}</span>
               </div>
-              {/* <div className="event__stats__container">
-                <span className="event__stats__tag">Dénivelé positif</span>
-                <span className="event__stats__name">{eventId.d_positif || '-'}</span>
-              </div>
-              <div className="event__stats__container">
-                <span className="event__stats__tag">Dénivelé négatif</span>
-                <span className="event__stats__name">{eventId.d_negatif || '-'}</span>
-              </div> */}
+
               <div className="event__stats__container">
                 <span className="event__stats__tag">Site internet</span>
                 <a className="event__stats__name event__stats__name--link" href={eventId.link}>Lien du site</a>
@@ -98,10 +105,7 @@ const Event = () => {
                 <span className="event__stats__tag">Horaires</span>
                 <span className="event__stats__name">{eventId.opening_hours}-{eventId.closed_hours}</span>
               </div>
-              {/* <div className="event__stats__container">
-                <span className="event__stats__tag">Note Moyenne</span>
-                <span className="event__stats__name">{eventId.average_rating}</span>
-              </div> */}
+
               <div className="event__stats__container">
                 <span className="event__stats__tag">Nombre de participants</span>
                 <span className="event__stats__name">{eventId.participation_user}</span>
@@ -114,8 +118,23 @@ const Event = () => {
                 popupTitle={eventId.title}
               />
             </div>
-            <div className="event__soon">
-              <p>Bientot...</p>
+            <div className="event__participate">
+              {participate
+                ? <button className="event__participate__button event__participate__button--dark" type="button" onClick={handleToggleParticipate}>Je participe</button>
+                : <button className="event__participate__button event__participate__button--clear" type="button" onClick={handleToggleParticipate}>Je ne veux plus participer</button>}
+            </div>
+            <div className="event__comments">
+              <div className="event__comments__input">
+                <Field
+                  name="newComment"
+                  placeholder="Ajouter un commentaire"
+                  onChange={changeField}
+                  value={newcomment}
+                />
+              </div>
+              {commentsData
+                ? <Comments comments={commentsData} />
+                : <p>Pas encore de commentaires ...</p>}
             </div>
           </div>
         </div>

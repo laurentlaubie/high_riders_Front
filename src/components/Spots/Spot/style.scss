@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0.5em;
 
     &__title {
       text-align: center;
@@ -125,8 +126,17 @@
     height: 15em;
   }
 
-  &__soon {
-    display: none;
+  &__comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 1em 0;
+    padding: 1em;
+
+    &__input {
+      // margin-bottom: 2em;
+    }
   }
   
 }
@@ -148,7 +158,7 @@
         "header header"
         "stats data"
         "map map"
-        "soon soon";
+        "comments comments";
       grid-gap: 1em;
     }
 
@@ -170,14 +180,14 @@
       grid-area: map;
     }
 
-    &__soon {
-      height: 10em;
+    &__comments {
       display: flex;
       align-items: center;
       justify-content: center;
-      grid-area: soon;
-      border: #4b702d 0.1em solid;
+      grid-area: comments;
+      // border: #4b702d 0.1em solid;
       margin: 0 0 1em 0;
+      padding: 1em;
     }
   }
 }
