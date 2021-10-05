@@ -1,0 +1,27 @@
+.profile__form {
+  display: flex;
+  flex-direction: column;
+
+  &--title {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #606c38;
+  }
+
+  &--avatar {
+    margin: auto;
+    margin-bottom: 1rem;
+    width: 100px;
+  }
+
+  &--input {
+    margin: 1rem auto;
+  }
+
+  &--button {
+    background-color: #606c38;
+    margin: 1rem auto;
+    width: 50%;
+  }
+}

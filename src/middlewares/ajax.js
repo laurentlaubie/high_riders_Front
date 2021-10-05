@@ -2,6 +2,7 @@ import axios from 'axios';
 // import jwtDecode from 'jwt-decode';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
+import { FETCH_PROFILE } from '../actions/profile';
 
 const api = axios.create({
   baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
@@ -176,6 +177,31 @@ const ajax = (store) => (next) => (action) => {
         console.log(err);
       });
   }
+  if (action.type === 'ADD_PROFILE') {
+    const state = store.getState();
+    api.post('/users/add', {
+      lastname: state.user.lastname,
+      firstname: state.user.firstname,
+      pseudo: state.user.pseudo,
+      email: state.user.email,
+      password: state.user.password,
+      presentation: state.user.presentation,
+      city: state.user.city,
+      equipement: state.user.equipement,
+      departement: state.user.departement,
+    })
+      .then((res) => {
+        // success
+        /* store.dispatch({
+          type: 'NEW_USER',
+        }); */
+        console.log(res);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
   if (action.type === 'FETCH_EVENT_ID') {
     api.get(`/events/${action.id}`)
       .then((res) => {
@@ -185,6 +211,21 @@ const ajax = (store) => (next) => (action) => {
           newEvent: res.data,
         });
         // console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === FETCH_PROFILE) {
+    api.get(`/users/${action.id}`)
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'GET_PROFILE',
+          newProfile: res.data,
+        });
+        console.log(res.data);
       })
       .catch((err) => {
         // error

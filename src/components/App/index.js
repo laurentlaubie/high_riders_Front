@@ -10,7 +10,10 @@ import Events from '../Events';
 import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
-import Register from '../Register';
+import ProfileSettings from '../ProfileSettings/ProfileForm';
+import Profile from '../Profile';
+import { fetchHomeLasts } from '../../actions/home';
+import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
 import AddSpot from '../Spots/AddSpot';
@@ -23,7 +26,7 @@ import AddEvent from '../Events/AddEvent';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  const logged = useSelector((state) => state.user.logged);
+  const logged = true;
 
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
@@ -54,7 +57,10 @@ const App = () => {
           <Result />
         </Route>
         <Route path="/inscription">
-          <Register />
+          <ProfileSettings />
+        </Route>
+        <Route path="/connexion">
+          <Connection />
         </Route>
         {!logged
           && (
@@ -65,6 +71,11 @@ const App = () => {
         <Route path="/mot-de-passe-oublie">
           mot de passe oublie
         </Route>
+        {logged && (
+          <Route path="/profil">
+            <Profile />
+          </Route>
+        )}
         <Route path="/spots" exact>
           <Spots />
         </Route>
@@ -73,7 +84,7 @@ const App = () => {
         </Route>
         {logged && (
           <Route path="/profil">
-            profil
+            <Profile />
           </Route>
         )}
         {logged && (
