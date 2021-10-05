@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
+import ErrorNotAuthorized from 'src/components/ErrorNotAuthorized';
 import { useEffect } from 'react';
 import Homepage from '../Homepage';
 import Events from '../Events';
@@ -20,6 +21,7 @@ import AddSpot from '../Spots/AddSpot';
 import ContactUs from '../ContactUs';
 import AboutUs from '../AboutUs';
 import SiteMap from '../SiteMap';
+import ErrorNotFound from '../ErrorNotFound';
 import Event from '../Events/Event';
 import AddEvent from '../Events/AddEvent';
 
@@ -119,8 +121,11 @@ const App = () => {
         <Route path="/plan-du-site">
           <SiteMap />
         </Route>
+        <Route path="/403">
+          <ErrorNotAuthorized />
+        </Route>
         <Route>
-          404
+          <ErrorNotFound />
         </Route>
       </Switch>
       <Footer />
