@@ -1,21 +1,29 @@
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import highridersLogo from 'src/assets/images/highridersLogo.png';
-// import menuIcon from 'src/assets/images/menuIcon.svg';
-// import userIcon from 'src/assets/images/userIcon.svg';
 import './style.scss';
 import Search from 'src/components/Search';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { FiSearch } from 'react-icons/fi';
 
 const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const logged = useSelector((state) => state.user.logged);
-
-  const [classMenu, setClassMenu] = useState(false);
+  const classMenu = useSelector((state) => state.user.classMenu);
+  const classSearch = useSelector((state) => state.user.classSearch);
 
   const toggleMenu = () => {
-    setClassMenu(!classMenu);
+    dispatch({
+      type: 'TOGGLE_MENU',
+      classMenu: !classMenu,
+    });
+  };
+
+  const toggleSearch = () => {
+    dispatch({
+      type: 'TOGGLE_SEARCH',
+      classSearch: !classSearch,
+    });
   };
 
   const handleLogout = () => {
@@ -30,17 +38,12 @@ const Header = () => {
 
   return (
     <div className="header">
+      <div className={!classMenu ? 'header__invisible' : 'header__invisible--active'} />
       <div className={classMenu ? 'header__menu header__menu--active' : 'header__menu'} onClick={toggleMenu}>
         <div className={!classMenu ? 'header__menu--line1 header__menu--line' : 'header__menu--line1 header__menu--line header__menu--line1--active'} />
         <div className={!classMenu ? 'header__menu--line2 header__menu--line' : 'header__menu--line2 header__menu--line header__menu--line2--active'} />
         <div className={!classMenu ? 'header__menu--line3 header__menu--line' : 'header__menu--line3 header__menu--line header__menu--line3--active'} />
       </div>
-      {/* <img
-        className={classMenu ? 'header__menu header__menu--active' : 'header__menu'}
-        src={menuIcon}
-        alt="menu"
-        onClick={toggleMenu}
-      /> */}
       <Link className="header__logo" to="/"><img className="header__logo__img" src={highridersLogo} alt="logo" /></Link>
       <div className={classMenu ? 'header__nav header__nav--active' : 'header__nav'}>
         <NavLink className="header__nav__item" exact to="/" onClick={toggleMenu}>Accueil</NavLink>
@@ -49,18 +52,28 @@ const Header = () => {
         {logged
           ? (
             <div className="header__buttons">
-              <Link className="header__button header__button--black" to="/profil">Profil</Link>
-              <button onClick={handleLogout} type="button" className="header__button header__button--white">Deconnexion</button>
+              <Link className="header__button header__button--black" to="/profil" onClick={toggleMenu}>Profil</Link>
+              <button
+                onClick={() => {
+                  handleLogout(); toggleMenu();
+                }}
+                type="button"
+                className="header__button header__button--white"
+              >Deconnexion
+              </button>
             </div>
           )
           : (
             <div className="header__buttons">
-              <Link className="header__button header__button--black" to="/connexion">Connexion</Link>
-              <Link className="header__button header__button--white" to="/inscription">S'inscrire</Link>
+              <Link className="header__button header__button--black" to="/connexion" onClick={toggleMenu}>Connexion</Link>
+              <Link className="header__button header__button--white" to="/inscription" onClick={toggleMenu}>S'inscrire</Link>
             </div>
           )}
       </div>
-      <Search className="header__input" />
+      <FiSearch onClick={toggleSearch} className="header__input__logo" />
+      <div className={!classSearch ? 'header__input__field' : 'header__input__field--active'}>
+        <Search />
+      </div>
     </div>
   );
 };

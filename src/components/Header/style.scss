@@ -9,6 +9,16 @@
   height: 5em;
   width: 100vw;
 
+  &__invisible {
+    display: none;
+
+    &--active {
+      width: 5em;
+      height: 100%;
+      display: block;
+    }
+  }
+
   &__menu {
     display: flex;
     flex-direction: column;
@@ -40,7 +50,7 @@
 
     &--active {
       position: absolute;
-      left: 15em;
+      left: max(15em);
     }
   }
 
@@ -56,7 +66,8 @@
     padding: 1em 0 0 0;
     position: absolute;
     left: 0em;
-    width: 15em;
+    width: 80%;
+    max-width: 15em;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -77,7 +88,34 @@
   }
 
   &__input {
-    display: none;
+
+    &__input {
+      height: 100%;
+      width: 100%;
+    }
+
+    &__logo {
+      height: 100%;
+      width: auto;
+      padding: 1.5em;
+    }
+
+    &__field {
+      display: none;
+
+      &--active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 5em;
+        height: 3em;
+        width: 100%;
+        background-color: #fcfbfe;
+        padding: 0.5em;
+        z-index: -1;
+      }
+    }
   }
 
   &__buttons {

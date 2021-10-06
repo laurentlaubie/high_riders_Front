@@ -1,4 +1,6 @@
 const initialState = {
+  classMenu: false,
+  classSearch: false,
   logged: false,
   lastname: '',
   firstname: '',
@@ -43,6 +45,16 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_PROFILE':
       return {
         ...state,
+      };
+    case 'TOGGLE_MENU':
+      return {
+        ...state,
+        classMenu: action.classMenu,
+      };
+    case 'TOGGLE_SEARCH':
+      return {
+        ...state,
+        classSearch: action.classSearch,
       };
     default:
       return state;
