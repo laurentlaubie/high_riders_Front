@@ -27,6 +27,7 @@
     cursor: pointer;
     height: 100%;
     width: 5em;
+    z-index: 3;
 
     &--line {
       width: 50%;
@@ -111,9 +112,17 @@
     }
 
     &__logo {
-      height: 100%;
-      width: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 5em;
+      width: 5em;
       padding: 1.5em;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
     }
 
     &__field {
@@ -166,7 +175,7 @@
       border: #283618 1px solid;
 
       &:hover {
-        background-color: rgba(108, 117, 76, 0.144);
+        background-color: rgb(227, 231, 224);
       }
     }
   }
@@ -207,6 +216,7 @@
       height: 100%;
       width: 100%;
       max-width: none;
+      padding-right: 20em;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -235,7 +245,28 @@
       }
     }
 
+    &__input {
+  
+      &__logo {
+        right: 17.5em;
+      }
+  
+      &__field {
+  
+        &--active {
+          position: absolute;
+          right: 21.5em;
+          top: 1em;
+          width: 15%;
+          z-index: 3;
+          background-color: #fff;
+        }
+      }
+    }
+
     &__buttons {
+      position: absolute;
+      right: 0;
       height: 100%;
       justify-content: center;
       flex-direction: row;
@@ -246,22 +277,24 @@
       font-size: 1em;
       height: 2.5em;
       color: #fff;
-      background-color: #283618;
       border-radius: .2em;
-      padding: 0.7em;
-      margin: 1em;
+      margin: 0 0.5em 0 0;
+      min-width: 7em;
 
-      &--black {
+      // &--black {
         
-        &:hover .header__button--white {
-          display: block;
-        }
-      }
+      //   &:hover .header__button--white {
+      //     display: block;
+      //   }
+      // }
 
       &--white {
+        // display: none;
         color: #283618;
         background-color: #ffffff;
         border: #283618 1px solid;
+        // position: absolute;
+        // top: 4em;
       }
     }
   }

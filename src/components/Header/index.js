@@ -45,6 +45,7 @@ const Header = () => {
         <div className={!classMenu ? 'header__menu--line3 header__menu--line' : 'header__menu--line3 header__menu--line header__menu--line3--active'} />
       </div>
       <Link className="header__logo" to="/"><img className="header__logo__img" src={highridersLogo} alt="logo" /></Link>
+      <div className="header__invisible--active" />
       <div className={classMenu ? 'header__nav header__nav--active' : 'header__nav'}>
         <nav className="header__nav__menu">
           <NavLink activeClassName="header__nav__item--activ" className="header__nav__item" exact to="/" onClick={toggleMenu}>Accueil</NavLink>
