@@ -1,5 +1,5 @@
 // import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
@@ -105,11 +105,16 @@ const Event = () => {
                 <span className="event__stats__tag">Horaires</span>
                 <span className="event__stats__name">{eventId.opening_hours}-{eventId.closed_hours}</span>
               </div>
-
               <div className="event__stats__container">
                 <span className="event__stats__tag">Nombre de participants</span>
-                <span className="event__stats__name">{eventId.participation_user}</span>
+                <span className="event__stats__name">{eventId.participation_user || '0'}</span>
               </div>
+              {eventId.spot && (
+                <div className="event__stats__container">
+                  <span className="event__stats__tag">Spot lié</span>
+                  <Link className="event__stats__name event__stats__name--link" to={`/spots/${eventId.spot.id}`}>Cliquer pour voir le spot</Link>
+                </div>
+              )}
             </div>
             <div className="event__map">
               <BasicMap

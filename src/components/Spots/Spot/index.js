@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
-import commentsData from 'src/comments-data';
+// import commentsData from 'src/comments-data';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -18,8 +18,8 @@ const Spot = () => {
   const spotId = useSelector((state) => state.spots.spotId);
   const loading = useSelector((state) => state.spots.loading);
   const newcomment = useSelector((state) => state.spots.newComment);
-  // const commentsData = useSelector((state) => state.spots.spotId.comments);
-  console.log(commentsData);
+  const commentsData = useSelector((state) => state.spots.spotId.comments);
+  // console.log(commentsData);
 
   const changeField = (value, key) => {
     dispatch({
@@ -136,7 +136,7 @@ const Spot = () => {
               value={newcomment}
               className="spot__comments__input"
             />
-            {commentsData
+            {commentsData.length > 0
               ? <Comments comments={commentsData} />
               : <p>Pas encore de commentaires ...</p>}
           </div>
