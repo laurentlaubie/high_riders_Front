@@ -13,8 +13,6 @@ import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
 import ProfileSettings from '../ProfileSettings/ProfileForm';
 import Profile from '../Profile';
-import { fetchHomeLasts } from '../../actions/home';
-import { fetchSpotsList } from '../../actions/spots';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
 import AddSpot from '../Spots/AddSpot';
@@ -28,12 +26,13 @@ import AddEvent from '../Events/AddEvent';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  const logged = true;
+  const logged = useSelector((state) => state.user.logged);
 
   // Check for token and update application state if required
   const token = localStorage.getItem('token');
   const pseudo = localStorage.getItem('pseudo');
   const userid = localStorage.getItem('userid');
+
   if (token) {
     dispatch({
       type: 'SAVE_USER',
