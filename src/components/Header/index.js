@@ -46,9 +46,11 @@ const Header = () => {
       </div>
       <Link className="header__logo" to="/"><img className="header__logo__img" src={highridersLogo} alt="logo" /></Link>
       <div className={classMenu ? 'header__nav header__nav--active' : 'header__nav'}>
-        <NavLink className="header__nav__item" exact to="/" onClick={toggleMenu}>Accueil</NavLink>
-        <NavLink className="header__nav__item" to="/spots" onClick={toggleMenu}>Spots</NavLink>
-        <NavLink className="header__nav__item" to="/evenements" onClick={toggleMenu}>Évènements</NavLink>
+        <nav className="header__nav__menu">
+          <NavLink activeClassName="header__nav__item--activ" className="header__nav__item" exact to="/" onClick={toggleMenu}>Accueil</NavLink>
+          <NavLink activeClassName="header__nav__item--activ" className="header__nav__item" to="/spots" onClick={toggleMenu}>Spots</NavLink>
+          <NavLink activeClassName="header__nav__item--activ" className="header__nav__item" to="/evenements" onClick={toggleMenu}>Évènements</NavLink>
+        </nav>
         {logged
           ? (
             <div className="header__buttons">
