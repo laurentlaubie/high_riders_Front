@@ -21,9 +21,11 @@ const ajax = (store) => (next) => (action) => {
     api.get(`/search/?search=${action.searchedValue}`)
       .then((res) => {
         // success
-        // store.dispatch({
-        // });
-        console.log(res.data);
+        store.dispatch({
+          type: 'SAVE_RESULT_DATA',
+          spotsResultList: res.data[0],
+          eventsResultList: res.data[1],
+        });
       })
       .catch((err) => {
         // error

@@ -1,9 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import './style.scss';
 
 import Field from '../Field';
 
 const Search = () => {
   const newSearch = useSelector((state) => state.search.newSearch);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const changeField = (value, key) => {
@@ -20,10 +24,11 @@ const Search = () => {
       type: 'FETCH_SEARCH_ALL',
       searchedValue: newSearch,
     });
+    history.push('/resultats');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="search__user" onSubmit={handleSubmit}>
       <Field
         name="newSearch"
         placeholder="Rechercher sur tout le site"

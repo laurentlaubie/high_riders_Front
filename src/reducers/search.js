@@ -1,5 +1,7 @@
 export const initialState = {
   userSearch: '',
+  spotsResultList: [],
+  eventsResultList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -8,6 +10,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: action.value,
+      };
+    case 'SAVE_RESULT_DATA':
+      return {
+        ...state,
+        spotsResultList: action.spotsResultList,
+        eventsResultList: action.eventsResultList,
       };
     default:
       return state;
