@@ -5,11 +5,7 @@ import './style.scss';
 import avatar from './avatar.png';
 
 const Profil = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchProfile());
-  }, []);
-
+  const id = useSelector((state) => state.user.userId);
   const lastname = useSelector((state) => state.user.lastname);
   const firstname = useSelector((state) => state.user.firstname);
   const pseudo = useSelector((state) => state.user.pseudo);
@@ -19,18 +15,23 @@ const Profil = () => {
   const equipement = useSelector((state) => state.user.equipement);
   const departement = useSelector((state) => state.user.departement);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProfile(id));
+  }, []);
+
   return (
     <div className="profil">
       <h1 className="profil__title">Votre profil</h1>
       <img className="profil__avatar" src={avatar} alt="avatar" />
-      <p className="name">{lastname}</p>
-      <p className="firstname">{firstname}</p>
-      <p className="nickname">{pseudo}</p>
-      <p className="county">{departement}</p>
-      <p className="email">{email}</p>
-      <p className="description">{presentation}</p>
-      <p className="city">{city}</p>
-      <p className="gear">{equipement}</p>
+      <p className="name">Nom: {lastname}</p>
+      <p className="firstname">Prénom: {firstname}</p>
+      <p className="nickname">Pseudo: {pseudo}</p>
+      <p className="county">Département: {departement}</p>
+      <p className="email">Email: {email}</p>
+      <p className="description">Description: {presentation}</p>
+      <p className="city">Ville: {city}</p>
+      <p className="gear">Equipement: {equipement}</p>
       <button className="profil__button" type="submit">Modifier votre profil</button>
     </div>
   );

@@ -224,6 +224,15 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch({
           type: 'GET_PROFILE',
           newProfile: res.data,
+          lastname: res.data.lastname,
+          firstname: res.data.firstname,
+          pseudo: res.data.pseudo,
+          email: res.data.email,
+          password: res.data.password,
+          presentation: res.data.presentation,
+          city: res.data.city,
+          equipement: res.data.equipement,
+          departement: res.data.departement,
         });
         console.log(res.data);
       })
