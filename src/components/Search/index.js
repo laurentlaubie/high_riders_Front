@@ -8,25 +8,28 @@ const Search = () => {
 
   const changeField = (value, key) => {
     dispatch({
-      type: 'CHANGE_SPOT_VALUE',
+      type: 'CHANGE_SEARCH_ALL_VALUE',
       value: value,
       key: key,
     });
   };
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch({
+      type: 'FETCH_SEARCH_ALL',
+      searchedValue: newSearch,
+    });
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <Field
         name="newSearch"
         placeholder="Rechercher sur tout le site"
         onChange={changeField}
         value={newSearch}
       />
-      {/* <input
-        className="header__input__input"
-        value={userSearch}
-        onChange={changeField}
-      /> */}
     </form>
   );
 };

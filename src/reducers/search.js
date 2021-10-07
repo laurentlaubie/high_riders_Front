@@ -1,15 +1,13 @@
-import { CHANGE_USER_SEARCH } from 'src/actions/search';
-
 export const initialState = {
   userSearch: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_USER_SEARCH:
+    case 'CHANGE_SEARCH_ALL_VALUE':
       return {
         ...state,
-        userSearch: action.value,
+        [action.key]: action.value,
       };
     default:
       return state;
