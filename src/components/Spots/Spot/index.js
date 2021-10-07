@@ -45,8 +45,8 @@ const Spot = () => {
       <div className="spot">
         <div className="spot__container">
           <div className="spot__title__container">
-            <h2 className="spot__title__container__title">{spotId.title}</h2>
-            <img src={spotId.image} alt={spotId.title} className="spot__title__container__img" />
+            <h2 className="spot__title__container__title">{spotId.title || '...'}</h2>
+            <img src={spotId.image} alt={spotId.title || ''} className="spot__title__container__img" />
           </div>
           <div className="spot__infos">
             <div className="spot__infos__meta">
@@ -124,8 +124,8 @@ const Spot = () => {
           <div className="spot__map">
             <BasicMap
               zoom={13}
-              coordinates={[spotId.latitude, spotId.longitude]}
-              popupTitle={`${spotId.title}, ${spotId.address}`}
+              coordinates={[spotId.latitude || 0, spotId.longitude || 0]}
+              popupTitle={`${spotId.title || ''}, ${spotId.address}`}
             />
           </div>
           <div className="spot__comments">

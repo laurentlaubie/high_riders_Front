@@ -5,6 +5,9 @@ export const initialState = {
   spotsCate: [],
   spotsDeparts: [],
   newComment: '',
+  departValue: '',
+  spotDisci: '',
+  newSearchSpotValue: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,6 +29,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: action.value,
+      };
+    case 'SAVE_RESULT_LIST':
+      return {
+        ...state,
+        newResultList: action.newList,
       };
     // case 'HOUR_CHANGE':
     //   return {

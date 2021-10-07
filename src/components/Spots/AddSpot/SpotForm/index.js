@@ -89,7 +89,7 @@ const SpotForm = ({
         />
         <Field
           name="newOpeningHours"
-          // type="time"
+          type="time"
           placeholder="Horaires d'ouverture"
           onChange={changeField}
           value={openingHours}

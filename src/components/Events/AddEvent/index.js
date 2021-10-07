@@ -35,6 +35,11 @@ const AddEvent = () => {
     });
   };
 
+  const changeFieldNumber = (value, key) => {
+    const addNumber = Number(value);
+    changeField(addNumber, key);
+  };
+
   const sendData = () => {
     dispatch({
       type: 'SEND_NEW_EVENT',
@@ -60,6 +65,7 @@ const AddEvent = () => {
           dateEvent={dateEvent}
           accessibility={accessibility}
           changeField={changeField}
+          changeFieldNumber={changeFieldNumber}
           sendData={sendData}
         />
       </div>

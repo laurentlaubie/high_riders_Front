@@ -1,7 +1,10 @@
 // == Import composants
 import Card from 'src/components/Card';
-// import data from 'src/data';
+import Select from 'src/components/Select';
+import Field from 'src/components/Field';
 import BasicMap from 'src/components/BasicMap';
+
+// import data from 'src/data';
 
 // == Import persos
 import './style.scss';
@@ -9,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchSpotsList } from '../../actions/spots';
+import findSearchedSpots from '../../selectors/spots';
 
 const spotList = () => {
   const dispatch = useDispatch();
@@ -16,27 +20,60 @@ const spotList = () => {
   const spotsCate = useSelector((state) => state.spots.spotsCate);
   const spotsDeparts = useSelector((state) => state.spots.spotsDeparts);
 
+  const departValue = useSelector((state) => state.spots.departValue);
+  const spotDisci = useSelector((state) => state.spots.spotDisci);
+  const newSearchSpotValue = useSelector((state) => state.spots.newSearchSpotValue);
+
   useEffect(() => {
     dispatch(fetchSpotsList());
   }, []);
+
+  const changeField = (value, key) => {
+    dispatch({
+      type: 'CHANGE_SPOT_VALUE',
+      value: value,
+      key: key,
+    });
+  };
+
+  const handleSearchSpots = (evt) => {
+    evt.preventDefault();
+    const resultList = findSearchedSpots(spotDataList, newSearchSpotValue);
+    dispatch({
+      type: 'SAVE_RESULT_LIST',
+      newList: resultList,
+    });
+    console.log(resultList);
+  };
+
+  // const ;
 
   return (
     <div className="spotList">
       <Link className="spotList__add" to="/ajout-spot">Ajouter un spot</Link>
       <h1 className="spotList__title">Liste des spots</h1>
-      <div className="spotList__filter">
-        <select className="spotList__filter__selector">
-          <option className="spotList__filter__selector--county">Département</option>
-          {spotsDeparts.map((elem) => (
-            <option key={elem.id} value={elem.title}>{elem.title}</option>
-          ))}
-        </select>
-        <select className="spotList__filter__selector">
-          <option className="spotList__filter__selector--category" value="">Disciplines</option>
-          {spotsCate.map((elem) => <option key={elem.id} value={elem.title}>{elem.title}</option>)}
-        </select>
-        <input className="spotList__filter--search" type="search" placeholder="Recherche de spots ..." />
-      </div>
+      <form className="spotList__filter" onSubmit={handleSearchSpots}>
+        <Select
+          value={departValue}
+          name="departValue"
+          data={spotsDeparts}
+          placeholder="Département"
+          onChange={changeField}
+        />
+        <Select
+          value={spotDisci}
+          name="spotDisci"
+          data={spotsCate}
+          placeholder="Disciplines"
+          onChange={changeField}
+        />
+        <Field
+          value={newSearchSpotValue}
+          name="newSearchSpotValue"
+          placeholder="Rechercher un spot"
+          onChange={changeField}
+        />
+      </form>
       <div className="spotList__map">
         <BasicMap data={spotDataList} />
       </div>

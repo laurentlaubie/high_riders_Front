@@ -65,9 +65,6 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
-        // store.dispatch({
-        //   type: 'SAVE_SPOTS_LIST',
-        // });
         console.log(res);
         window.location.href = '/spots';
       })
