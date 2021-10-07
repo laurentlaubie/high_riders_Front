@@ -9,6 +9,7 @@ import './style.scss';
 
 const EventForm = ({
   changeField,
+  changeFieldNumber,
   title,
   image,
   description,
@@ -59,13 +60,14 @@ const EventForm = ({
         />
         <Field
           name="newOpeningHour"
-          // type="time"
+          type="time"
           placeholder="Horaires d'ouverture"
           onChange={changeField}
           value={openingHour}
         />
         <Field
           name="newClosingHour"
+          type="time"
           placeholder="Horaires de fermeture"
           onChange={changeField}
           value={closingHour}
@@ -74,7 +76,7 @@ const EventForm = ({
           name="newDifficulty"
           type="number"
           placeholder="Difficulté"
-          onChange={changeField}
+          onChange={changeFieldNumber}
           value={difficulty}
         />
         <Field
@@ -94,7 +96,7 @@ const EventForm = ({
           name="newPrice"
           type="number"
           placeholder="Prix de l'évènement"
-          onChange={changeField}
+          onChange={changeFieldNumber}
           value={price}
         />
         <Field
@@ -142,12 +144,13 @@ EventForm.propTypes = {
   category: PropTypes.string,
   departement: PropTypes.string,
   closingHour: PropTypes.string,
-  difficulty: PropTypes.string,
+  difficulty: PropTypes.number,
   dateEvent: PropTypes.string,
   link: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   accessibility: PropTypes.string,
   changeField: PropTypes.func.isRequired,
+  changeFieldNumber: PropTypes.func.isRequired,
   sendData: PropTypes.func.isRequired,
 };
 
@@ -160,10 +163,10 @@ EventForm.defaultProps = {
   category: '',
   departement: '',
   closingHour: '',
-  difficulty: '',
+  difficulty: 0,
   dateEvent: '',
   link: '',
-  price: '',
+  price: 0,
   accessibility: '',
 };
 
