@@ -1,22 +1,34 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { changeUserSearch } from 'src/actions/search';
+import Field from '../Field';
 
-const search = () => {
-  const userSearch = useSelector((state) => state.search.userSearch);
+const Search = () => {
+  const newSearch = useSelector((state) => state.search.newSearch);
   const dispatch = useDispatch();
 
-  const changeField = (event) => {
-    dispatch(changeUserSearch(event.target.value));
+  const changeField = (value, key) => {
+    dispatch({
+      type: 'CHANGE_SPOT_VALUE',
+      value: value,
+      key: key,
+    });
   };
 
   return (
-    <input
-      className="header__input__input"
-      value={userSearch}
-      onChange={changeField}
-    />
+    <form>
+      <Field
+        name="newSearch"
+        placeholder="Rechercher sur tout le site"
+        onChange={changeField}
+        value={newSearch}
+      />
+      {/* <input
+        className="header__input__input"
+        value={userSearch}
+        onChange={changeField}
+      /> */}
+    </form>
   );
 };
 
-export default search;
+export default Search;
