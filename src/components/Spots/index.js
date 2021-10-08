@@ -1,10 +1,7 @@
 // == Import composants
 import Card from 'src/components/Card';
 import Select from 'src/components/Select';
-import Field from 'src/components/Field';
 import BasicMap from 'src/components/BasicMap';
-
-// import data from 'src/data';
 
 // == Import persos
 import './style.scss';
@@ -12,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchSpotsList } from '../../actions/spots';
-import findSearchedSpots from '../../selectors/spots';
+import { findFilteredCategoriesSpots, findFiltredDepartementSpots } from '../../selectors/spots';
 
 const spotList = () => {
   const dispatch = useDispatch();
@@ -22,7 +19,7 @@ const spotList = () => {
 
   const departValue = useSelector((state) => state.spots.departValue);
   const spotDisci = useSelector((state) => state.spots.spotDisci);
-  const newSearchSpotValue = useSelector((state) => state.spots.newSearchSpotValue);
+  const newResultList = useSelector((state) => state.spots.newResultList);
 
   useEffect(() => {
     dispatch(fetchSpotsList());
@@ -38,15 +35,14 @@ const spotList = () => {
 
   const handleSearchSpots = (evt) => {
     evt.preventDefault();
-    const resultList = findSearchedSpots(spotDataList, newSearchSpotValue);
+    const departFiltered = findFiltredDepartementSpots(spotDataList, departValue);
+
+    const categFiltered = findFilteredCategoriesSpots(departFiltered, spotDisci);
     dispatch({
       type: 'SAVE_RESULT_LIST',
-      newList: resultList,
+      newList: categFiltered,
     });
-    console.log(resultList);
   };
-
-  // const ;
 
   return (
     <div className="spotList">
@@ -67,26 +63,36 @@ const spotList = () => {
           placeholder="Disciplines"
           onChange={changeField}
         />
-        <Field
-          value={newSearchSpotValue}
-          name="newSearchSpotValue"
-          placeholder="Rechercher un spot"
-          onChange={changeField}
-        />
+        <button type="submit">Filtrer</button>
       </form>
       <div className="spotList__map">
         <BasicMap data={spotDataList} />
       </div>
-      <div className="spotList__cards">
-        <div className="spotList__list">
-          <h1>Tous les spots disponibles en France</h1>
-          <div className="spotList__list__elem">
-            {spotDataList.map((item) => (
-              <Card key={item.id} {...item} typeCard="spots" />
-            ))}
+      {newResultList.length > 0
+        ? (
+          <div className="spotList__cards">
+            <div className="spotList__list">
+              <h1>Résultat de la recherche</h1>
+              <div className="spotList__list__elem">
+                {newResultList.map((item) => (
+                  <Card key={item.id} {...item} typeCard="spots" />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )
+        : (
+          <div className="spotList__cards">
+            <div className="spotList__list">
+              <h1>Tous les spots disponibles en France</h1>
+              <div className="spotList__list__elem">
+                {spotDataList.map((item) => (
+                  <Card key={item.id} {...item} typeCard="spots" />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
     </div>
   );
 };
