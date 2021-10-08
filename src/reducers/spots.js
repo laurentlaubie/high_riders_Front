@@ -5,9 +5,11 @@ export const initialState = {
   spotsCate: [],
   spotsDeparts: [],
   newComment: '',
-  departValue: '',
-  spotDisci: '',
-  newSearchSpotValue: '',
+  newTypeSpot: 'Bike Park',
+  newCategory: '1',
+  newDepartement: '1',
+  departValue: '1',
+  spotDisci: '1',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,11 +37,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         newResultList: action.newList,
       };
-    // case 'HOUR_CHANGE':
-    //   return {
-    //     ...state,
-    //     newOpeningHours: action.newHour,
-    //   };
     default:
       return state;
   }

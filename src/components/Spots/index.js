@@ -1,7 +1,6 @@
 // == Import composants
 import Card from 'src/components/Card';
 import Select from 'src/components/Select';
-import Field from 'src/components/Field';
 import BasicMap from 'src/components/BasicMap';
 
 // import data from 'src/data';
@@ -12,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchSpotsList } from '../../actions/spots';
-import findSearchedSpots from '../../selectors/spots';
+import { findFilteredCategoriesSpots, findFiltredDepartementSpots } from '../../selectors/spots';
 
 const spotList = () => {
   const dispatch = useDispatch();
@@ -22,7 +21,6 @@ const spotList = () => {
 
   const departValue = useSelector((state) => state.spots.departValue);
   const spotDisci = useSelector((state) => state.spots.spotDisci);
-  const newSearchSpotValue = useSelector((state) => state.spots.newSearchSpotValue);
 
   useEffect(() => {
     dispatch(fetchSpotsList());
@@ -38,15 +36,15 @@ const spotList = () => {
 
   const handleSearchSpots = (evt) => {
     evt.preventDefault();
-    const resultList = findSearchedSpots(spotDataList, newSearchSpotValue);
-    dispatch({
-      type: 'SAVE_RESULT_LIST',
-      newList: resultList,
-    });
-    console.log(resultList);
-  };
+    const departFiltered = findFiltredDepartementSpots(spotDataList, departValue);
 
-  // const ;
+    const categFiltered = findFilteredCategoriesSpots(spotDataList, spotDisci);
+    console.log(categFiltered);
+    // dispatch({
+    //   type: 'SAVE_RESULT_LIST',
+    //   // newList: resultList,
+    // });
+  };
 
   return (
     <div className="spotList">
@@ -67,12 +65,7 @@ const spotList = () => {
           placeholder="Disciplines"
           onChange={changeField}
         />
-        <Field
-          value={newSearchSpotValue}
-          name="newSearchSpotValue"
-          placeholder="Rechercher un spot"
-          onChange={changeField}
-        />
+        <button type="submit">Filtrer</button>
       </form>
       <div className="spotList__map">
         <BasicMap data={spotDataList} />
