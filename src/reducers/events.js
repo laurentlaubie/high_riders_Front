@@ -5,6 +5,9 @@ const initialState = {
   eventsCate: [],
   eventsDepar: [],
   newComment: '',
+  departValue: '1',
+  spotDisci: '1',
+  newResultList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,6 +29,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: action.value,
+      };
+    case 'SAVE_EVENT_RESULT_LIST':
+      return {
+        ...state,
+        newResultList: action.newList,
       };
     default:
       return state;

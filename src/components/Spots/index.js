@@ -3,8 +3,6 @@ import Card from 'src/components/Card';
 import Select from 'src/components/Select';
 import BasicMap from 'src/components/BasicMap';
 
-// import data from 'src/data';
-
 // == Import persos
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,6 +19,7 @@ const spotList = () => {
 
   const departValue = useSelector((state) => state.spots.departValue);
   const spotDisci = useSelector((state) => state.spots.spotDisci);
+  const newResultList = useSelector((state) => state.spots.newResultList);
 
   useEffect(() => {
     dispatch(fetchSpotsList());
@@ -38,12 +37,11 @@ const spotList = () => {
     evt.preventDefault();
     const departFiltered = findFiltredDepartementSpots(spotDataList, departValue);
 
-    const categFiltered = findFilteredCategoriesSpots(spotDataList, spotDisci);
-    console.log(categFiltered);
-    // dispatch({
-    //   type: 'SAVE_RESULT_LIST',
-    //   // newList: resultList,
-    // });
+    const categFiltered = findFilteredCategoriesSpots(departFiltered, spotDisci);
+    dispatch({
+      type: 'SAVE_RESULT_LIST',
+      newList: categFiltered,
+    });
   };
 
   return (
@@ -70,16 +68,31 @@ const spotList = () => {
       <div className="spotList__map">
         <BasicMap data={spotDataList} />
       </div>
-      <div className="spotList__cards">
-        <div className="spotList__list">
-          <h1>Tous les spots disponibles en France</h1>
-          <div className="spotList__list__elem">
-            {spotDataList.map((item) => (
-              <Card key={item.id} {...item} typeCard="spots" />
-            ))}
+      {newResultList.length > 0
+        ? (
+          <div className="spotList__cards">
+            <div className="spotList__list">
+              <h1>Résultat de la recherche</h1>
+              <div className="spotList__list__elem">
+                {newResultList.map((item) => (
+                  <Card key={item.id} {...item} typeCard="spots" />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )
+        : (
+          <div className="spotList__cards">
+            <div className="spotList__list">
+              <h1>Tous les spots disponibles en France</h1>
+              <div className="spotList__list__elem">
+                {spotDataList.map((item) => (
+                  <Card key={item.id} {...item} typeCard="spots" />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
     </div>
   );
 };

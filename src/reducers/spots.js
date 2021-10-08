@@ -10,6 +10,7 @@ export const initialState = {
   newDepartement: '1',
   departValue: '1',
   spotDisci: '1',
+  newResultList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
