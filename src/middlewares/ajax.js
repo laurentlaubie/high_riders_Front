@@ -96,7 +96,7 @@ const ajax = (store) => (next) => (action) => {
     api.post('/login_check', {
       // username: state.user.email,
       // password: state.user.password,
-      username: 'front@oclock.io',
+      username: 'laurent@oclock.io',
       password: 'demotest',
     })
       .then((res) => {
