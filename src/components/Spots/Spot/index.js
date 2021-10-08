@@ -3,14 +3,12 @@ import { useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
-// import commentsData from 'src/comments-data';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchSpotId } from '../../../actions/spots';
 import Comments from '../../Comments';
 import Field from '../../Field';
-// import data from 'src/data';
 
 const Spot = () => {
   const { id } = useParams();
@@ -19,7 +17,6 @@ const Spot = () => {
   const loading = useSelector((state) => state.spots.loading);
   const newcomment = useSelector((state) => state.spots.newComment);
   const commentsData = useSelector((state) => state.spots.spotId.comments);
-  // console.log(commentsData);
 
   const changeField = (value, key) => {
     dispatch({
@@ -38,6 +35,14 @@ const Spot = () => {
   }, []);
 
   // const { latitude, longitude } = spotId;
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch({
+      type: 'SEND_SPOT_COMMENT',
+      id: id,
+    });
+  };
 
   return (
     <>
@@ -128,7 +133,7 @@ const Spot = () => {
               popupTitle={`${spotId.title || ''}, ${spotId.address}`}
             />
           </div>
-          <div className="spot__comments">
+          <form className="spot__comments" onSubmit={handleSubmit}>
             <Field
               name="newComment"
               placeholder="Ajouter un commentaire"
@@ -139,16 +144,12 @@ const Spot = () => {
             {commentsData.length > 0
               ? <Comments comments={commentsData} />
               : <p>Pas encore de commentaires ...</p>}
-          </div>
+          </form>
         </div>
       </div>
       )}
     </>
   );
 };
-
-// Spot.propTypes = {
-
-// };
 
 export default Spot;

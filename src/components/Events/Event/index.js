@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
-import commentsData from 'src/comments-data';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -17,6 +16,7 @@ const Event = () => {
   const eventId = useSelector((state) => state.events.eventId);
   const loading = useSelector((state) => state.events.loading);
   const newcomment = useSelector((state) => state.events.newComment);
+  const commentsData = useSelector((state) => state.events.eventId.comments);
 
   const changeField = (value, key) => {
     dispatch({
@@ -42,6 +42,14 @@ const Event = () => {
   useEffect(() => {
     getEventId();
   }, []);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch({
+      type: 'SEND_EVENT_COMMENT',
+      id: id,
+    });
+  };
 
   return (
     <>
@@ -129,15 +137,15 @@ const Event = () => {
                 : <button className="event__participate__button event__participate__button--clear" type="button" onClick={handleToggleParticipate}>Je ne veux plus participer</button>}
             </div>
             <div className="event__comments">
-              <div className="event__comments__input">
+              <form className="event__comments__input" onSubmit={handleSubmit}>
                 <Field
                   name="newComment"
                   placeholder="Ajouter un commentaire"
                   onChange={changeField}
                   value={newcomment}
                 />
-              </div>
-              {commentsData
+              </form>
+              {commentsData.length > 0
                 ? <Comments comments={commentsData} />
                 : <p>Pas encore de commentaires ...</p>}
             </div>
@@ -147,9 +155,5 @@ const Event = () => {
     </>
   );
 };
-
-// Event.propTypes = {
-
-// };
 
 export default Event;

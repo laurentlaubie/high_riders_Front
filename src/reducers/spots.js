@@ -38,6 +38,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         newResultList: action.newList,
       };
+    case 'SUCCESS_COMMENT_SPOT':
+      return {
+        ...state,
+        newComment: '',
+      };
+    // case 'HOUR_CHANGE':
+    //   return {
+    //     ...state,
+    //     newOpeningHours: action.newHour,
+    //   };
     default:
       return state;
   }
