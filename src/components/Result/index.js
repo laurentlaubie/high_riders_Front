@@ -13,17 +13,21 @@ const Result = () => {
       <h1 className="result__title">Résultats de votre recherche :</h1>
       <div className="result__cards">
         <div className="result__list">
-          <h1 className="result__title">Listes des spots</h1>
-          <div className="homepage__list__elem">
-            {spotsResultList.map((item) => (
-              <Card key={item.id} {...item} typeCard="spots" />
-            ))}
+          <h1 className="result__title">Liste des spots</h1>
+          <div className="result__list__elem">
+            {spotsResultList.length > 0
+              ? spotsResultList.map((item) => (
+                <Card key={item.id} {...item} typeCard="spots" />
+              ))
+              : <p className="result__noresult">Aucun résultat</p>}
           </div>
-          <h1 className="result__title">Listes des évenements</h1>
-          <div className="homepage__list__elem">
-            {eventsResultList.map((item) => (
-              <Card key={item.id} {...item} typeCard="spots" />
-            ))}
+          <h1 className="result__title">Liste des évenements</h1>
+          <div className="result__list__elem">
+            {eventsResultList.length > 0
+              ? eventsResultList.map((item) => (
+                <Card key={item.id} {...item} typeCard="spots" />
+              ))
+              : <p className="result__noresult">Aucun résultat</p>}
           </div>
         </div>
       </div>

@@ -4,6 +4,27 @@
   flex-direction: column;
   align-items: center;
 
+  &__add {
+    position: fixed;
+    z-index: 3;
+    right: 2em;
+    font-size: 1em;
+    height: 2.5em;
+    color: #fff;
+    background-color: #283618;
+    border-radius: .2em;
+    padding: 0.7em;
+    margin: 1em;
+  }
+
+  &__title {
+    text-align: center;
+    color: #4b702d;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.5em 0;
+  }
+
   &__filter {
     width: 70%;
     display: flex;
@@ -22,10 +43,10 @@
   }
 
   &__map {
-    width: 72vw;
-    height: 50vh;
-    z-index: 0;
-    margin: 2rem 0;
+    width: 90%;
+    height: 20em;
+    margin: 2rem 0 0 0;
+    padding: 0.5em;
   }
 
   &__cards {
@@ -38,7 +59,6 @@
   }
 
   &__list {
-    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,12 +78,10 @@
     }
   }
 
-  &__title {
+  &__noresult {
+    width: 100%;
     text-align: center;
-    color: #4b702d;
-    font-size: 2em;
-    font-weight: 700;
-    margin: 2em 0 0 0;
+    margin: 2em;
   }
 }
 
@@ -73,9 +91,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+  
     &__title {
-      margin: 1em 0 0 0;
+      text-align: center;
+      color: #4b702d;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0.5em 0;
     }
   
     &__filter {
@@ -96,18 +118,20 @@
     }
 
     &__map {
-      width: 54vw;
-      height: 70vh;
+      width: 100%;
+      max-width: 125em;
+      height: 30em;
       z-index: 0;
-      margin: 2rem 0;
+      padding: 0 4em;
     }
   
     &__cards {
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       position: relative;
-      width: 70%;
+      width: 90%;
       background-color: #FCFBFE;
     }
   
@@ -115,6 +139,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
   
       h1 {
         text-align: center;
