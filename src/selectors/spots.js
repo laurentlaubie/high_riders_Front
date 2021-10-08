@@ -16,7 +16,7 @@ export function findFiltredDepartementSpots(spotsList, departTested) {
 
 export function findFilteredCategoriesSpots(newSpotsList, categTested) {
   const filteredCateg = newSpotsList.filter(
-    (testedElem) => testedElem.categories.filter((elem) => elem.id === categTested),
+    (testedElem) => testedElem.categories.some((elem) => elem.id === categTested),
   );
   return filteredCateg;
 }
