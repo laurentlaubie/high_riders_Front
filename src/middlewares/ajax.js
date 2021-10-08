@@ -67,7 +67,7 @@ const ajax = (store) => (next) => (action) => {
   }
   if (action.type === 'SEND_NEW_SPOT') {
     const state = store.getState();
-    api.post('/spots/', {
+    api.post('/spots/add', {
       title: state.spots.newTitle,
       image: state.spots.newImage,
       description: state.spots.newDescription,
@@ -161,7 +161,7 @@ const ajax = (store) => (next) => (action) => {
   }
   if (action.type === 'SEND_NEW_EVENT') {
     const state = store.getState();
-    api.post('/events/', {
+    api.post('/events/add', {
       title: state.events.newTitle,
       image: state.events.newImage,
       description: state.events.newDescription,
