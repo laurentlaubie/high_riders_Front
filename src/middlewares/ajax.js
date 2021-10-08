@@ -108,7 +108,7 @@ const ajax = (store) => (next) => (action) => {
     api.post('/login_check', {
       // username: state.user.email,
       // password: state.user.password,
-      username: 'front@oclock.io',
+      username: 'laurent@oclock.io',
       password: 'demotest',
     })
       .then((res) => {
@@ -236,6 +236,15 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch({
           type: 'GET_PROFILE',
           newProfile: res.data,
+          lastname: res.data.lastname,
+          firstname: res.data.firstname,
+          pseudo: res.data.pseudo,
+          email: res.data.email,
+          password: res.data.password,
+          presentation: res.data.presentation,
+          city: res.data.city,
+          equipement: res.data.equipement,
+          departement: res.data.departement,
         });
         console.log(res.data);
       })

@@ -2,6 +2,7 @@ const initialState = {
   classMenu: false,
   classSearch: false,
   logged: false,
+  id: '',
   lastname: '',
   firstname: '',
   pseudo: '',
@@ -45,6 +46,16 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_PROFILE':
       return {
         ...state,
+        id: action.id,
+        lastname: action.lastname,
+        firstname: action.firstname,
+        pseudo: action.pseudo,
+        email: action.email,
+        password: action.password,
+        presentation: action.presentation,
+        city: action.city,
+        equipement: action.equipement,
+        departement: action.departement,
       };
     case 'TOGGLE_MENU':
       return {

@@ -1,159 +1,66 @@
-.register {
-  width: 100%;
-  display: flex;
+.profil {
+  display:flex;
   flex-direction: column;
-  
+
   &__title {
     text-align: center;
-    margin-top: 2rem;
-    color: #606c38;
+    color: #4b702d;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.5em 0;
   }
 
   &__avatar {
-    margin: auto;
-    margin-bottom: 2rem;
     width: 100px;
+    margin: auto;
   }
 
-  &__form {
-    text-align: center;
-    margin: auto;
-    margin-bottom: 2rem;
-    width: 60%;
-    height: 2rem;
-    
-    
-    &--input {
-      width: 60vw;
-      padding-left: 0.5rem;
-    }
-
-    &--image {
-      margin-left: .5rem;
-      margin-top: .2rem;
-    }
+  &__name {
+    margin: 1rem auto;
   }
 
-  &__selector {
-    margin: auto;
-    margin-bottom: 2rem;
-    width: 60%;
-    height: 2rem;
+  &__firstname {
+    margin: 1rem auto;
+  }
+
+  &__nickname {
+    margin: 1rem auto;
+  }
+
+  &__county {
+    margin: 1rem auto;
+  }
+
+  &__email {
+    margin: 1rem auto;
+  }
+
+  &__description {
+    margin: 1rem auto;
+  }
+
+  &__city {
+    margin: 1rem auto;
+  }
+
+  &__gear {
+    margin: 1rem auto;
   }
 
   &__button {
-    margin: auto;
-    margin-bottom: 2rem;
-    width: 60%;
-    height: 2rem;
-    background-color: #606c38;
+    margin: 2rem auto;
+    width: 30%;
+    height: 2.5em;
+    font-size: 1em;
+    border-radius: .2em;
+    color: #fff;
+    background-color: #283618;
+    border: 1px solid #283618;
   }
 }
 
-@media (min-width: 750px) {
-  .register {
-    width: 100%;
-    display: flex;
-
-    &__title {
-      text-align: center;
-      margin-top: 2rem;
-      color: #606c38;
-    }
-  
-    &__avatar {
-      margin: auto;
-      margin-bottom: 2rem;
-      width: 100px;
-    }
-  
-    &__form {
-      text-align: center;
-      margin: auto;
-      margin-bottom: 2rem;
-      width: 60%;
-      height: 2rem;
-
-      &--input {
-        width: 28.5vw;
-        height: 2rem;
-        padding-left: 0.5rem;
-      }
-  
-      &--image {
-        margin-left: .5rem;
-        margin-top: .2rem;
-      }
-    }
-  
-    &__selector {
-      margin: auto;
-      margin-bottom: 2rem;
-      padding-left: .5rem;
-      width: 60%;
-      height: 2rem;
-    }
-  
-    &__button {
-      margin: auto;
-      margin-bottom: 2rem;
-      width: 60%;
-      height: 2rem;
-      background-color: #606c38;
-    }
-  }
- 
-  @media (min-width: 750px) {
-    .register {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-  
-      &__title {
-        text-align: center;
-        margin-top: 2rem;
-        color: #606c38;
-      }
-  
-      &__avatar {
-        margin: auto;
-        margin-bottom: 2rem;
-        width: 100px;
-      }
-  
-      &__form {
-        margin: auto;
-        margin-bottom: 2rem;
-        width: 60%;
-        height: 2rem;
-  
-        &--input {
-          width: 28.5vw;
-          height: 2rem;
-          padding-left: 0.5rem;
-        }
-  
-        &--image {
-          margin-left: .5rem;
-          margin-top: .2rem;
-        }
-      }
-  
-      &__selector {
-        margin: auto;
-        margin-bottom: 2rem;
-        padding-left: .5rem;
-        width: 30vw;
-        height: 2rem;
-      }
-  
-      &__button {
-        margin: auto;
-        margin-bottom: 2rem;
-        width: 30vw;
-        height: 2rem;
-        background-color: #606c38;
-      }
-    }
+@media (min-width:1000px) {
+  .profil__button {
+    width: 10%;
   }
 }
