@@ -108,7 +108,7 @@ const ajax = (store) => (next) => (action) => {
     api.post('/login_check', {
       // username: state.user.email,
       // password: state.user.password,
-      username: 'laurent@oclock.io',
+      username: 'front@oclock.io',
       password: 'demotest',
     })
       .then((res) => {
@@ -247,6 +247,42 @@ const ajax = (store) => (next) => (action) => {
           departement: res.data.departement,
         });
         console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === 'SEND_SPOT_COMMENT') {
+    const state = store.getState();
+    api.post(`/spots/${action.id}/comment`, {
+      content: state.spots.newComment,
+      label_type: '',
+    })
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'SUCCESS_COMMENT_SPOT',
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === 'SEND_EVENT_COMMENT') {
+    const state = store.getState();
+    api.post(`/events/${action.id}/comment`, {
+      content: state.events.newComment,
+      label_type: '',
+    })
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'SUCCESS_COMMENT_EVENT',
+        });
+        console.log(res);
       })
       .catch((err) => {
         // error

@@ -27,6 +27,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.key]: action.value,
       };
+    case 'SUCCESS_COMMENT_EVENT':
+      return {
+        ...state,
+        newComment: '',
+      };
     default:
       return state;
   }

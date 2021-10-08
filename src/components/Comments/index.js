@@ -9,9 +9,9 @@ const Comments = ({ comments }) => (
     {comments.map((comment) => (
       <Comment
         key={comment.id}
-        userName={comment.user_name}
-        commentDate={comment.comment_date}
-        textContent={comment.text_content}
+        userName={comment.user.pseudo}
+        commentDate={comment.createdAt.slice(0, 10)}
+        textContent={comment.content}
       />
     ))}
   </div>
