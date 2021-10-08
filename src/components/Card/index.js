@@ -52,7 +52,7 @@ Card.propTypes = {
   date_event: PropTypes.string,
   title: PropTypes.string.isRequired,
   typeCard: PropTypes.string.isRequired,
-  categories: PropTypes.array.isRequired,
+  categories: PropTypes.array,
   type_event: PropTypes.string,
   type_spot: PropTypes.string,
   e_like: PropTypes.number,
@@ -69,6 +69,7 @@ Card.defaultProps = {
   e_like: null,
   s_like: null,
   numbers_users: null,
+  categories: [],
   average_rating: null,
 };
 

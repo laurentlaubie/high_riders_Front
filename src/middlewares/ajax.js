@@ -17,6 +17,21 @@ if (connectedToken) {
 }
 
 const ajax = (store) => (next) => (action) => {
+  if (action.type === 'FETCH_SEARCH_ALL') {
+    api.get(`/search/?search=${action.searchedValue}`)
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'SAVE_RESULT_DATA',
+          spotsResultList: res.data[0],
+          eventsResultList: res.data[1],
+        });
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
   if (action.type === FETCH_HOME_LASTS) {
     api.get('/home')
       .then((res) => {

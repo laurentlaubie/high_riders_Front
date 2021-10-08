@@ -38,6 +38,7 @@
   }
 
   &__list {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,12 +58,12 @@
     }
   }
 
-  .result__title {
+  &__title {
     text-align: center;
     color: #4b702d;
     font-size: 2em;
     font-weight: 700;
-    margin: 2rem 0;
+    margin: 2em 0 0 0;
   }
 }
 
@@ -72,6 +73,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &__title {
+      margin: 1em 0 0 0;
+    }
   
     &__filter {
       width: 30%;
