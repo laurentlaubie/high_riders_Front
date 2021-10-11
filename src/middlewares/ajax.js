@@ -104,11 +104,11 @@ const ajax = (store) => (next) => (action) => {
       });
   }
   if (action.type === 'LOGIN') {
-    // const state = store.getState();
+    const state = store.getState();
     api.post('/login_check', {
-      // username: state.user.email,
+      username: state.user.email,
       // password: state.user.password,
-      username: 'front@oclock.io',
+      // username: 'laurent@oclock.io',
       password: 'demotest',
     })
       .then((res) => {
@@ -207,6 +207,7 @@ const ajax = (store) => (next) => (action) => {
         /* store.dispatch({
           type: 'NEW_USER',
         }); */
+        window.location.href = '/connexion';
         console.log(res);
       })
       .catch((err) => {
@@ -282,6 +283,20 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch({
           type: 'SUCCESS_COMMENT_EVENT',
         });
+        console.log(res);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === 'SEND_EVENT_PARTICIPATION') {
+    api.post(`/events/${action.id}/participation`, {})
+      .then((res) => {
+        // success
+        // store.dispatch({
+        //   type: 'SUCCESS_COMMENT_EVENT',
+        // });
         console.log(res);
       })
       .catch((err) => {
