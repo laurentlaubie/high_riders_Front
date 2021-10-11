@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
@@ -9,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Field from '../../Field';
 import Comments from '../../Comments';
-// import data from 'src/data';
 
 const Event = () => {
   const { id } = useParams();
@@ -91,10 +89,13 @@ const Event = () => {
               <p className="event__infos__description">{eventId.accessibility || 'Pas d\'infos'}</p>
             </div>
             <div className="event__stats">
-              <div className="event__stats__container">
-                <span className="event__stats__tag">Département</span>
-                <span className="event__stats__name">{eventId.departement.title}</span>
-              </div>
+              {eventId.departement
+                ? (
+                  <div className="event__stats__container">
+                    <span className="event__stats__tag">Département</span>
+                    <span className="event__stats__name">{eventId.departement.title || ''}</span>
+                  </div>
+                ) : ''}
               {eventId.date_event ? (
                 <div className="event__stats__container">
                   <span className="event__stats__tag">Date de l'évènement</span>
@@ -144,7 +145,7 @@ const Event = () => {
             <div className="event__map">
               <BasicMap
                 zoom={13}
-                coordinates={[eventId.latitude, eventId.longitude]}
+                coordinates={[eventId.latitude || 0, eventId.longitude || 0]}
                 popupTitle={eventId.title}
               />
             </div>
