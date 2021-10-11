@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
@@ -32,7 +31,6 @@ const Spot = () => {
       type: 'ADD_LIKE_SPOT',
       id: id,
       isLiked: !isLiked,
-      // nbLikes: nbLikes + 1,
     });
   };
 
@@ -41,7 +39,6 @@ const Spot = () => {
       type: 'ADD_DISLIKE_SPOT',
       id: id,
       isLiked: !isLiked,
-      // nbLikes: nbLikes - 1,
     });
   };
 

@@ -12,6 +12,7 @@ const initialState = {
   city: '',
   equipement: '',
   departement: '01',
+  profileData: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -46,16 +47,7 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_PROFILE':
       return {
         ...state,
-        id: action.id,
-        lastname: action.lastname,
-        firstname: action.firstname,
-        pseudo: action.pseudo,
-        email: action.email,
-        password: action.password,
-        presentation: action.presentation,
-        city: action.city,
-        equipement: action.equipement,
-        departement: action.departement,
+        profileData: action.newProfile,
       };
     case 'TOGGLE_MENU':
       return {

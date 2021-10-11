@@ -15,7 +15,7 @@ const Events = () => {
   const eventsList = useSelector((state) => state.events.eventsList);
   const eventsDepar = useSelector((state) => state.events.eventsDepar);
   const eventsCateg = useSelector((state) => state.events.eventsCate);
-
+  const logged = useSelector((state) => state.user.logged);
   const departValue = useSelector((state) => state.events.departValue);
   const spotDisci = useSelector((state) => state.events.spotDisci);
   const newResultList = useSelector((state) => state.events.newResultList);
@@ -37,7 +37,6 @@ const Events = () => {
   const handleSearchEvents = (evt) => {
     evt.preventDefault();
     const departFiltered = findFiltredDepartementSpots(eventsList, departValue);
-
     const finalResult = findFilteredCategoriesSpots(departFiltered, spotDisci);
     dispatch({
       type: 'SAVE_EVENT_RESULT_LIST',
@@ -47,7 +46,7 @@ const Events = () => {
 
   return (
     <div className="eventList">
-      <Link className="eventList__add" to="/ajout-evenement">Ajouter un évènement</Link>
+      <Link className="eventList__add" to={logged ? '/ajout-evenement' : '/connexion'}>Ajouter un évènement</Link>
       <h1 className="eventList__title">Liste des evènements</h1>
       <form className="eventList__filter" onSubmit={handleSearchEvents}>
         <Select
