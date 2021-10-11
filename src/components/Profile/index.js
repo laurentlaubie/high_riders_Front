@@ -33,7 +33,7 @@ const Profil = () => {
       <p className="profil__description">Description: {presentation}</p>
       <p className="profil__city">Ville: {city}</p>
       <p className="profil__gear">Equipement: {equipement}</p>
-      <button className="profil__button" type="submit"><Link to="/inscription">Modifier votre profil</Link></button>
+      <button className="profil__button" type="submit"><Link to="/modifier-profil">Modifier votre profil</Link></button>
     </div>
   );
 };
