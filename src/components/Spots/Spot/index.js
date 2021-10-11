@@ -34,8 +34,6 @@ const Spot = () => {
     getSpotId();
   }, []);
 
-  // const { latitude, longitude } = spotId;
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch({
@@ -50,8 +48,8 @@ const Spot = () => {
       <div className="spot">
         <div className="spot__container">
           <div className="spot__title__container">
-            <h2 className="spot__title__container__title">{spotId.title || '...'}</h2>
-            <img src={spotId.image} alt={spotId.title || ''} className="spot__title__container__img" />
+            <h2 className="spot__title__container__title">{spotId.title}</h2>
+            <img src={spotId.image} alt={spotId.title} className="spot__title__container__img" />
           </div>
           <div className="spot__infos">
             <div className="spot__infos__meta">
@@ -71,10 +69,13 @@ const Spot = () => {
               <span className="spot__stats__tag">Localisation</span>
               <span className="spot__stats__name">{spotId.city}</span>
             </div>
-            <div className="spot__stats__container">
-              <span className="spot__stats__tag">Département</span>
-              <span className="spot__stats__name">{spotId.departement.title}</span>
-            </div>
+            {spotId.departement
+              ? (
+                <div className="spot__stats__container">
+                  <span className="spot__stats__tag">Département</span>
+                  <span className="spot__stats__name">{spotId.departement.title || ''}</span>
+                </div>
+              ) : ''}
             {spotId.saison_date ? (
               <div className="spot__stats__container">
                 <span className="spot__stats__tag">Date des saisons</span>
@@ -130,7 +131,7 @@ const Spot = () => {
             <BasicMap
               zoom={13}
               coordinates={[spotId.latitude || 0, spotId.longitude || 0]}
-              popupTitle={`${spotId.title || ''}, ${spotId.address}`}
+              popupTitle={`${spotId.title}, ${spotId.address}`}
             />
           </div>
           <form className="spot__comments" onSubmit={handleSubmit}>

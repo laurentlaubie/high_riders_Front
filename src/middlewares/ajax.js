@@ -5,8 +5,8 @@ import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 import { FETCH_PROFILE } from '../actions/profile';
 
 const api = axios.create({
-  baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
-  // baseURL: 'http://localhost:8000/api/v1',
+  // baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
+  baseURL: 'http://localhost:8000/api/v1',
 });
 
 const connectedToken = localStorage.getItem('token');
@@ -107,9 +107,9 @@ const ajax = (store) => (next) => (action) => {
     const state = store.getState();
     api.post('/login_check', {
       username: state.user.email,
-      // password: state.user.password,
+      password: state.user.password,
       // username: 'laurent@oclock.io',
-      password: 'demotest',
+      // password: 'demotest',
     })
       .then((res) => {
         // success
