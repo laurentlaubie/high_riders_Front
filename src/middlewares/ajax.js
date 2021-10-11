@@ -5,8 +5,8 @@ import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 import { FETCH_PROFILE } from '../actions/profile';
 
 const api = axios.create({
-  // baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
-  baseURL: 'http://localhost:8000/api/v1',
+  baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
+  // baseURL: 'http://localhost:8000/api/v1',
 });
 
 const connectedToken = localStorage.getItem('token');
@@ -178,9 +178,6 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
-        // store.dispatch({
-        //   type: 'SAVE_SPOTS_LIST',
-        // });
         console.log(res);
         window.location.href = '/evenements';
       })
@@ -224,6 +221,36 @@ const ajax = (store) => (next) => (action) => {
           newEvent: res.data,
         });
         // console.log(res.data);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === 'ADD_LIKE_SPOT') {
+    api.patch(`/spots/${action.id}/like`, {})
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'TOGGLE_LIKE_SPOT',
+          liked: action.isLiked,
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === 'ADD_DISLIKE_SPOT') {
+    api.patch(`/spots/${action.id}/dislike`, {})
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'TOGGLE_LIKE_SPOT',
+          liked: action.isLiked,
+        });
+        console.log(res);
       })
       .catch((err) => {
         // error

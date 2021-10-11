@@ -11,6 +11,7 @@ export const initialState = {
   departValue: '1',
   spotDisci: '1',
   newResultList: [],
+  isLiked: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -48,6 +49,11 @@ const reducer = (state = initialState, action = {}) => {
     //     ...state,
     //     newOpeningHours: action.newHour,
     //   };
+    case 'TOGGLE_LIKE_SPOT':
+      return {
+        ...state,
+        isLiked: action.liked,
+      };
     default:
       return state;
   }
