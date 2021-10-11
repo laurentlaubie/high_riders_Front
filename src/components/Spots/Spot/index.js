@@ -17,12 +17,31 @@ const Spot = () => {
   const loading = useSelector((state) => state.spots.loading);
   const newcomment = useSelector((state) => state.spots.newComment);
   const commentsData = useSelector((state) => state.spots.spotId.comments);
+  const isLiked = useSelector((state) => state.spots.isLiked);
 
   const changeField = (value, key) => {
     dispatch({
       type: 'CHANGE_SPOT_VALUE',
       value: value,
       key: key,
+    });
+  };
+
+  const handleLike = () => {
+    dispatch({
+      type: 'ADD_LIKE_SPOT',
+      id: id,
+      isLiked: !isLiked,
+      // nbLikes: nbLikes + 1,
+    });
+  };
+
+  const handleDislike = () => {
+    dispatch({
+      type: 'ADD_DISLIKE_SPOT',
+      id: id,
+      isLiked: !isLiked,
+      // nbLikes: nbLikes - 1,
     });
   };
 
@@ -55,7 +74,9 @@ const Spot = () => {
             <div className="spot__infos__meta">
               <div className="spot__infos__meta__container">
                 <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '0'}</span>
-                <button type="button" className="spot__infos__meta__container__button">J'aime</button>
+                {isLiked
+                  ? <button type="button" className="spot__infos__meta__container__button" onClick={handleLike}>J'aime</button>
+                  : <button type="button" className="spot__infos__meta__container__button" onClick={handleDislike}>Je n'aime plus</button>}
               </div>
               <span className="spot__infos__meta__event">{spotId.type_spot}</span>
             </div>
