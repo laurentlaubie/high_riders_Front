@@ -40,10 +40,6 @@ const reducer = (state = initialState, action = {}) => {
         userId: '',
         token: '',
       };
-    case 'NEW_USER':
-      return {
-        ...state,
-      };
     case 'GET_PROFILE':
       return {
         ...state,
@@ -58,6 +54,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         classSearch: action.classSearch,
+      };
+    case 'UPDATE':
+      return {
+        ...state,
       };
     default:
       return state;
