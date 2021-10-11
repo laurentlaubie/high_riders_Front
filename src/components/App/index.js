@@ -1,4 +1,5 @@
 // == Import
+import Register from 'src/components/Register';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,7 +12,6 @@ import Events from '../Events';
 import Spots from '../Spots';
 import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
-import ProfileSettings from '../ProfileSettings/ProfileForm';
 import Profile from '../Profile';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
@@ -58,7 +58,7 @@ const App = () => {
           <Result />
         </Route>
         <Route path="/inscription">
-          <ProfileSettings />
+          <Register />
         </Route>
         <Route path="/connexion">
           <Connection />

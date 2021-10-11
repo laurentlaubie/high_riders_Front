@@ -16,13 +16,6 @@ const AddSpot = () => {
   const openingHours = useSelector((state) => state.spots.newOpeningHours);
   const typeSpot = useSelector((state) => state.spots.newTypeSpot);
   const category = useSelector((state) => state.spots.newCategory);
-  // const category0 = useSelector((state) => state.spots.newCategory0);
-  // const category1 = useSelector((state) => state.spots.newCategory1);
-  // const category2 = useSelector((state) => state.spots.newCategory2);
-  // const category3 = useSelector((state) => state.spots.newCategory3);
-  // const category4 = useSelector((state) => state.spots.newCategory4);
-  // const category5 = useSelector((state) => state.spots.newCategory5);
-  // const category6 = useSelector((state) => state.spots.newCategory6);
   const departement = useSelector((state) => state.spots.newDepartement);
 
   useEffect(() => {
@@ -56,13 +49,6 @@ const AddSpot = () => {
           openingHours={openingHours}
           typeSpot={typeSpot}
           category={category}
-          // category0={category0}
-          // category1={category1}
-          // category2={category2}
-          // category3={category3}
-          // category4={category4}
-          // category5={category5}
-          // category6={category6}
           departement={departement}
           changeField={changeField}
           sendData={sendData}
@@ -71,9 +57,5 @@ const AddSpot = () => {
     </div>
   );
 };
-
-// AddSpot.propTypes = {
-
-// };
 
 export default AddSpot;

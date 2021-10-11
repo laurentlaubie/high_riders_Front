@@ -16,7 +16,7 @@ const spotList = () => {
   const spotDataList = useSelector((state) => state.spots.spotsList);
   const spotsCate = useSelector((state) => state.spots.spotsCate);
   const spotsDeparts = useSelector((state) => state.spots.spotsDeparts);
-
+  const logged = useSelector((state) => state.user.logged);
   const departValue = useSelector((state) => state.spots.departValue);
   const spotDisci = useSelector((state) => state.spots.spotDisci);
   const newResultList = useSelector((state) => state.spots.newResultList);
@@ -36,7 +36,6 @@ const spotList = () => {
   const handleSearchSpots = (evt) => {
     evt.preventDefault();
     const departFiltered = findFiltredDepartementSpots(spotDataList, departValue);
-
     const categFiltered = findFilteredCategoriesSpots(departFiltered, spotDisci);
     dispatch({
       type: 'SAVE_RESULT_LIST',
@@ -46,7 +45,7 @@ const spotList = () => {
 
   return (
     <div className="spotList">
-      <Link className="spotList__add" to="/ajout-spot">Ajouter un spot</Link>
+      <Link className="spotList__add" to={logged ? '/ajout-spot' : '/connexion'}>Ajouter un spot</Link>
       <h1 className="spotList__title">Liste des spots</h1>
       <form className="spotList__filter" onSubmit={handleSearchSpots}>
         <Select

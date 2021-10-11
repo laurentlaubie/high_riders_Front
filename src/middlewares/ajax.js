@@ -189,15 +189,16 @@ const ajax = (store) => (next) => (action) => {
   if (action.type === 'ADD_PROFILE') {
     const state = store.getState();
     api.post('/users/add', {
-      lastname: state.user.lastname,
-      firstname: state.user.firstname,
-      pseudo: state.user.pseudo,
-      email: state.user.email,
-      password: state.user.password,
-      presentation: state.user.presentation,
-      city: state.user.city,
-      equipement: state.user.equipement,
-      departement: state.user.departement,
+      email: state.user.newEmailRegister,
+      pseudo: state.user.newPseudoRegister,
+      password: state.user.newPasswordRegister,
+      avatar: state.user.newImageRegister,
+      firstname: state.user.newPrenomRegister,
+      lastname: state.user.newNameRegister,
+      presentation: state.user.newDescriptionRegister,
+      city: state.user.newCityRegister,
+      departement: state.user.newDepartementRegister,
+      equipement: state.user.newEquipementRegister,
     })
       .then((res) => {
         // success
@@ -264,17 +265,8 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch({
           type: 'GET_PROFILE',
           newProfile: res.data,
-          lastname: res.data.lastname,
-          firstname: res.data.firstname,
-          pseudo: res.data.pseudo,
-          email: res.data.email,
-          password: res.data.password,
-          presentation: res.data.presentation,
-          city: res.data.city,
-          equipement: res.data.equipement,
-          departement: res.data.departement,
         });
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         // error
