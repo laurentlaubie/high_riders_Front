@@ -4,8 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 import BasicMap from 'src/components/BasicMap';
 
 import './style.scss';
+import findIfParticipate from 'src/selectors/events';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Field from '../../Field';
 import Comments from '../../Comments';
 // import data from 'src/data';
@@ -17,6 +18,10 @@ const Event = () => {
   const loading = useSelector((state) => state.events.loading);
   const newcomment = useSelector((state) => state.events.newComment);
   const commentsData = useSelector((state) => state.events.eventId.comments);
+  const userPart = useSelector((state) => state.events.eventId.participations);
+  const participateUser = useSelector((state) => state.events.participateUser);
+  const userId = useSelector((state) => state.user.userId);
+  const togPart = useSelector((state) => state.events.togPart);
 
   const changeField = (value, key) => {
     dispatch({
@@ -26,12 +31,6 @@ const Event = () => {
     });
   };
 
-  const [participate, setParticipate] = useState(false);
-
-  const handleToggleParticipate = () => {
-    setParticipate(!participate);
-  };
-
   const getEventId = () => {
     dispatch({
       type: 'FETCH_EVENT_ID',
@@ -39,9 +38,23 @@ const Event = () => {
     });
   };
 
-  useEffect(() => {
-    getEventId();
-  }, []);
+  const isParticipate = findIfParticipate(userPart, userId);
+
+  dispatch({
+    type: 'USER_IS_PARTICIPATING',
+    participateUserEvent: isParticipate,
+  });
+
+  const handleToggleParticipate = () => {
+    dispatch({
+      type: 'TOGGLE_PARTICIPATE',
+      participateUser: !participateUser,
+    });
+    dispatch({
+      type: 'SEND_EVENT_PARTICIPATION',
+      id: id,
+    });
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -50,6 +63,10 @@ const Event = () => {
       id: id,
     });
   };
+
+  useEffect(() => {
+    getEventId();
+  }, []);
 
   return (
     <>
@@ -132,9 +149,10 @@ const Event = () => {
               />
             </div>
             <div className="event__participate">
-              {participate
+              {!togPart
+              && !participateUser
                 ? <button className="event__participate__button event__participate__button--dark" type="button" onClick={handleToggleParticipate}>Je participe</button>
-                : <button className="event__participate__button event__participate__button--clear" type="button" onClick={handleToggleParticipate}>Je ne veux plus participer</button>}
+                : <p>Participation à l'évènement prise en compte !</p>}
             </div>
             <div className="event__comments">
               <form className="event__comments__input" onSubmit={handleSubmit}>

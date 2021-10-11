@@ -1,6 +1,8 @@
 const initialState = {
   loading: true,
-  eventId: {},
+  eventId: {
+    participations: [],
+  },
   eventsList: [],
   eventsCate: [],
   eventsDepar: [],
@@ -8,6 +10,8 @@ const initialState = {
   departValue: '1',
   spotDisci: '1',
   newResultList: [],
+  participateUser: false,
+  togPart: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -39,6 +43,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         newComment: '',
+      };
+    case 'TOGGLE_PARTICIPATE':
+      return {
+        ...state,
+        togPart: action.participateUser,
+      };
+    case 'USER_IS_PARTICIPATING':
+      return {
+        ...state,
+        participateUser: action.participateUserEvent,
       };
     default:
       return state;
