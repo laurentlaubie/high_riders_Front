@@ -2,7 +2,7 @@ import axios from 'axios';
 // import jwtDecode from 'jwt-decode';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
-import { FETCH_PROFILE } from '../actions/profile';
+import { FETCH_PROFILE, UPDATE_PROFILE } from '../actions/profile';
 
 const api = axios.create({
   baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
@@ -107,9 +107,9 @@ const ajax = (store) => (next) => (action) => {
     const state = store.getState();
     api.post('/login_check', {
       username: state.user.email,
-      // password: state.user.password,
+      password: state.user.password,
       // username: 'laurent@oclock.io',
-      password: 'demotest',
+      // password: 'demotest',
     })
       .then((res) => {
         // success
@@ -204,9 +204,6 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
-        /* store.dispatch({
-          type: 'NEW_USER',
-        }); */
         window.location.href = '/connexion';
         console.log(res);
       })
@@ -297,6 +294,31 @@ const ajax = (store) => (next) => (action) => {
         // store.dispatch({
         //   type: 'SUCCESS_COMMENT_EVENT',
         // });
+        console.log(res);
+      })
+      .catch((err) => {
+        // error
+        console.log(err);
+      });
+  }
+  if (action.type === UPDATE_PROFILE) {
+    const state = store.getState();
+    api.put(`/users/${action.id}`, {
+      lastname: state.user.lastname,
+      firstname: state.user.firstname,
+      pseudo: state.user.pseudo,
+      email: state.user.email,
+      presentation: state.user.presentation,
+      city: state.user.city,
+      equipement: state.user.equipement,
+      departement: state.user.departement,
+    })
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'UPDATE',
+        });
+        window.location.href = '/profil';
         console.log(res);
       })
       .catch((err) => {

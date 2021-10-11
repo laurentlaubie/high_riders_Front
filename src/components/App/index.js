@@ -13,6 +13,7 @@ import LegalNotice from '../LegalNotice';
 import Connection from '../Connection';
 import ProfileSettings from '../ProfileSettings/ProfileForm';
 import Profile from '../Profile';
+import ProfileUpdate from '../ProfileUpdate';
 import Spot from '../Spots/Spot';
 import Footer from '../Footer';
 import AddSpot from '../Spots/AddSpot';
@@ -73,8 +74,8 @@ const App = () => {
           mot de passe oublie
         </Route>
         {logged && (
-          <Route path="/profil">
-            <Profile />
+          <Route path="/modifier-profil">
+            <ProfileUpdate />
           </Route>
         )}
         <Route path="/spots" exact>
