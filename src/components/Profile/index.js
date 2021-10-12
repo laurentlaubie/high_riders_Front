@@ -7,7 +7,6 @@ import './style.scss';
 const Profil = () => {
   const id = useSelector((state) => state.user.userId);
   const profileData = useSelector((state) => state.user.profileData);
-  console.log(profileData);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,7 +25,7 @@ const Profil = () => {
       <div className="profil__data profil__description"><span className="profil__tag-title">Description: </span><span>{profileData.presentation}</span></div>
       <div className="profil__data profil__city"><span className="profil__tag-title">Ville: </span><span>{profileData.city}</span></div>
       <div className="profil__data profil__gear"><span className="profil__tag-title">Equipement: </span><span>{profileData.equipement}</span></div>
-      <Link className="profil__button" to="/inscription">Modifier votre profil</Link>
+      <Link className="profil__button" to="/modifier-profil">Modifier votre profil</Link>
     </div>
   );
 };

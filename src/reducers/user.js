@@ -11,7 +11,6 @@ const initialState = {
   presentation: '',
   city: '',
   equipement: '',
-  departement: '01',
   profileData: {},
 };
 
@@ -44,6 +43,19 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         profileData: action.newProfile,
+        profileAvatar: action.newProfile.avatar,
+        profileCategories: action.newProfile.categories,
+        profileCity: action.newProfile.city,
+        profileDepartement: action.newProfile.departement,
+        profileEmail: action.newProfile.email,
+        profileEquipement: action.newProfile.equipement,
+        profileEvents: action.newProfile.events,
+        profileFirstname: action.newProfile.firstname,
+        profileLastname: action.newProfile.lastname,
+        profileParticipations: action.newProfile.participations,
+        profilePresentation: action.newProfile.presentation,
+        profilePseudo: action.newProfile.pseudo,
+        profileSpots: action.newProfile.spots,
       };
     case 'TOGGLE_MENU':
       return {

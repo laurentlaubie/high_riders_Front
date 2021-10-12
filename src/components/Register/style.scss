@@ -1,6 +1,10 @@
 .profile__form {
   display: flex;
   flex-direction: column;
+  padding: 0.5em;
+  width: 100%;
+  max-width: 50em;
+  margin: auto;
 
   &--title {
     text-align: center;

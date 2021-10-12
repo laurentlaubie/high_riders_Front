@@ -43,7 +43,7 @@ const ProfileForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="profile__form">
-      <h1 className="profile__form--title">Inscripion</h1>
+      <h1 className="profile__form--title">Inscription</h1>
       <Field
         name="newImageRegister"
         placeholder="Lien de l'avatar"

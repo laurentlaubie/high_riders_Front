@@ -263,7 +263,7 @@ const ajax = (store) => (next) => (action) => {
           type: 'GET_PROFILE',
           newProfile: res.data,
         });
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         // error
@@ -323,14 +323,15 @@ const ajax = (store) => (next) => (action) => {
   if (action.type === UPDATE_PROFILE) {
     const state = store.getState();
     api.put(`/users/${action.id}`, {
-      lastname: state.user.lastname,
-      firstname: state.user.firstname,
-      pseudo: state.user.pseudo,
-      email: state.user.email,
-      presentation: state.user.presentation,
-      city: state.user.city,
-      equipement: state.user.equipement,
-      departement: state.user.departement,
+      email: state.user.profileEmail,
+      pseudo: state.user.profilePseudo,
+      avatar: state.user.profileAvatar,
+      firstname: state.user.profileFirstname,
+      lastname: state.user.profileLastname,
+      presentation: state.user.profilePresentation,
+      city: state.user.profileCity,
+      departement: state.user.profileDepartement,
+      equipement: state.user.profileEquipement,
     })
       .then((res) => {
         // success
@@ -342,6 +343,19 @@ const ajax = (store) => (next) => (action) => {
       })
       .catch((err) => {
         // error
+        console.log(err);
+      });
+  }
+  if (action.type === 'DELETE_PROFILE') {
+    api.delete(`/users/${action.id}`)
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'LOGOUT',
+        });
+        console.log(res);
+      })
+      .catch((err) => {
         console.log(err);
       });
   }
