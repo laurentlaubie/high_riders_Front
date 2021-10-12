@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Field from 'src/components/Field';
 import SelectInfos from 'src/components/SelectInfos';
+import Select from 'src/components/Select';
 
 import './style.scss';
 import { useEffect } from 'react';
@@ -20,7 +21,9 @@ const ProfileForm = () => {
   const newDescriptionRegister = useSelector((state) => state.user.newDescriptionRegister);
   const newCityRegister = useSelector((state) => state.user.newCityRegister);
   const newDepartementRegister = useSelector((state) => state.user.newDepartementRegister);
+  const newDisciRegister = useSelector((state) => state.user.newDisciRegister);
   const spotsDeparts = useSelector((state) => state.spots.spotsDeparts);
+  const spotsCate = useSelector((state) => state.spots.spotsCate);
 
   const changeField = (value, key) => {
     dispatch({
@@ -64,7 +67,7 @@ const ProfileForm = () => {
       />
       <Field
         name="newPseudoRegister"
-        placeholder="Pseudo"
+        placeholder="Pseudo (au moins 6 caractères)"
         onChange={changeField}
         value={newPseudoRegister}
       />
@@ -82,7 +85,7 @@ const ProfileForm = () => {
       />
       <Field
         name="newPasswordRegister"
-        placeholder="Mot de passe"
+        placeholder="Mot de passe (au moins 6 caractères)"
         type="password"
         onChange={changeField}
         value={newPasswordRegister}
@@ -111,6 +114,13 @@ const ProfileForm = () => {
         name="newDepartementRegister"
         data={spotsDeparts}
         placeholder="Département"
+        onChange={changeField}
+      />
+      <Select
+        value={newDisciRegister}
+        name="newDisciRegister"
+        data={spotsCate}
+        placeholder="Discipline"
         onChange={changeField}
       />
       <Field

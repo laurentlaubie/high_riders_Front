@@ -198,6 +198,7 @@ const ajax = (store) => (next) => (action) => {
       presentation: state.user.newDescriptionRegister,
       city: state.user.newCityRegister,
       departement: state.user.newDepartementRegister,
+      categories: [state.user.newDisciRegister],
       equipement: state.user.newEquipementRegister,
     })
       .then((res) => {
