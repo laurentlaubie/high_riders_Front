@@ -99,7 +99,7 @@ const ProfileForm = () => {
       />
       <Field
         name="newDescriptionRegister"
-        placeholder="Description"
+        placeholder="Présentation"
         onChange={changeField}
         value={newDescriptionRegister}
       />

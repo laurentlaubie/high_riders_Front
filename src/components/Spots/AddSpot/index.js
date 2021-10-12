@@ -17,6 +17,8 @@ const AddSpot = () => {
   const typeSpot = useSelector((state) => state.spots.newTypeSpot);
   const category = useSelector((state) => state.spots.newCategory);
   const departement = useSelector((state) => state.spots.newDepartement);
+  const latitude = useSelector((state) => state.spots.newLatitude);
+  const longitude = useSelector((state) => state.spots.newLongitude);
 
   useEffect(() => {
     dispatch(fetchSpotsList());
@@ -28,6 +30,11 @@ const AddSpot = () => {
       value: value,
       key: key,
     });
+  };
+
+  const changeFieldNumber = (value, key) => {
+    const addNumber = Number(value);
+    changeField(addNumber, key);
   };
 
   const sendData = () => {
@@ -51,7 +58,10 @@ const AddSpot = () => {
           category={category}
           departement={departement}
           changeField={changeField}
+          changeFieldNumber={changeFieldNumber}
           sendData={sendData}
+          newLatitude={latitude}
+          newLongitude={longitude}
         />
       </div>
     </div>

@@ -9,6 +9,7 @@ import './style.scss';
 
 const SpotForm = ({
   changeField,
+  changeFieldNumber,
   title,
   image,
   description,
@@ -19,6 +20,8 @@ const SpotForm = ({
   category,
   departement,
   sendData,
+  newLatitude,
+  newLongitude,
 }) => {
   // const dispatch = useDispatch();
   const spotsCate = useSelector((state) => state.spots.spotsCate);
@@ -117,6 +120,26 @@ const SpotForm = ({
           placeholder="Département"
           onChange={changeField}
         />
+        <Field
+          name="newLatitude"
+          placeholder="Latitude"
+          type="number"
+          step={0.00000001}
+          min={-9999999999}
+          max={9999999999}
+          onChange={changeFieldNumber}
+          value={newLatitude}
+        />
+        <Field
+          name="newLongitude"
+          placeholder="Longitude"
+          type="number"
+          step={0.00000001}
+          min={-9999999999}
+          max={9999999999}
+          onChange={changeFieldNumber}
+          value={newLongitude}
+        />
         <div className="login-form__validate">
           <Link to="/spots">Annuler</Link>
           <button type="submit" className="login-form__button">Valider</button>
@@ -137,7 +160,10 @@ SpotForm.propTypes = {
   category: PropTypes.string,
   departement: PropTypes.string,
   changeField: PropTypes.func.isRequired,
+  changeFieldNumber: PropTypes.func.isRequired,
   sendData: PropTypes.func.isRequired,
+  newLatitude: PropTypes.number,
+  newLongitude: PropTypes.number,
 };
 
 SpotForm.defaultProps = {
@@ -150,6 +176,8 @@ SpotForm.defaultProps = {
   typeSpot: '',
   category: '',
   departement: '',
+  newLatitude: 0,
+  newLongitude: 0,
 };
 
 export default SpotForm;

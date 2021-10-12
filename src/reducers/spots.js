@@ -10,6 +10,7 @@ export const initialState = {
   newDepartement: '1',
   departValue: '1',
   spotDisci: '1',
+  newOpeningHours: '00:00',
   newResultList: [],
   isLiked: true,
 };

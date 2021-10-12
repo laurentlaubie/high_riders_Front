@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
@@ -12,6 +12,7 @@ import Comments from '../../Comments';
 const Event = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const eventId = useSelector((state) => state.events.eventId);
   const loading = useSelector((state) => state.events.loading);
   const newcomment = useSelector((state) => state.events.newComment);
@@ -60,6 +61,15 @@ const Event = () => {
       type: 'SEND_EVENT_COMMENT',
       id: id,
     });
+  };
+
+  const handleSubmitDeleteEvent = (evt) => {
+    evt.preventDefault();
+    dispatch({
+      type: 'DELETE_EVENT',
+      id: id,
+    });
+    history.push('/events');
   };
 
   useEffect(() => {
@@ -168,6 +178,9 @@ const Event = () => {
                 ? <Comments comments={commentsData} />
                 : <p>Pas encore de commentaires ...</p>}
             </div>
+            <form className="form__delete" onSubmit={handleSubmitDeleteEvent}>
+              <button className="form__delete__button" type="submit">Supprimer l'event</button>
+            </form>
           </div>
         </div>
       )}

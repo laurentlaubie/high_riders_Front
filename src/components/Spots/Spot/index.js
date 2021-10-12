@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import BasicMap from 'src/components/BasicMap';
 
@@ -12,6 +12,7 @@ import Field from '../../Field';
 const Spot = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const spotId = useSelector((state) => state.spots.spotId);
   const loading = useSelector((state) => state.spots.loading);
   const newcomment = useSelector((state) => state.spots.newComment);
@@ -40,6 +41,15 @@ const Spot = () => {
       id: id,
       isLiked: !isLiked,
     });
+  };
+
+  const handleSubmitDeleteSpot = (evt) => {
+    evt.preventDefault();
+    dispatch({
+      type: 'DELETE_SPOT',
+      id: id,
+    });
+    history.push('/spots');
   };
 
   const getSpotId = () => {
@@ -163,6 +173,9 @@ const Spot = () => {
             {commentsData.length > 0
               ? <Comments comments={commentsData} />
               : <p>Pas encore de commentaires ...</p>}
+          </form>
+          <form className="form__delete" onSubmit={handleSubmitDeleteSpot}>
+            <button className="form__delete__button" type="submit">Supprimer le spot</button>
           </form>
         </div>
       </div>
