@@ -70,9 +70,6 @@ const App = () => {
             <Connection />
           </Route>
           )}
-        <Route path="/mot-de-passe-oublie">
-          mot de passe oublie
-        </Route>
         {logged && (
           <Route path="/modifier-profil">
             <ProfileUpdate />
