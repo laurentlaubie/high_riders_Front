@@ -5,8 +5,8 @@ import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 import { FETCH_PROFILE, UPDATE_PROFILE } from '../actions/profile';
 
 const api = axios.create({
-  // baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
-  baseURL: 'http://localhost:8000/api/v1',
+  baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
+  // baseURL: 'http://localhost:8000/api/v1',
 });
 
 const connectedToken = localStorage.getItem('token');
