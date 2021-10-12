@@ -3,8 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
   margin: auto;
 
   &__title {
@@ -16,8 +14,8 @@
   }
 
   &__avatar {
-    width: 10em;
-    height: 10em;
+    width: 8em;
+    height: 8em;
     margin-bottom: 1rem;
     margin-top: -1rem;
 
@@ -44,7 +42,7 @@
   &__button {
     width: 90%;
     max-width: 20em;
-    height: 6em;
+    height: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,6 +50,7 @@
     color: #fff;
     background-color: #283618;
     margin: 1rem auto;
+    margin-bottom: 2rem;
   }
 }
 
