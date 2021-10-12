@@ -69,7 +69,7 @@ const Event = () => {
       type: 'DELETE_EVENT',
       id: id,
     });
-    history.push('/events');
+    history.push('/evenements');
   };
 
   useEffect(() => {
@@ -178,8 +178,8 @@ const Event = () => {
                 ? <Comments comments={commentsData} />
                 : <p>Pas encore de commentaires ...</p>}
             </div>
-            <form className="form__delete" onSubmit={handleSubmitDeleteEvent}>
-              <button className="form__delete__button" type="submit">Supprimer l'event</button>
+            <form className="event__delete" onSubmit={handleSubmitDeleteEvent}>
+              <button className="event__delete__button" type="submit">Supprimer l'event</button>
             </form>
           </div>
         </div>

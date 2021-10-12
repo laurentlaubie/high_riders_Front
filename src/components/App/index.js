@@ -2,6 +2,8 @@
 import Register from 'src/components/Register';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import Header from 'src/components/Header';
 import Result from 'src/components/Result';
@@ -51,6 +53,7 @@ const App = () => {
   return (
     <div className="app">
       <Header />
+      <ToastContainer autoClose={2000} />
       <Switch>
         <Route exact path="/">
           <Homepage />

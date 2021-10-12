@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 // import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import BasicMap from 'src/components/BasicMap';
 
 import Field from '../../../Field';
 import Select from '../../../Select';
@@ -15,7 +16,7 @@ const SpotForm = ({
   description,
   address,
   city,
-  openingHours,
+  // openingHours,
   typeSpot,
   category,
   departement,
@@ -90,13 +91,13 @@ const SpotForm = ({
           onChange={changeField}
           value={city}
         />
-        <Field
+        {/* <Field
           name="newOpeningHours"
           type="time"
           placeholder="Horaires d'ouverture"
           onChange={changeField}
           value={openingHours}
-        />
+        /> */}
         <Select
           value={typeSpot}
           name="newTypeSpot"
@@ -120,6 +121,7 @@ const SpotForm = ({
           placeholder="Département"
           onChange={changeField}
         />
+        <span className="login-form__tag">Latitude</span>
         <Field
           name="newLatitude"
           placeholder="Latitude"
@@ -130,6 +132,7 @@ const SpotForm = ({
           onChange={changeFieldNumber}
           value={newLatitude}
         />
+        <span className="login-form__tag">Longitude</span>
         <Field
           name="newLongitude"
           placeholder="Longitude"
@@ -140,6 +143,9 @@ const SpotForm = ({
           onChange={changeFieldNumber}
           value={newLongitude}
         />
+        <div className="login-form__map">
+          <BasicMap />
+        </div>
         <div className="login-form__validate">
           <Link to="/spots">Annuler</Link>
           <button type="submit" className="login-form__button">Valider</button>
@@ -155,7 +161,7 @@ SpotForm.propTypes = {
   description: PropTypes.string,
   address: PropTypes.string,
   city: PropTypes.string,
-  openingHours: PropTypes.string,
+  // openingHours: PropTypes.string,
   typeSpot: PropTypes.string,
   category: PropTypes.string,
   departement: PropTypes.string,
@@ -172,7 +178,7 @@ SpotForm.defaultProps = {
   description: '',
   address: '',
   city: '',
-  openingHours: '',
+  // openingHours: '',
   typeSpot: '',
   category: '',
   departement: '',
