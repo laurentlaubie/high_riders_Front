@@ -4,9 +4,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 20em;
   height: 100%;
-  max-height: 30em;
   margin: auto;
 
   &__title {
@@ -14,12 +12,14 @@
     color: #4b702d;
     font-size: 2em;
     font-weight: 700;
-    margin: 0.5em 0;
+    margin: 1.5em 0;
   }
 
   &__avatar {
     width: 10em;
     height: 10em;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
 
     &__image {
       height: 100%;
@@ -31,9 +31,10 @@
 
   &__data {
     text-align: start;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
+    margin: 1rem auto;
   }
 
   &__tag-title {
@@ -41,17 +42,21 @@
   }
 
   &__button {
-    width: 100%;
+    width: 90%;
     max-width: 20em;
-    height: 2em;
+    height: 6em;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: .2em;
     color: #fff;
     background-color: #283618;
+    margin: 1rem auto;
   }
 }
 
-// @media (min-width:1000px) {
-// }
+@media (min-width:1000px) {
+  .profil__data {
+    width: 30%;
+  }
+ }
