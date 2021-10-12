@@ -14,18 +14,18 @@ const ProfileUpdate = () => {
   const id = useSelector((state) => state.user.userId);
   const usersDeparts = useSelector((state) => state.spots.spotsDeparts);
   const profileAvatar = useSelector((state) => state.user.profileAvatar);
-  const profileCategories = useSelector((state) => state.user.profileCategories);
+  // const profileCategories = useSelector((state) => state.user.profileCategories);
   const profileCity = useSelector((state) => state.user.profileCity);
   const profileDepartement = useSelector((state) => state.user.profileDepartement);
   const profileEmail = useSelector((state) => state.user.profileEmail);
   const profileEquipement = useSelector((state) => state.user.profileEquipement);
-  const profileEvents = useSelector((state) => state.user.profileEvents);
+  // const profileEvents = useSelector((state) => state.user.profileEvents);
   const profileFirstname = useSelector((state) => state.user.profileFirstname);
   const profileLastname = useSelector((state) => state.user.profileLastname);
-  const profileParticipations = useSelector((state) => state.user.profileParticipations);
+  // const profileParticipations = useSelector((state) => state.user.profileParticipations);
   const profilePresentation = useSelector((state) => state.user.profilePresentation);
   const profilePseudo = useSelector((state) => state.user.profilePseudo);
-  const profileSpots = useSelector((state) => state.user.profileSpots);
+  // const profileSpots = useSelector((state) => state.user.profileSpots);
   const newPasswordUpdate = useSelector((state) => state.user.newPasswordUpdate);
   const newPasswordUpdateConfirm = useSelector((state) => state.user.newPasswordUpdateConfirm);
 

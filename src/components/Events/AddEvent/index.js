@@ -1,5 +1,3 @@
-// import PropTypes from 'prop-types';
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import EventForm from './EventForm';
@@ -20,6 +18,8 @@ const AddEvent = () => {
   const price = useSelector((state) => state.events.newPrice);
   const accessibility = useSelector((state) => state.events.newAccessibility);
   const dateEvent = useSelector((state) => state.events.newDateEvent);
+  const latitude = useSelector((state) => state.events.newLatitude);
+  const longitude = useSelector((state) => state.events.newLongitude);
 
   useEffect(() => {
     dispatch({
@@ -67,6 +67,8 @@ const AddEvent = () => {
           changeField={changeField}
           changeFieldNumber={changeFieldNumber}
           sendData={sendData}
+          newLatitude={latitude}
+          newLongitude={longitude}
         />
       </div>
     </div>

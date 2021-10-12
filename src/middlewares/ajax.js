@@ -5,8 +5,8 @@ import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 import { FETCH_PROFILE, UPDATE_PROFILE } from '../actions/profile';
 
 const api = axios.create({
-  baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
-  // baseURL: 'http://localhost:8000/api/v1',
+  // baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
+  baseURL: 'http://localhost:8000/api/v1',
 });
 
 const connectedToken = localStorage.getItem('token');
@@ -77,6 +77,8 @@ const ajax = (store) => (next) => (action) => {
       type_spot: state.spots.newTypeSpot,
       categories: [state.spots.newCategory],
       departement: state.spots.newDepartement,
+      latitude: state.spots.newLatitude,
+      longitude: state.spots.newLongitude,
     })
       .then((res) => {
         // success
@@ -175,6 +177,8 @@ const ajax = (store) => (next) => (action) => {
       price: state.events.newPrice,
       accessibility: state.events.newAccessibility,
       date_event: state.events.newDateEvent,
+      latitude: state.events.newLatitude,
+      longitude: state.events.newLongitude,
     })
       .then((res) => {
         // success
@@ -198,6 +202,7 @@ const ajax = (store) => (next) => (action) => {
       presentation: state.user.newDescriptionRegister,
       city: state.user.newCityRegister,
       departement: state.user.newDepartementRegister,
+      categories: [state.user.newDisciRegister],
       equipement: state.user.newEquipementRegister,
     })
       .then((res) => {
@@ -353,6 +358,30 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch({
           type: 'LOGOUT',
         });
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  if (action.type === 'DELETE_SPOT') {
+    api.delete(`/spots/${action.id}`, {})
+      .then((res) => {
+        // success
+        // store.dispatch({
+        // });
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  if (action.type === 'DELETE_EVENT') {
+    api.delete(`/events/${action.id}`, {})
+      .then((res) => {
+        // success
+        // store.dispatch({
+        // });
         console.log(res);
       })
       .catch((err) => {

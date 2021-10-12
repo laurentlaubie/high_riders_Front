@@ -24,6 +24,8 @@ const EventForm = ({
   category,
   departement,
   sendData,
+  newLatitude,
+  newLongitude,
 }) => {
   // const dispatch = useDispatch();
   const eventsCate = useSelector((state) => state.events.eventsCate);
@@ -72,9 +74,12 @@ const EventForm = ({
           onChange={changeField}
           value={closingHour}
         />
+        <span className="login-form__tag">Diffculté</span>
         <Field
           name="newDifficulty"
           type="number"
+          min={0}
+          max={5}
           placeholder="Difficulté"
           onChange={changeFieldNumber}
           value={difficulty}
@@ -92,9 +97,11 @@ const EventForm = ({
           onChange={changeField}
           value={link}
         />
+        <span className="login-form__tag">Prix</span>
         <Field
           name="newPrice"
           type="number"
+          max={9999999}
           placeholder="Prix de l'évènement"
           onChange={changeFieldNumber}
           value={price}
@@ -126,6 +133,26 @@ const EventForm = ({
           value={departement}
           data={departs}
         />
+        <Field
+          name="newLatitude"
+          placeholder="Latitude"
+          type="number"
+          step={0.00000001}
+          min={-9999999999}
+          max={9999999999}
+          onChange={changeFieldNumber}
+          value={newLatitude}
+        />
+        <Field
+          name="newLongitude"
+          placeholder="Longitude"
+          type="number"
+          step={0.00000001}
+          min={-9999999999}
+          max={9999999999}
+          onChange={changeFieldNumber}
+          value={newLongitude}
+        />
         <div className="login-form__validate">
           <Link to="/evenements">Annuler</Link>
           <button type="submit" className="login-form__button">Valider</button>
@@ -152,6 +179,8 @@ EventForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   changeFieldNumber: PropTypes.func.isRequired,
   sendData: PropTypes.func.isRequired,
+  newLatitude: PropTypes.number,
+  newLongitude: PropTypes.number,
 };
 
 EventForm.defaultProps = {
@@ -168,6 +197,8 @@ EventForm.defaultProps = {
   link: '',
   price: 0,
   accessibility: '',
+  newLatitude: 0,
+  newLongitude: 0,
 };
 
 export default EventForm;

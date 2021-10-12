@@ -11,6 +11,9 @@ const Field = ({
   name,
   placeholder,
   onChange,
+  min,
+  max,
+  step,
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
@@ -28,6 +31,9 @@ const Field = ({
         className="field-input"
         placeholder={placeholder}
         name={name}
+        min={min}
+        max={max}
+        step={step}
       />
 
       <label
@@ -49,11 +55,17 @@ Field.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
 };
 
 Field.defaultProps = {
   value: '',
   type: 'text',
+  min: 0,
+  max: 5,
+  step: 1,
 };
 
 // == Export

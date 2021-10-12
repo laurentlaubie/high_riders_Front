@@ -12,6 +12,8 @@ const initialState = {
   city: '',
   equipement: '',
   profileData: {},
+  newDisciRegister: '1',
+  newDepartementRegister: '01 - Ain',
 };
 
 const reducer = (state = initialState, action = {}) => {
