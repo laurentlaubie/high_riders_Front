@@ -18,6 +18,8 @@ const Spot = () => {
   const newcomment = useSelector((state) => state.spots.newComment);
   const commentsData = useSelector((state) => state.spots.spotId.comments);
   const isLiked = useSelector((state) => state.spots.isLiked);
+  const nbLikesStorage = useSelector((state) => state.spots.nbLikesStorage);
+  // console.log(nbLikesStorage);
 
   const changeField = (value, key) => {
     dispatch({
@@ -32,6 +34,7 @@ const Spot = () => {
       type: 'ADD_LIKE_SPOT',
       id: id,
       isLiked: !isLiked,
+      calcLikes: nbLikesStorage + 1,
     });
   };
 
@@ -40,6 +43,7 @@ const Spot = () => {
       type: 'ADD_DISLIKE_SPOT',
       id: id,
       isLiked: !isLiked,
+      calcLikes: nbLikesStorage - 1,
     });
   };
 
@@ -68,6 +72,14 @@ const Spot = () => {
     });
   };
 
+  localStorage.setItem('likesNumbers', nbLikesStorage);
+  localStorage.setItem('isLiked', isLiked);
+
+  const localIsLiked = localStorage.getItem('isLiked');
+  const localIsLikedReplaced = localIsLiked === 'true';
+
+  console.log(localIsLikedReplaced);
+
   return (
     <>
       {!loading && (
@@ -80,8 +92,8 @@ const Spot = () => {
           <div className="spot__infos">
             <div className="spot__infos__meta">
               <div className="spot__infos__meta__container">
-                <span className="spot__infos__meta__container__number">{spotId.s_like ? spotId.s_like : '0'}</span>
-                {isLiked
+                <span className="spot__infos__meta__container__number">{spotId.s_like ? nbLikesStorage : '0'}</span>
+                {localIsLikedReplaced
                   ? <button type="button" className="spot__infos__meta__container__button" onClick={handleLike}>J'aime</button>
                   : <button type="button" className="spot__infos__meta__container__button" onClick={handleDislike}>Je n'aime plus</button>}
               </div>

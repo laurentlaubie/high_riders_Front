@@ -236,13 +236,17 @@ const ajax = (store) => (next) => (action) => {
   }
   if (action.type === 'ADD_LIKE_SPOT') {
     api.patch(`/spots/${action.id}/like`, {})
-      .then((res) => {
+      .then(() => {
         // success
         store.dispatch({
           type: 'TOGGLE_LIKE_SPOT',
           liked: action.isLiked,
+          nbLikesStorage: action.calcLikes,
         });
-        console.log(res);
+        // store.dispatch({
+        //   type: 'LIKE_STORAGE_SPOT',
+        //   nbLikesStorage: action.calcLikes,
+        // });
       })
       .catch((err) => {
         // error
@@ -251,13 +255,17 @@ const ajax = (store) => (next) => (action) => {
   }
   if (action.type === 'ADD_DISLIKE_SPOT') {
     api.patch(`/spots/${action.id}/dislike`, {})
-      .then((res) => {
+      .then(() => {
         // success
         store.dispatch({
           type: 'TOGGLE_LIKE_SPOT',
           liked: action.isLiked,
+          nbLikesStorage: action.calcLikes,
         });
-        console.log(res);
+        // store.dispatch({
+        //   type: 'DISLIKE_STORAGE_SPOT',
+        //   nbLikesStorage: action.calcLikes,
+        // });
       })
       .catch((err) => {
         // error

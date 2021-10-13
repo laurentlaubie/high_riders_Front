@@ -29,6 +29,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         spotId: action.newSpot,
         loading: false,
+        nbLikesStorage: action.newSpot.s_like,
       };
     case 'CHANGE_SPOT_VALUE':
       return {
@@ -54,7 +55,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLiked: action.liked,
+        nbLikesStorage: action.nbLikesStorage,
       };
+    // case 'LIKE_STORAGE_SPOT':
+    //   return {
+    //     ...state,
+    //     nbLikesStorage: action.nbLikesStorage,
+    //   };
+    // case 'DISLIKE_STORAGE_SPOT':
+    //   return {
+    //     ...state,
+    //     nbLikesStorage: action.nbLikesStorage,
+    //   };
     default:
       return state;
   }
