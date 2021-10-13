@@ -7,7 +7,7 @@
     color: #4b702d;
     font-size: 2em;
     font-weight: 700;
-    margin: 0.5em 0;
+    margin: 1.5em 0;
   }
 
   &--avatar {
@@ -42,6 +42,19 @@
     background-color: #283618;
     border: 1px solid #283618;
   }
+}
+
+.form__delete__button {
+  display: flex;
+  margin: 2rem auto;
+  margin-top: -1rem;
+  width: 30%;
+  height: 2.5em;
+  font-size: 1em;
+  border-radius: .2em;
+  color: #fff;
+  background-color: #283618;
+  border: 1px solid #283618;
 }
 
 @media (min-width:1000px) {
@@ -81,7 +94,7 @@
   
     &--button {
       margin: 2rem auto;
-      width: 10%;
+      width: 15%;
       height: 2.5em;
       font-size: 1em;
       border-radius: .2em;
@@ -89,5 +102,18 @@
       background-color: #283618;
       border: 1px solid #283618;
     }
+  }
+
+  .form__delete__button {
+    display: flex;
+    margin: 2rem auto;
+    margin-top: -1rem;
+    width: 6.4%;
+    height: 2.5em;
+    font-size: 1em;
+    border-radius: .2em;
+    color: #fff;
+    background-color: #283618;
+    border: 1px solid #283618;
   }
 }
