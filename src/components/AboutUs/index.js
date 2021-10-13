@@ -1,10 +1,14 @@
 // import PropTypes from 'prop-types';
 
 import './style.scss';
+import Front from 'src/assets/images/front.png';
+import Back from 'src/assets/images/back.png';
 
 const AboutUs = () => (
   <div className="about-us__container">
-    <h1>A propos de nous</h1>
+    <img className="about-us__front" src={Front} alt="Front" />
+    <img className="about-us__back" src={Back} alt="Back" />
+    {/* <h1>A propos de nous</h1>
     <div>
       <h2>Mohammed KASBI</h2>
       <h3>Lead Dev Front</h3>
@@ -60,7 +64,7 @@ const AboutUs = () => (
         <li>Anime la réunion du matin et gère l'avancement du projet</li>
         <li>Développeur de la partie back avec Le lead-Dev</li>
       </ul>
-    </div>
+    </div> */}
   </div>
 );
 
