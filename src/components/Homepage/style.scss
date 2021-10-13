@@ -147,13 +147,13 @@
 
       &__elem {
         width: 100%;
-        padding: 0 0 1em 0;
+        // padding: 0 0 1em 0;
         max-width: 60vw;
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
-        grid-template-rows: auto;
-        grid-gap: 1em;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr;
+        // // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
+        // grid-template-rows: auto;
+        // grid-gap: 1em;
       }
     }
   }

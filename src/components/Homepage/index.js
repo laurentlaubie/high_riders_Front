@@ -1,6 +1,8 @@
 // == Import composants
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import Card from 'src/components/Card';
 import { fetchHomeLasts } from '../../actions/home';
@@ -55,9 +57,11 @@ const Homepage = () => {
         <div className="homepage__list">
           <h1>Derniers évènements</h1>
           <div className="homepage__list__elem">
-            {lastsEvents.map((item) => (
-              <Card key={item.id} {...item} typeCard="evenements" />
-            ))}
+            <Carousel>
+              {lastsEvents.map((item) => (
+                <Card key={item.id} {...item} typeCard="evenements" />
+              ))}
+            </Carousel>
           </div>
         </div>
         <div className="homepage__list">
