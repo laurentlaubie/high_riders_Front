@@ -35,11 +35,11 @@ const Homepage = () => {
         <div className="homepage__welcome">
           <h2>Bienvenue sur High Riders</h2>
           <div className="homepage__welcome__description">
-            <p>👉Tu veux créer un événement pour retrouver tes collègues et taper des tricks
+            <p>Tu veux créer un événement pour retrouver tes collègues et taper des tricks
               sur ton spot ?
             </p>
-            <p>👉Tu veux découvrir un nouveau spot ?</p>
-            <p>👉Tu veux rencontrer de nouveaux riders ?”</p>
+            <p>Tu veux découvrir un nouveau spot ?</p>
+            <p>Tu veux rencontrer de nouveaux riders ?”</p>
             <p>Retrouve les meilleurs spots de Vtt 🚴 de ta région sur O’Riders, un site
               communautaire fait PAR et POUR les Riders de France. “
             </p>
