@@ -88,13 +88,15 @@
       justify-content: center;
       align-items: center;
       position: relative;
+      width: 100%;
     }
   
     &__welcome {
-      background-color: #FCFBFE;
-      border-radius: 0.2em;
+      background-color: #fcfbfe4b;
+      border-radius: 0.5em;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       width: 90%;
+      max-width: 60em;
       position: relative;
       z-index: 1;
       padding: 1em;
@@ -112,6 +114,8 @@
   
       p {
         font-size: 1.1em;
+        padding: 0.2em;
+        text-align: justify;
       }
     }
   
@@ -122,7 +126,10 @@
     }
   
     &__list {
-      display: grid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       width: 90%;
       max-width: 120em;
 
@@ -131,13 +138,19 @@
         color: #4b702d;
         font-size: 2em;
         font-weight: 700;
-        margin: 0.5em 0;
+        margin: 1em 0;
+        border-top: solid 0.05em #4b702d;
+        padding-top: 0.5em;
+        width: 15em;
+        // text-decoration: underline;
       }
 
       &__elem {
         width: 100%;
+        padding: 0 0 1em 0;
+        max-width: 60vw;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 2fr 1fr;
         // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
         grid-template-rows: auto;
         grid-gap: 1em;
