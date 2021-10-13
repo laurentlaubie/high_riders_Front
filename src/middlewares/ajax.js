@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import jwtDecode from 'jwt-decode';
+import { toast } from 'react-toastify';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 import { FETCH_PROFILE, UPDATE_PROFILE } from '../actions/profile';
@@ -73,7 +73,6 @@ const ajax = (store) => (next) => (action) => {
       description: state.spots.newDescription,
       address: state.spots.newAddress,
       city: state.spots.newCity,
-      openingHours: state.spots.newOpeningHours,
       type_spot: state.spots.newTypeSpot,
       categories: [state.spots.newCategory],
       departement: state.spots.newDepartement,
@@ -130,17 +129,22 @@ const ajax = (store) => (next) => (action) => {
         // on décode le token pour aller chercher son id
         // const decodedToken = jwtDecode(res.data.token);
         console.log(res.data.data);
+        toast.success('Connexion réussi', {
+          position: toast.POSITION.TOP_LEFT,
+        });
       })
       .catch((err) => {
         // error
         const errStatus = err.response.status;
-        console.log(errStatus);
-        alert('Echec d\'authentification');
+        // alert('Echec d\'authentification');
         if (errStatus === 403) {
           window.location.href = '/403';
         }
-        if (errStatus === 404) {
-          window.location.href = '/404';
+        if (errStatus === 401) {
+          toast.error('Echec d\'authentification', {
+            position: toast.POSITION.TOP_LEFT,
+          });
+          console.log('arrrg');
         }
       });
   }

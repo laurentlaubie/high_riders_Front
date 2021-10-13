@@ -44,6 +44,11 @@ const ProfileForm = () => {
     });
   };
 
+  const changeFieldNumber = (value, key) => {
+    const addNumber = Number(value);
+    changeField(addNumber, key);
+  };
+
   return (
     <form onSubmit={handleSubmit} className="profile__form">
       <h1 className="profile__form--title">Inscription</h1>
@@ -121,7 +126,7 @@ const ProfileForm = () => {
         name="newDisciRegister"
         data={spotsCate}
         placeholder="Discipline"
-        onChange={changeField}
+        onChange={changeFieldNumber}
       />
       <Field
         name="newEquipementRegister"
