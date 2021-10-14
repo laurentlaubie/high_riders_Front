@@ -1,6 +1,7 @@
 // == Import composants
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import Card from 'src/components/Card';
 import { fetchHomeLasts } from '../../actions/home';
@@ -15,6 +16,7 @@ const Homepage = () => {
   const bestsSpotsData = useSelector((state) => state.home.bestsSpots);
   const lastsSpotsData = useSelector((state) => state.home.lastsSpots);
   const loading = useSelector((state) => state.home.loading);
+  const isConnected = useSelector((state) => state.user.isConnected);
 
   const lastsEvents = lastsEventsData.slice(0, 3);
   const bestsSpots = bestsSpotsData.slice(0, 3);
@@ -26,6 +28,15 @@ const Homepage = () => {
 
   if (loading) {
     return 'chargement ...';
+  }
+
+  if (isConnected) {
+    toast.success('Connexion réussi', {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+    dispatch({
+      type: 'HANDLE_TOAST',
+    });
   }
 
   return (
