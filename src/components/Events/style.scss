@@ -1,0 +1,158 @@
+.eventList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__add {
+    position: fixed;
+    z-index: 3;
+    right: 2em;
+    font-size: 1em;
+    height: 2.5em;
+    color: #fff;
+    background-color: #283618;
+    border-radius: .2em;
+    padding: 0.7em;
+    margin: 1em;
+  }
+
+  &__title {
+    text-align: center;
+    color: #4b702d;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0.5em 0;
+    margin-top: 2em;
+  }
+
+  &__filter {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+
+    &__selector {
+      width: 100%;
+      height: 2rem;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+    }
+
+    &--search {
+      height: 2rem;
+    }
+  }
+
+  &__map {
+    width: 90%;
+    height: 20em;
+    margin: 2rem 0 0 0;
+    padding: 0.5em;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    background-color: #FCFBFE;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      text-align: center;
+      color: #4b702d;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0.5em 0;
+    }
+
+    &__elem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width:1000px) {
+  .eventList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    &__title {
+      text-align: center;
+      color: #4b702d;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0.5em 0;
+      margin-top: 1em;
+    }
+  
+    &__filter {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+  
+      &__selector {
+        width: 100%;
+        height: 2rem;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+      }
+  
+      &--search {
+        height: 2rem;
+      }
+    }
+
+    &__map {
+      width: 100%;
+      max-width: 125em;
+      height: 30em;
+      z-index: 0;
+      padding: 0 4em;
+    }
+  
+    &__cards {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 90%;
+      background-color: #FCFBFE;
+    }
+  
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      h1 {
+        text-align: center;
+        color: #4b702d;
+        font-size: 2em;
+        font-weight: 700;
+        margin: 0.5em 0;
+      }
+  
+      &__elem {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
+        grid-template-rows: auto;
+        grid-gap: 1em;
+      }
+    }
+  }
+}

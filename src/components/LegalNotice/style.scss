@@ -1,0 +1,15 @@
+.legal-notice__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 50em;
+  
+  & h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 1em 1em 0.5em 1em;
+  }
+
+  & p {
+    margin: 0.5em;
+  }
+}

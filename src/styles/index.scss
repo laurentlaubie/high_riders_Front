@@ -2,17 +2,29 @@
 @use 'vars';
 
 body {
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fcfbfe;
 }
 
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
+.app {
+  background-color: #fcfbfe;
+  height: 100vh;
+  padding: 5em 0 0 0;
+}
 
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
+::-webkit-scrollbar{
+  width: 0.5rem;
+  height: 7px;
+}
+::-webkit-scrollbar-thumb{
+  background: #D2D2C6;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #999990;
+}
+::-webkit-scrollbar-track{
+  background: #F0F0F0;
+  border-radius: 0px;
+  box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+}

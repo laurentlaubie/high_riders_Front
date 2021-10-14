@@ -1,0 +1,54 @@
+.select {
+  margin: .3em .3em .3em 0;
+  position: relative;
+  width: 100%;
+
+  &-input {
+    width: 100%;
+    padding: .7em .7em .7em .3em;
+    font-size: 0.85em;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    height: 2.5em;
+    background-color: #fcfbfe;
+
+    &:focus {
+      border-color: #283618;
+
+      & + .select-label {
+        color: #283618;
+      }
+    }
+  }
+
+  &-label {
+    display: none;
+    position: absolute;
+    top: .2rem;
+    left: 0rem;
+    color: #999;
+    font-size: .7em;
+    animation: labelSlideUpAndShow .3s;
+  }
+
+  &--has-content {
+    .select-label {
+      display: block;
+    }
+    .select-input {
+      padding: 1em .7em .4em;
+    }
+  }
+}
+
+
+@keyframes labelSlideUpAndShow{
+  0% {
+    transform: translateY(1em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0em);
+    opacity: 1;
+  }
+}

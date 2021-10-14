@@ -1,0 +1,160 @@
+.homepage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__background {
+    width: 100%;
+  }
+
+  &__welcome {
+    background-color: #FCFBFE;
+    border-radius: 0.3em;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    
+    &__description {
+      max-height: 12em;
+      overflow-y: auto;
+    }
+
+    h2 {
+      color: #4b702d;
+      font-size: 1.7em;
+      font-weight: 700;
+      margin: 0 0 0.5em 0;
+    }
+
+    p {
+      font-size: 1.1em;
+      text-align: left;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fcfbfe;
+    width: 90vw;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      text-align: center;
+      color: #4b702d;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0.5em 0;
+    }
+
+    &__elem {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-gap: 1em;
+      width: 100%;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width:1000px) {
+  .homepage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__background {
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &__welcome-container {
+      min-height: 600px;
+      max-height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+  
+    &__welcome {
+      background-color: #fcfbfe4b;
+      border-radius: 0.5em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 60em;
+      position: relative;
+      z-index: 1;
+      padding: 1em;
+      text-align: center;
+
+      &__description::-webkit-scrollbar {
+        display: none;
+      }
+  
+      h2 {
+        color: #4b702d;
+        font-size: 1.7em;
+        margin: 0 0 0.5em 0;
+      }
+  
+      p {
+        font-size: 1.1em;
+        padding: 0.2em;
+        text-align: justify;
+      }
+    }
+  
+    &__cards {
+      width: 100%;
+      background-color: #fcfbfe;
+      border-radius: 0.2em;
+    }
+  
+    &__list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      max-width: 120em;
+
+      h1 {
+        text-align: center;
+        color: #4b702d;
+        font-size: 2em;
+        font-weight: 700;
+        margin: 1.5em 0;
+        border-top: solid 0.05em #4b702d;
+        padding-top: 1em;
+        width: 15em;
+        // text-decoration: underline;
+      }
+
+      &__elem {
+        width: 100%;
+        padding: 0 0 1em 0;
+        max-width: 65vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
+        grid-template-rows: auto;
+        grid-gap: 3.5em;
+      }
+    }
+  }
+}

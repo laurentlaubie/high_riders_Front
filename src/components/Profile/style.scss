@@ -1,0 +1,65 @@
+.profil {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+
+  &__title {
+    text-align: center;
+    color: #4b702d;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 1.5em 0;
+  }
+
+  &__avatar {
+    width: 8em;
+    height: 8em;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
+
+    &__image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 100%;
+    }
+  }
+
+  &__data {
+    text-align: start;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem auto;
+  }
+
+  &__tag-title {
+    font-weight: 700;
+  }
+
+  &__button {
+    width: 50%;
+    max-width: 20em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .2em;
+    color: #fff;
+    background-color: #283618;
+    margin: 1rem auto;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width:1000px) {
+  .profil__data {
+    width: 30%;
+  }
+
+  .profil__button {
+    width: 30%;
+  }
+ }

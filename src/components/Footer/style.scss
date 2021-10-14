@@ -1,0 +1,36 @@
+.footer {
+  margin: 2em 0;
+  padding: 0 0 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  &__nav__item {
+    color: #4b702d;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: #4b702d;
+      transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    &:hover::before {
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width:1000px) {
+  .footer {
+    flex-direction: row;
+  }
+}

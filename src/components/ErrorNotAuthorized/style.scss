@@ -1,0 +1,17 @@
+.ErrorNotAuthorized {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+  &__titre403{
+    font-size: 16rem;
+   
+  }
+}
