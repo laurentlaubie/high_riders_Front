@@ -17,7 +17,6 @@ const BasicMap = ({
   typePopup,
 }) => {
   const logged = useSelector((state) => state.user.logged);
-  console.log(typePopup);
   return (
     <MapContainer center={coordinates || [46.50, 2.00]} zoom={zoom}>
       <TileLayer
