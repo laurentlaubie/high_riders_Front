@@ -8,6 +8,7 @@ const Select = ({
   data,
   placeholder,
   onChange,
+  brutData,
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
@@ -24,6 +25,7 @@ const Select = ({
         className="select-input"
         name={name}
       >
+        <option value="">{brutData}</option>
         {data.map((item) => (
           <option key={item.id || item.title} value={item.id || item.title}>{item.title}</option>
         ))}
@@ -42,10 +44,12 @@ Select.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  brutData: PropTypes.string,
 };
 
 Select.defaultProps = {
   value: 1,
+  brutData: '',
 };
 
 export default Select;

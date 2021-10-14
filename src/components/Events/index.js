@@ -8,6 +8,7 @@ import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { findFilteredCategoriesSpots, findFiltredDepartementSpots } from '../../selectors/spots';
 
 const Events = () => {
@@ -20,11 +21,21 @@ const Events = () => {
   const spotDisci = useSelector((state) => state.events.spotDisci);
   const newResultList = useSelector((state) => state.events.newResultList);
 
+  const addedEvent = localStorage.getItem('addedEvent');
+
   useEffect(() => {
     dispatch({
       type: 'FETCH_EVENTS_DATA',
     });
   }, []);
+
+  if (addedEvent === 'true') {
+    toast.success('Event ajouté', {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  }
+
+  localStorage.removeItem('addedEvent');
 
   const changeField = (value, key) => {
     dispatch({
@@ -36,12 +47,38 @@ const Events = () => {
 
   const handleSearchEvents = (evt) => {
     evt.preventDefault();
+    localStorage.removeItem('successSearch');
+    localStorage.setItem('successSearch', 'true');
+    let finalResult = [];
     const departFiltered = findFiltredDepartementSpots(eventsList, departValue);
-    const finalResult = findFilteredCategoriesSpots(departFiltered, spotDisci);
+    const categsFiltered = findFilteredCategoriesSpots(eventsList, spotDisci);
+    finalResult = departFiltered.concat(categsFiltered);
+
+    // if (departValue.length > 0) {
+    //   finalResult = [];
+    //   departFiltered = findFiltredDepartementSpots(eventsList, departValue);
+    //   categsFiltered = findFilteredCategoriesSpots(departFiltered, spotDisci);
+    //   finalResult = departFiltered.concat(categsFiltered);
+    // }
+
     dispatch({
       type: 'SAVE_EVENT_RESULT_LIST',
       newList: finalResult,
     });
+    const successSearch = localStorage.getItem('successSearch');
+
+    if (successSearch === 'true') {
+      if (finalResult.length > 0) {
+        toast.success('Recherche effectué', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      }
+      else {
+        toast.info('Pas de résultats', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      }
+    }
   };
 
   return (
@@ -55,6 +92,7 @@ const Events = () => {
           data={eventsDepar}
           placeholder="Département"
           onChange={changeField}
+          brutData="Selectionner un département"
         />
         <Select
           value={spotDisci}
@@ -62,11 +100,14 @@ const Events = () => {
           data={eventsCateg}
           placeholder="Disciplines"
           onChange={changeField}
+          brutData="Selectionner une discipline"
         />
         <button type="submit">Filtrer</button>
       </form>
       <div className="eventList__map">
-        <BasicMap data={eventsList} />
+        {newResultList.length > 0
+          ? <BasicMap data={newResultList} typePopup="evenements" />
+          : <BasicMap data={eventsList} typePopup="evenements" />}
       </div>
       {newResultList.length > 0
         ? (
@@ -75,7 +116,7 @@ const Events = () => {
               <h1>Résultat de la recherche</h1>
               <div className="spotList__list__elem">
                 {newResultList.map((item) => (
-                  <Card key={item.id} {...item} typeCard="spots" />
+                  <Card key={item.id} {...item} typeCard="evenements" />
                 ))}
               </div>
             </div>

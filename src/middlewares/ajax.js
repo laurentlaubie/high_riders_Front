@@ -81,6 +81,7 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
+        localStorage.setItem('addedSpot', 'true');
         console.log(res);
         window.location.href = '/spots';
       })
@@ -125,6 +126,7 @@ const ajax = (store) => (next) => (action) => {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('pseudo', res.data.data.user_pseudo);
         localStorage.setItem('userid', res.data.data.user_id);
+        localStorage.setItem('isConnectedSuccess', 'true');
         window.location.href = '/';
         // console.log(res.data.data);
       })
@@ -173,6 +175,7 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
+        localStorage.setItem('addedEvent', 'true');
         console.log(res);
         window.location.href = '/evenements';
       })
