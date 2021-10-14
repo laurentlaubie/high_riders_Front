@@ -70,12 +70,18 @@
       font-size: 2em;
       font-weight: 700;
       margin: 0.5em 0;
+      border-top: solid 0.05em #4b702d;
+      width: 10em;
+      padding-top: 0.5em;
+
     }
 
     &__elem {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 80%;
+
     }
   }
 }
@@ -142,16 +148,20 @@
         color: #4b702d;
         font-size: 2em;
         font-weight: 700;
-        margin: 0.5em 0;
+        margin: 1.5em 0;
+        border-top: solid 0.05em #4b702d;
+        padding-top: 1em;
+        width: 20em;
       }
   
       &__elem {
         width: 100%;
+        padding: 0 0 1em 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
         grid-template-rows: auto;
-        grid-gap: 1em;
+        grid-gap: 3.5em;
       }
     }
   }
