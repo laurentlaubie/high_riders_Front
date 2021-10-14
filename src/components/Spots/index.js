@@ -8,6 +8,7 @@ import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { fetchSpotsList } from '../../actions/spots';
 import { findFilteredCategoriesSpots, findFiltredDepartementSpots } from '../../selectors/spots';
 
@@ -20,6 +21,7 @@ const spotList = () => {
   const departValue = useSelector((state) => state.spots.departValue);
   const spotDisci = useSelector((state) => state.spots.spotDisci);
   const newResultList = useSelector((state) => state.spots.newResultList);
+  const loading = useSelector((state) => state.spots.loading);
 
   useEffect(() => {
     dispatch(fetchSpotsList());
@@ -35,13 +37,45 @@ const spotList = () => {
 
   const handleSearchSpots = (evt) => {
     evt.preventDefault();
+    localStorage.removeItem('successSearch');
+    localStorage.setItem('successSearch', 'true');
+    let finalResult = [];
     const departFiltered = findFiltredDepartementSpots(spotDataList, departValue);
-    const categFiltered = findFilteredCategoriesSpots(departFiltered, spotDisci);
+    const categsFiltered = findFilteredCategoriesSpots(departFiltered, spotDisci);
+    finalResult = departFiltered.concat(categsFiltered);
     dispatch({
       type: 'SAVE_RESULT_LIST',
-      newList: categFiltered,
+      newList: finalResult,
     });
+    const successSearch = localStorage.getItem('successSearch');
+
+    if (successSearch === 'true') {
+      if (finalResult.length > 0) {
+        toast.success('Recherche effectué', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      }
+      else {
+        toast.info('Pas de résultats', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      }
+    }
   };
+
+  const isAddedSpot = localStorage.getItem('addedSpot');
+
+  if (isAddedSpot === 'true') {
+    toast.success('Spot ajouté', {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  }
+
+  localStorage.removeItem('addedSpot');
+
+  if (loading) {
+    return 'chargement ...';
+  }
 
   return (
     <div className="spotList">
@@ -54,6 +88,7 @@ const spotList = () => {
           data={spotsDeparts}
           placeholder="Département"
           onChange={changeField}
+          brutData="Selectionner un département"
         />
         <Select
           value={spotDisci}
@@ -61,11 +96,14 @@ const spotList = () => {
           data={spotsCate}
           placeholder="Disciplines"
           onChange={changeField}
+          brutData="Selectionner une discipline"
         />
         <button type="submit">Filtrer</button>
       </form>
       <div className="spotList__map">
-        <BasicMap data={spotDataList} />
+        {newResultList.length > 0
+          ? <BasicMap data={newResultList} typePopup="spots" />
+          : <BasicMap data={spotDataList} typePopup="spots" />}
       </div>
       {newResultList.length > 0
         ? (

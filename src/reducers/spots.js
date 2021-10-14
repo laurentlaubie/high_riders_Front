@@ -1,5 +1,6 @@
 export const initialState = {
   loading: true,
+  loadingSpot: true,
   spotId: {},
   spotsList: [],
   spotsCate: [],
@@ -8,8 +9,8 @@ export const initialState = {
   newTypeSpot: 'Bike Park',
   newCategory: '1',
   newDepartement: '1',
-  departValue: '1',
-  spotDisci: '1',
+  departValue: '',
+  spotDisci: '',
   newOpeningHours: '00:00',
   newResultList: [],
   isLiked: true,
@@ -23,12 +24,13 @@ const reducer = (state = initialState, action = {}) => {
         spotsList: action.spotsList,
         spotsCate: action.spotsCate,
         spotsDeparts: action.spotsDepar,
+        loading: false,
       };
     case 'SAVE_SPOT_ID':
       return {
         ...state,
         spotId: action.newSpot,
-        loading: false,
+        loadingSpot: false,
         nbLikesStorage: action.newSpot.s_like,
       };
     case 'CHANGE_SPOT_VALUE':

@@ -81,6 +81,7 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
+        localStorage.setItem('addedSpot', 'true');
         console.log(res);
         window.location.href = '/spots';
       })
@@ -114,7 +115,6 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
-        window.location.href = '/';
         api.defaults.headers.common.Authorization = `bearer ${res.data.token}`;
         // on va chercher les données de l'utilisateur connecté
         store.dispatch({
@@ -126,26 +126,15 @@ const ajax = (store) => (next) => (action) => {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('pseudo', res.data.data.user_pseudo);
         localStorage.setItem('userid', res.data.data.user_id);
-        // on décode le token pour aller chercher son id
-        // const decodedToken = jwtDecode(res.data.token);
-        console.log(res.data.data);
-        toast.success('Connexion réussi', {
-          position: toast.POSITION.TOP_LEFT,
-        });
+        localStorage.setItem('isConnectedSuccess', 'true');
+        window.location.href = '/';
+        // console.log(res.data.data);
       })
-      .catch((err) => {
+      .catch(() => {
         // error
-        const errStatus = err.response.status;
-        // alert('Echec d\'authentification');
-        if (errStatus === 403) {
-          window.location.href = '/403';
-        }
-        if (errStatus === 401) {
-          toast.error('Echec d\'authentification', {
-            position: toast.POSITION.TOP_LEFT,
-          });
-          console.log('arrrg');
-        }
+        toast.error('Echec d\'authentification', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
       });
   }
   if (action.type === 'FETCH_EVENTS_DATA') {
@@ -186,6 +175,7 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
+        localStorage.setItem('addedEvent', 'true');
         console.log(res);
         window.location.href = '/evenements';
       })
@@ -211,6 +201,9 @@ const ajax = (store) => (next) => (action) => {
     })
       .then((res) => {
         // success
+        toast.success('Inscription réussi', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
         window.location.href = '/connexion';
         console.log(res);
       })

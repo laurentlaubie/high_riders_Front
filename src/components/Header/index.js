@@ -4,6 +4,7 @@ import './style.scss';
 import Search from 'src/components/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { FiSearch } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ const Header = () => {
     localStorage.removeItem('userid');
     localStorage.removeItem('pseudo');
     history.push('/connexion');
+    toast.success('Déconnecté', {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
   };
 
   return (

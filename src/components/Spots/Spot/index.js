@@ -1,6 +1,6 @@
 import { useHistory, useParams } from 'react-router-dom';
 
-import BasicMap from 'src/components/BasicMap';
+import MapZoom from 'src/components/MapZoom';
 
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +14,7 @@ const Spot = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const spotId = useSelector((state) => state.spots.spotId);
-  const loading = useSelector((state) => state.spots.loading);
+  const loading = useSelector((state) => state.spots.loadingSpot);
   const newcomment = useSelector((state) => state.spots.newComment);
   const commentsData = useSelector((state) => state.spots.spotId.comments);
   const isLiked = useSelector((state) => state.spots.isLiked);
@@ -168,7 +168,7 @@ const Spot = () => {
             </div>
           </div>
           <div className="spot__map">
-            <BasicMap
+            <MapZoom
               zoom={13}
               coordinates={[spotId.latitude || 0, spotId.longitude || 0]}
               popupTitle={`${spotId.title}, ${spotId.address}`}

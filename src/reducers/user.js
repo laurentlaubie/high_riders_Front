@@ -2,6 +2,7 @@ const initialState = {
   classMenu: false,
   classSearch: false,
   logged: false,
+  isConnected: false,
   id: '',
   lastname: '',
   firstname: '',
@@ -30,6 +31,12 @@ const reducer = (state = initialState, action = {}) => {
         pseudo: action.pseudo,
         userId: action.userId,
         token: action.token,
+        isConnected: true,
+      };
+    case 'HANDLE_TOAST':
+      return {
+        ...state,
+        isConnected: false,
       };
     case 'LOGOUT':
       return {

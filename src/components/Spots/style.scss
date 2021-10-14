@@ -27,9 +27,10 @@
   }
 
   &__filter {
-    width: 70%;
+    width: 100vw;
+    // background-color: #283618;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     &__selector {
       width: 100%;

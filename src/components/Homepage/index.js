@@ -1,10 +1,10 @@
 // == Import composants
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import Card from 'src/components/Card';
 import { fetchHomeLasts } from '../../actions/home';
-// import data from 'src/data';
 
 // == Import persos
 import './style.scss';
@@ -20,9 +20,19 @@ const Homepage = () => {
   const bestsSpots = bestsSpotsData.slice(0, 3);
   const lastsSpots = lastsSpotsData.slice(0, 3);
 
+  const isConnected = localStorage.getItem('isConnectedSuccess');
+
   useEffect(() => {
     dispatch(fetchHomeLasts());
   }, []);
+
+  if (isConnected === 'true') {
+    toast.success('Connexion réussi', {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  }
+
+  localStorage.removeItem('isConnectedSuccess');
 
   if (loading) {
     return 'chargement ...';

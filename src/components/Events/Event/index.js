@@ -1,6 +1,6 @@
 import { Link, useHistory, useParams } from 'react-router-dom';
 
-import BasicMap from 'src/components/BasicMap';
+import MapZoom from 'src/components/MapZoom';
 
 import './style.scss';
 import findIfParticipate from 'src/selectors/events';
@@ -14,7 +14,7 @@ const Event = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const eventId = useSelector((state) => state.events.eventId);
-  const loading = useSelector((state) => state.events.loading);
+  const loading = useSelector((state) => state.events.loadingEvent);
   const newcomment = useSelector((state) => state.events.newComment);
   const commentsData = useSelector((state) => state.events.eventId.comments);
   const userPart = useSelector((state) => state.events.eventId.participations);
@@ -153,7 +153,7 @@ const Event = () => {
               )}
             </div>
             <div className="event__map">
-              <BasicMap
+              <MapZoom
                 zoom={13}
                 coordinates={[eventId.latitude || 0, eventId.longitude || 0]}
                 popupTitle={eventId.title}
