@@ -138,9 +138,9 @@
         color: #4b702d;
         font-size: 2em;
         font-weight: 700;
-        margin: 1em 0;
+        margin: 1.5em 0;
         border-top: solid 0.05em #4b702d;
-        padding-top: 0.5em;
+        padding-top: 1em;
         width: 15em;
         // text-decoration: underline;
       }
@@ -148,12 +148,12 @@
       &__elem {
         width: 100%;
         padding: 0 0 1em 0;
-        max-width: 60vw;
+        max-width: 65vw;
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
         grid-template-rows: auto;
-        grid-gap: 1em;
+        grid-gap: 3.5em;
       }
     }
   }

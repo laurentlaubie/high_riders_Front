@@ -11,10 +11,14 @@ import './style.scss';
 
 const Homepage = () => {
   const dispatch = useDispatch();
-  const lastsEvents = useSelector((state) => state.home.lastsEvents);
-  const bestsSpots = useSelector((state) => state.home.bestsSpots);
-  const lastsSpots = useSelector((state) => state.home.lastsSpots);
+  const lastsEventsData = useSelector((state) => state.home.lastsEvents);
+  const bestsSpotsData = useSelector((state) => state.home.bestsSpots);
+  const lastsSpotsData = useSelector((state) => state.home.lastsSpots);
   const loading = useSelector((state) => state.home.loading);
+
+  const lastsEvents = lastsEventsData.slice(0, 3);
+  const bestsSpots = bestsSpotsData.slice(0, 3);
+  const lastsSpots = lastsSpotsData.slice(0, 3);
 
   useEffect(() => {
     dispatch(fetchHomeLasts());
