@@ -1,32 +1,59 @@
-// import PropTypes from 'prop-types';
-
+import { useDispatch, useSelector } from 'react-redux';
+import Field from 'src/components/Field';
 import './style.scss';
 
-const ContactUs = () => (
-  <form className="contact-us">
-    <div>
-      <label htmlFor="name">Nom
-        <input id="name" type="text" placeholder="Nom" />
-      </label>
-    </div>
-    <div>
-      <label htmlFor="prenom">Prénom
-        <input id="prenom" type="text" placeholder="Prénom" />
-      </label>
-    </div>
-    <div>
-      <label htmlFor="email">Email
-        <input id="email" type="email" placeholder="Email" />
-      </label>
-    </div>
-    <div>
-      <label htmlFor="message">Message
-        <input id="message" type="text" placeholder="Message" />
-      </label>
-    </div>
-    <button type="submit">Envoyer</button>
-  </form>
-);
+const ContactUs = () => {
+  const dispatch = useDispatch();
+  const newNameContact = useSelector((state) => state.contact.newNameContact);
+  const newFirstnameContact = useSelector((state) => state.contact.newFirstnameContact);
+  const newEmailContact = useSelector((state) => state.contact.newEmailContact);
+  const newMessageContact = useSelector((state) => state.contact.newMessageContact);
+
+  const changeField = (value, key) => {
+    dispatch({
+      type: 'CHANGE_VALUE_CONTACT',
+      value: value,
+      key: key,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch({
+      type: 'CONTACT_US',
+    });
+  };
+
+  return (
+    <form className="contact-us" onSubmit={handleSubmit}>
+      <Field
+        name="newNameContact"
+        placeholder="Nom"
+        onChange={changeField}
+        value={newNameContact}
+      />
+      <Field
+        name="newFirstnameContact"
+        placeholder="Prénom"
+        onChange={changeField}
+        value={newFirstnameContact}
+      />
+      <Field
+        name="newEmailContact"
+        placeholder="Email"
+        onChange={changeField}
+        value={newEmailContact}
+      />
+      <Field
+        name="newMessageContact"
+        placeholder="message"
+        onChange={changeField}
+        value={newMessageContact}
+      />
+      <button type="submit">Envoyer</button>
+    </form>
+  );
+};
 
 // ContactUs.propTypes = {
 
