@@ -1,11 +1,12 @@
 import { Link, useHistory, useParams } from 'react-router-dom';
 
-import BasicMap from 'src/components/BasicMap';
-
+import MapZoom from 'src/components/MapZoom';
+import { FiUser } from 'react-icons/fi';
 import './style.scss';
 import findIfParticipate from 'src/selectors/events';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { IoIosSend } from 'react-icons/io';
 import Field from '../../Field';
 import Comments from '../../Comments';
 
@@ -14,7 +15,8 @@ const Event = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const eventId = useSelector((state) => state.events.eventId);
-  const loading = useSelector((state) => state.events.loading);
+  console.log(eventId);
+  const loading = useSelector((state) => state.events.loadingEvent);
   const newcomment = useSelector((state) => state.events.newComment);
   const commentsData = useSelector((state) => state.events.eventId.comments);
   const userPart = useSelector((state) => state.events.eventId.participations);
@@ -153,7 +155,7 @@ const Event = () => {
               )}
             </div>
             <div className="event__map">
-              <BasicMap
+              <MapZoom
                 zoom={13}
                 coordinates={[eventId.latitude || 0, eventId.longitude || 0]}
                 popupTitle={eventId.title}
@@ -165,22 +167,32 @@ const Event = () => {
                 ? <button className="event__participate__button event__participate__button--dark" type="button" onClick={handleToggleParticipate}>Je participe</button>
                 : <p>Participation à l'évènement prise en compte !</p>}
             </div>
+            <p className="event__participate__users--title">Liste des participants</p>
+            <div className="event__participate__users">
+              {eventId.participations.map((elem) => <span><FiUser />{elem.user.pseudo}</span>)}
+            </div>
             <div className="event__comments">
               <form className="event__comments__input" onSubmit={handleSubmit}>
-                <Field
-                  name="newComment"
-                  placeholder="Ajouter un commentaire"
-                  onChange={changeField}
-                  value={newcomment}
-                />
+                <div className="spot__input__send-zone">
+                  <Field
+                    name="newComment"
+                    placeholder="Ajouter un commentaire"
+                    onChange={changeField}
+                    value={newcomment}
+                  />
+                  <button className="spot__input__send-zone__button" type="submit"> <IoIosSend className="spot__input__send-zone__button__logo" /> </button>
+                </div>
               </form>
               {commentsData.length > 0
                 ? <Comments comments={commentsData} />
                 : <p>Pas encore de commentaires ...</p>}
             </div>
-            <form className="event__delete" onSubmit={handleSubmitDeleteEvent}>
-              <button className="event__delete__button" type="submit">Supprimer l'event</button>
-            </form>
+            {eventId.author.id === Number(userId)
+              ? (
+                <form className="event__delete" onSubmit={handleSubmitDeleteEvent}>
+                  <button className="event__delete__button" type="submit">Supprimer l'event</button>
+                </form>
+              ) : ''}
           </div>
         </div>
       )}

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import BasicMap from 'src/components/BasicMap';
+import MapZoomDrag from 'src/components/MapZoomDrag';
 
 import Field from '../../../Field';
 import Select from '../../../Select';
@@ -144,7 +144,7 @@ const SpotForm = ({
           value={newLongitude}
         />
         <div className="login-form__map">
-          <BasicMap />
+          <MapZoomDrag draggable />
         </div>
         <div className="login-form__validate">
           <Link to="/spots">Annuler</Link>

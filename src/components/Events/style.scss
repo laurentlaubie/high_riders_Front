@@ -4,6 +4,28 @@
   flex-direction: column;
   align-items: center;
 
+  &__moreinfos {
+    font-size: 0.8em;
+  }
+
+  &__button__filter {
+    width: 100%;
+    border-radius: .2em;
+    padding: 0.7em;
+    margin: 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fcfbfe;
+    background-color: #283618;
+    border: 1px solid #283618;
+
+    &:hover {
+      background-color: #1d2c0c;
+      border: #283618 1px solid;
+    }
+  }
+
   &__add {
     position: fixed;
     z-index: 3;
@@ -27,9 +49,9 @@
   }
 
   &__filter {
-    width: 70%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     &__selector {
       width: 100%;
@@ -70,12 +92,17 @@
       font-size: 2em;
       font-weight: 700;
       margin: 0.5em 0;
+      border-top: solid 0.05em #4b702d;
+      width: 10em;
+      padding-top: 0.5em;
     }
 
     &__elem {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 80%;
+      
     }
   }
 }
@@ -143,15 +170,20 @@
         font-size: 2em;
         font-weight: 700;
         margin: 0.5em 0;
+        border-top: solid 0.05em #4b702d;
+        padding-top: 1em;
+        padding-bottom: 0.5em;
+        width: 30em;
       }
   
       &__elem {
         width: 100%;
+        padding: 0 0 1em 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         // (unité fr : fraction, est égal à une fraction du parent, doc : https://css-tricks.com/introduction-fr-css-unit/)
         grid-template-rows: auto;
-        grid-gap: 1em;
+        grid-gap: 3.5em;
       }
     }
   }

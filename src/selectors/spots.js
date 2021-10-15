@@ -1,11 +1,11 @@
-export function findSearchedSpots(spotsList, keywordSpot) {
-  const spotsResult = spotsList.filter((testedElem) => {
-    const searchedReplace = keywordSpot.replace(' ', '-');
-    const regex = new RegExp(searchedReplace);
-    return regex.test(testedElem.slug);
-  });
-  return spotsResult;
-}
+// export function findSearchedSpots(spotsList, keywordSpot) {
+//   const spotsResult = spotsList.filter((testedElem) => {
+//     const searchedReplace = keywordSpot.replace(' ', '-');
+//     const regex = new RegExp(searchedReplace);
+//     return regex.test(testedElem.slug);
+//   });
+//   return spotsResult;
+// }
 
 export function findFiltredDepartementSpots(spotsList, departTested) {
   const filteredResult = spotsList.filter(

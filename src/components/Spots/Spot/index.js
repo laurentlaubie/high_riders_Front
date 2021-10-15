@@ -1,6 +1,7 @@
 import { useHistory, useParams } from 'react-router-dom';
 
-import BasicMap from 'src/components/BasicMap';
+import MapZoom from 'src/components/MapZoom';
+import { IoIosSend } from 'react-icons/io';
 
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,12 +15,12 @@ const Spot = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const spotId = useSelector((state) => state.spots.spotId);
-  const loading = useSelector((state) => state.spots.loading);
+  const loading = useSelector((state) => state.spots.loadingSpot);
   const newcomment = useSelector((state) => state.spots.newComment);
   const commentsData = useSelector((state) => state.spots.spotId.comments);
   const isLiked = useSelector((state) => state.spots.isLiked);
   const nbLikesStorage = useSelector((state) => state.spots.nbLikesStorage);
-  // console.log(nbLikesStorage);
+  const userId = useSelector((state) => state.user.userId);
 
   const changeField = (value, key) => {
     dispatch({
@@ -168,27 +169,33 @@ const Spot = () => {
             </div>
           </div>
           <div className="spot__map">
-            <BasicMap
+            <MapZoom
               zoom={13}
               coordinates={[spotId.latitude || 0, spotId.longitude || 0]}
               popupTitle={`${spotId.title}, ${spotId.address}`}
             />
           </div>
           <form className="spot__comments" onSubmit={handleSubmit}>
-            <Field
-              name="newComment"
-              placeholder="Ajouter un commentaire"
-              onChange={changeField}
-              value={newcomment}
-              className="spot__comments__input"
-            />
+            <div className="spot__input__send-zone">
+              <Field
+                name="newComment"
+                placeholder="Ajouter un commentaire"
+                onChange={changeField}
+                value={newcomment}
+                className="spot__comments__input"
+              />
+              <button className="spot__input__send-zone__button" type="submit"> <IoIosSend className="spot__input__send-zone__button__logo" /> </button>
+            </div>
             {commentsData.length > 0
               ? <Comments comments={commentsData} />
               : <p>Pas encore de commentaires ...</p>}
           </form>
-          <form className="form__delete" onSubmit={handleSubmitDeleteSpot}>
-            <button className="form__delete__button" type="submit">Supprimer le spot</button>
-          </form>
+          {spotId.author.id === Number(userId)
+            ? (
+              <form className="spot__delete" onSubmit={handleSubmitDeleteSpot}>
+                <button className="spot__delete__button" type="submit">Supprimer le spot</button>
+              </form>
+            ) : ''}
         </div>
       </div>
       )}

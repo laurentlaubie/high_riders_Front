@@ -5,6 +5,7 @@ import spotsReducer from './spots';
 import eventsReducer from './events';
 import searchReducer from './search';
 import userReducer from './user';
+import contactReducer from './contact';
 
 const rootReducer = combineReducers({
   home: homeReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   events: eventsReducer,
   search: searchReducer,
   user: userReducer,
+  contact: contactReducer,
 });
 
 export default rootReducer;

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import Card from 'src/components/Card';
 import { fetchHomeLasts } from '../../actions/home';
-// import data from 'src/data';
+import Loading from '../Loading';
 
 // == Import persos
 import './style.scss';
@@ -16,27 +16,27 @@ const Homepage = () => {
   const bestsSpotsData = useSelector((state) => state.home.bestsSpots);
   const lastsSpotsData = useSelector((state) => state.home.lastsSpots);
   const loading = useSelector((state) => state.home.loading);
-  const isConnected = useSelector((state) => state.user.isConnected);
 
   const lastsEvents = lastsEventsData.slice(0, 3);
   const bestsSpots = bestsSpotsData.slice(0, 3);
   const lastsSpots = lastsSpotsData.slice(0, 3);
 
+  const isConnected = localStorage.getItem('isConnectedSuccess');
+
   useEffect(() => {
     dispatch(fetchHomeLasts());
   }, []);
 
-  if (loading) {
-    return 'chargement ...';
-  }
-
-  if (isConnected) {
+  if (isConnected === 'true') {
     toast.success('Connexion réussi', {
       position: toast.POSITION.BOTTOM_LEFT,
     });
-    dispatch({
-      type: 'HANDLE_TOAST',
-    });
+  }
+
+  localStorage.removeItem('isConnectedSuccess');
+
+  if (loading) {
+    return <Loading />;
   }
 
   return (

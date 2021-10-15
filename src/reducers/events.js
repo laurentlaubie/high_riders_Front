@@ -1,5 +1,6 @@
 const initialState = {
   loading: true,
+  loadingEvent: true,
   eventId: {
     participations: [],
   },
@@ -7,8 +8,8 @@ const initialState = {
   eventsCate: [],
   eventsDepar: [],
   newComment: '',
-  departValue: '1',
-  spotDisci: '1',
+  departValue: '',
+  spotDisci: '',
   newOpeningHour: '00:00',
   newClosingHour: '00:00',
   newDateEvent: '2021-10-15',
@@ -33,7 +34,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         eventId: action.newEvent,
-        loading: false,
+        loadingEvent: false,
       };
     case 'CHANGE_EVENT_VALUE':
       return {
