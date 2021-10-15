@@ -1,7 +1,23 @@
 .contact-us {
-  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 10em;
+  margin-left: 18em;
+  margin-bottom: 15em;
+  width: 40%;
+  border: solid black 1px ;
+  border-radius: 0.8em;
+  background-color: rgb(236, 233, 232); 
+  padding: 1em;
+  text-align: center;
+  
 
   & div {
     margin: 1em;
+  }
+
+  & button {
+    display: block ;
+    margin: 0 auto ;
+
   }
 }
