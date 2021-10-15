@@ -1,20 +1,21 @@
 import { Link, useHistory, useParams } from 'react-router-dom';
 
 import MapZoom from 'src/components/MapZoom';
-
+import { FiUser } from 'react-icons/fi';
 import './style.scss';
 import findIfParticipate from 'src/selectors/events';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { IoIosSend } from 'react-icons/io';
 import Field from '../../Field';
 import Comments from '../../Comments';
-import { IoIosSend } from 'react-icons/io';
 
 const Event = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const eventId = useSelector((state) => state.events.eventId);
+  console.log(eventId);
   const loading = useSelector((state) => state.events.loadingEvent);
   const newcomment = useSelector((state) => state.events.newComment);
   const commentsData = useSelector((state) => state.events.eventId.comments);
@@ -165,6 +166,10 @@ const Event = () => {
               && !participateUser
                 ? <button className="event__participate__button event__participate__button--dark" type="button" onClick={handleToggleParticipate}>Je participe</button>
                 : <p>Participation à l'évènement prise en compte !</p>}
+            </div>
+            <p className="event__participate__users--title">Liste des participants</p>
+            <div className="event__participate__users">
+              {eventId.participations.map((elem) => <span><FiUser />{elem.user.pseudo}</span>)}
             </div>
             <div className="event__comments">
               <form className="event__comments__input" onSubmit={handleSubmit}>

@@ -134,6 +134,23 @@
     align-items: center;
     justify-content: center;
 
+    &__users {
+      display: flex;
+      flex-direction: column;
+      margin: 0.5em;
+      align-items: center;
+      width: 100%;
+      height: 5em;
+      flex-wrap: wrap;
+
+      &--title {
+        font-weight: 700;
+        font-size: 1.2em;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
     &__button {
       font-size: 1em;
       width: 100%;
@@ -213,6 +230,8 @@
         "stats data"
         "map map"
         "participate participate"
+        "participatetitle participatetitle"
+        "userparticipate userparticipate"
         "comments comments";
       grid-gap: 1em;
     }
@@ -247,6 +266,14 @@
 
     &__participate {
       grid-area: participate;
+
+      &__users {
+        grid-area: userparticipate;
+
+        &--title {
+          grid-area: participatetitle;
+        }
+      }
     }
   }
 }
