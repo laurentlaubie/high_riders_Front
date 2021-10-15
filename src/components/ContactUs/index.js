@@ -25,7 +25,7 @@ const ContactUs = () => {
   };
 
   return (
-    <form className="contact-us" onSubmit={handleSubmit}>
+    <form className="contact" onSubmit={handleSubmit}>
       <Field
         name="newNameContact"
         placeholder="Nom"
@@ -50,7 +50,7 @@ const ContactUs = () => {
         onChange={changeField}
         value={newMessageContact}
       />
-      <button type="submit">Envoyer</button>
+      <button className="contact__button" type="submit"><p className="contact__send">Envoyer</p></button>
     </form>
   );
 };

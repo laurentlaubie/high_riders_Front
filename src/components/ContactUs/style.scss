@@ -1,21 +1,23 @@
-.contact-us {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin-top: 10em;
-  margin-left: 18em;
-  margin-bottom: 15em;
-  width: 40%;
-  border: solid black 1px ;
+.contact {
+  box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.4);
+  margin: 15em auto;
+  width: 60%;
+  padding: 2em;
+  padding-right: 2em;
   border-radius: 0.8em;
-  padding: 1em;
+  background-color: #fcfbfe4b;
   text-align: center;
 
-  & div {
-    margin: 1em;
-  }
-
-  & button {
-    display: block ;
-    margin: 0 auto ;
-
+  &__button {
+    text-align: center;
+    margin: 2rem auto;
+    margin-bottom: -0.01rem;
+    color: #fcfbfe;
+    background-color: #283618;
+    border: 1px solid #283618;
+    width: 10%;
+    height: 3em;
+    border-radius: .2em;
+    font-size: large;
   }
 }
