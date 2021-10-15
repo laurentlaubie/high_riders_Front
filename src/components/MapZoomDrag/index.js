@@ -16,7 +16,7 @@ const MapZoomDrag = ({
     const { lat, lng } = evt.latlng;
     console.log(lat);
     console.log(lng);
-    console.log('aze');
+    console.log('fghfdgh');
   };
 
   return (

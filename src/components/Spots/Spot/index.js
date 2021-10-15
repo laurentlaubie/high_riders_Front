@@ -19,7 +19,7 @@ const Spot = () => {
   const commentsData = useSelector((state) => state.spots.spotId.comments);
   const isLiked = useSelector((state) => state.spots.isLiked);
   const nbLikesStorage = useSelector((state) => state.spots.nbLikesStorage);
-  // console.log(nbLikesStorage);
+  const userId = useSelector((state) => state.user.userId);
 
   const changeField = (value, key) => {
     dispatch({
@@ -186,9 +186,12 @@ const Spot = () => {
               ? <Comments comments={commentsData} />
               : <p>Pas encore de commentaires ...</p>}
           </form>
-          <form className="form__delete" onSubmit={handleSubmitDeleteSpot}>
-            <button className="form__delete__button" type="submit">Supprimer le spot</button>
-          </form>
+          {spotId.author.id === Number(userId)
+            ? (
+              <form className="spot__delete" onSubmit={handleSubmitDeleteSpot}>
+                <button className="spot__delete__button" type="submit">Supprimer le spot</button>
+              </form>
+            ) : ''}
         </div>
       </div>
       )}

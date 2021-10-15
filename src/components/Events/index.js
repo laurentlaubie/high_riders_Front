@@ -84,7 +84,7 @@ const Events = () => {
   return (
     <div className="eventList">
       <Link className="eventList__add" to={logged ? '/ajout-evenement' : '/connexion'}>Ajouter un évènement</Link>
-      <h1 className="eventList__title">Liste des evènements</h1>
+      <h1 className="eventList__title">Liste des évènements</h1>
       <form className="eventList__filter" onSubmit={handleSearchEvents}>
         <Select
           value={departValue}
@@ -102,7 +102,7 @@ const Events = () => {
           onChange={changeField}
           brutData="Selectionner une discipline"
         />
-        <button type="submit">Filtrer</button>
+        <button className="eventList__button__filter" type="submit">Filtrer</button>
       </form>
       <div className="eventList__map">
         {newResultList.length > 0

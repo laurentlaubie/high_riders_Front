@@ -98,7 +98,7 @@ const spotList = () => {
           onChange={changeField}
           brutData="Selectionner une discipline"
         />
-        <button type="submit">Filtrer</button>
+        <button className="spotList__button__filter" type="submit">Filtrer</button>
       </form>
       <div className="spotList__map">
         {newResultList.length > 0

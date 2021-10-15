@@ -178,9 +178,12 @@ const Event = () => {
                 ? <Comments comments={commentsData} />
                 : <p>Pas encore de commentaires ...</p>}
             </div>
-            <form className="event__delete" onSubmit={handleSubmitDeleteEvent}>
-              <button className="event__delete__button" type="submit">Supprimer l'event</button>
-            </form>
+            {eventId.author.id === Number(userId)
+              ? (
+                <form className="event__delete" onSubmit={handleSubmitDeleteEvent}>
+                  <button className="event__delete__button" type="submit">Supprimer l'event</button>
+                </form>
+              ) : ''}
           </div>
         </div>
       )}
