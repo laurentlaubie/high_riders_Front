@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Field from '../../Field';
 import Comments from '../../Comments';
+import { IoIosSend } from 'react-icons/io';
 
 const Event = () => {
   const { id } = useParams();
@@ -167,12 +168,15 @@ const Event = () => {
             </div>
             <div className="event__comments">
               <form className="event__comments__input" onSubmit={handleSubmit}>
-                <Field
-                  name="newComment"
-                  placeholder="Ajouter un commentaire"
-                  onChange={changeField}
-                  value={newcomment}
-                />
+                <div className="spot__input__send-zone">
+                  <Field
+                    name="newComment"
+                    placeholder="Ajouter un commentaire"
+                    onChange={changeField}
+                    value={newcomment}
+                  />
+                  <button className="spot__input__send-zone__button" type="submit"> <IoIosSend className="spot__input__send-zone__button__logo" /> </button>
+                </div>
               </form>
               {commentsData.length > 0
                 ? <Comments comments={commentsData} />
