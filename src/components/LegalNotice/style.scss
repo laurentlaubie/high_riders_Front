@@ -1,14 +1,12 @@
 .legal-notice__container {
- 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin-top: 10em;
-  margin-left: 18em;
-  margin-bottom: 15em;
+  box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.4);
+  margin: 15em auto;
   width: 60%;
-  border: solid black 1px ;
+  padding-bottom: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
   border-radius: 0.8em;
   background-color: #fcfbfe4b;
-
   text-align: center;
   
 
