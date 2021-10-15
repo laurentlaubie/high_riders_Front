@@ -1,4 +1,5 @@
 const initialState = {
+  loading: true,
   classMenu: false,
   classSearch: false,
   logged: false,
@@ -51,6 +52,7 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_PROFILE':
       return {
         ...state,
+        loading: false,
         profileData: action.newProfile,
         profileAvatar: action.newProfile.avatar,
         profileCategories: action.newProfile.categories,

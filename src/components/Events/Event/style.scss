@@ -134,6 +134,23 @@
     align-items: center;
     justify-content: center;
 
+    &__users {
+      display: flex;
+      flex-direction: column;
+      margin: 0.5em;
+      align-items: center;
+      width: 100%;
+      height: 5em;
+      flex-wrap: wrap;
+
+      &--title {
+        font-weight: 700;
+        font-size: 1.2em;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
     &__button {
       font-size: 1em;
       width: 100%;
@@ -168,7 +185,31 @@
       width: 100%;
     }
   }
-  
+
+  &__delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    &__button {
+      width: 90%;
+      border-radius: .2em;
+      padding: 0.7em;
+      margin: 0.3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fcfbfe;
+      background-color: #283618;
+      border: 1px solid #283618;
+
+      &:hover {
+        background-color: #1d2c0c;
+        border: #283618 1px solid;
+      }
+    }
+  }
 }
 
 @media (min-width:1000px) {
@@ -189,6 +230,8 @@
         "stats data"
         "map map"
         "participate participate"
+        "participatetitle participatetitle"
+        "userparticipate userparticipate"
         "comments comments";
       grid-gap: 1em;
     }
@@ -223,6 +266,14 @@
 
     &__participate {
       grid-area: participate;
+
+      &__users {
+        grid-area: userparticipate;
+
+        &--title {
+          grid-area: participatetitle;
+        }
+      }
     }
   }
 }

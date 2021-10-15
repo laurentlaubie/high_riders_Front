@@ -4,6 +4,28 @@
   flex-direction: column;
   align-items: center;
 
+  &__moreinfos {
+    font-size: 0.8em;
+  }
+
+  &__button__filter {
+    width: 100%;
+    border-radius: .2em;
+    padding: 0.7em;
+    margin: 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fcfbfe;
+    background-color: #283618;
+    border: 1px solid #283618;
+
+    &:hover {
+      background-color: #1d2c0c;
+      border: #283618 1px solid;
+    }
+  }
+  
   &__add {
     position: fixed;
     z-index: 3;

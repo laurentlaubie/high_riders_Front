@@ -1,42 +1,69 @@
 .profil {
+  width: 100%;
+  height: 88vh;
+  max-width: 30em;
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: auto;
 
-  &__title {
-    text-align: center;
-    color: #4b702d;
-    font-size: 2em;
-    font-weight: 700;
-    margin: 1.5em 0;
-  }
-
   &__avatar {
-    width: 8em;
-    height: 8em;
-    margin-bottom: 1rem;
-    margin-top: -1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1em;
 
     &__image {
-      height: 100%;
-      width: 100%;
+      height: 5em;
+      width: 5em;
+      margin: 0 0.5em 0 0;
       object-fit: cover;
       border-radius: 100%;
+    }
+
+    & span {
+      padding: 0 0.3em;
+      font-weight: 700;
     }
   }
 
   &__data {
-    text-align: start;
-    width: 90%;
+    width: 95%;
+    padding: 0.5em;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin: 1rem auto;
+    margin: 0.3em;
+    border: #d2d2c6 0.13em solid;
+
+    &__participations {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__tag-title {
-    font-weight: 700;
+    font-size: 0.7em;
+    color: #283618;
+    margin: 0 0 0.3em 0;
+  }
+
+  &__tag-data {
+    margin: 0 0 0.3em 0;
+
+    &-link {
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        color: #606c38;
+      }
+
+      &__icon {
+        margin: 0 0 0 0.2em;
+      }
+    }
   }
 
   &__button {
@@ -53,13 +80,3 @@
     margin-bottom: 2rem;
   }
 }
-
-@media (min-width:1000px) {
-  .profil__data {
-    width: 30%;
-  }
-
-  .profil__button {
-    width: 30%;
-  }
- }

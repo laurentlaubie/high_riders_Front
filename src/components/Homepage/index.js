@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 
 import Card from 'src/components/Card';
 import { fetchHomeLasts } from '../../actions/home';
+import Loading from '../Loading';
 
 // == Import persos
 import './style.scss';
@@ -35,7 +36,7 @@ const Homepage = () => {
   localStorage.removeItem('isConnectedSuccess');
 
   if (loading) {
-    return 'chargement ...';
+    return <Loading />;
   }
 
   return (

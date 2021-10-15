@@ -81,6 +81,7 @@ const spotList = () => {
     <div className="spotList">
       <Link className="spotList__add" to={logged ? '/ajout-spot' : '/connexion'}>Ajouter un spot</Link>
       <h1 className="spotList__title">Liste des spots</h1>
+      <p className="spotList__moreinfos">*Connectez-vous pour avoir plus de détails</p>
       <form className="spotList__filter" onSubmit={handleSearchSpots}>
         <Select
           value={departValue}
@@ -98,7 +99,7 @@ const spotList = () => {
           onChange={changeField}
           brutData="Selectionner une discipline"
         />
-        <button type="submit">Filtrer</button>
+        <button className="spotList__button__filter" type="submit">Filtrer</button>
       </form>
       <div className="spotList__map">
         {newResultList.length > 0
