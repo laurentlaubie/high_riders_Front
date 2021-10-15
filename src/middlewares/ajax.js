@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { FETCH_HOME_LASTS } from '../actions/home';
 import { FETCH_SPOTS_LIST, FETCH_SPOT_ID } from '../actions/spots';
 import { FETCH_PROFILE, UPDATE_PROFILE } from '../actions/profile';
+import { CONTACT_US } from '../actions/contact';
 
 const api = axios.create({
   baseURL: 'http://ec2-34-224-30-121.compute-1.amazonaws.com/api/v1',
@@ -390,6 +391,26 @@ const ajax = (store) => (next) => (action) => {
         console.log(res);
       })
       .catch((err) => {
+        console.log(err);
+      });
+  }
+  if (action.type === CONTACT_US) {
+    const state = store.getState();
+    api.post('/contactus/', {
+      firstname: state.contact.newFirstnameContact,
+      lastname: state.contact.newNameContact,
+      email: state.contact.newEmailContact,
+      content: state.contact.newMessageContact,
+    })
+      .then((res) => {
+        // success
+        store.dispatch({
+          type: 'CONCTACT_US_POST',
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        // error
         console.log(err);
       });
   }
