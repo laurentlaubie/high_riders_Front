@@ -1,6 +1,7 @@
 import { useHistory, useParams } from 'react-router-dom';
 
 import MapZoom from 'src/components/MapZoom';
+import { IoIosSend } from 'react-icons/io';
 
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -175,13 +176,16 @@ const Spot = () => {
             />
           </div>
           <form className="spot__comments" onSubmit={handleSubmit}>
-            <Field
-              name="newComment"
-              placeholder="Ajouter un commentaire"
-              onChange={changeField}
-              value={newcomment}
-              className="spot__comments__input"
-            />
+            <div className="spot__input__send-zone">
+              <Field
+                name="newComment"
+                placeholder="Ajouter un commentaire"
+                onChange={changeField}
+                value={newcomment}
+                className="spot__comments__input"
+              />
+              <button className="spot__input__send-zone__button" type="submit"> <IoIosSend className="spot__input__send-zone__button__logo" /> </button>
+            </div>
             {commentsData.length > 0
               ? <Comments comments={commentsData} />
               : <p>Pas encore de commentaires ...</p>}

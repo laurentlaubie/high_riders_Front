@@ -140,6 +140,21 @@
       width: 100%;
     }
   }
+
+  &__input__send-zone {
+    width: 100%;
+    display: flex;
+
+    &__button {
+      border: none;
+      background-color: #fcfbfe;
+
+      &__logo {
+        color: #283618;
+        transform: scale(2);
+      }
+    }
+  }
   
   &__delete {
     display: flex;

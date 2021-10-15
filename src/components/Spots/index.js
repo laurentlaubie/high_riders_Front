@@ -81,6 +81,7 @@ const spotList = () => {
     <div className="spotList">
       <Link className="spotList__add" to={logged ? '/ajout-spot' : '/connexion'}>Ajouter un spot</Link>
       <h1 className="spotList__title">Liste des spots</h1>
+      <p className="spotList__moreinfos">*Connectez-vous pour avoir plus de détails</p>
       <form className="spotList__filter" onSubmit={handleSearchSpots}>
         <Select
           value={departValue}

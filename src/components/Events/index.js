@@ -85,6 +85,7 @@ const Events = () => {
     <div className="eventList">
       <Link className="eventList__add" to={logged ? '/ajout-evenement' : '/connexion'}>Ajouter un évènement</Link>
       <h1 className="eventList__title">Liste des évènements</h1>
+      <p className="eventList__moreinfos">*Connectez-vous pour avoir plus de détails</p>
       <form className="eventList__filter" onSubmit={handleSearchEvents}>
         <Select
           value={departValue}

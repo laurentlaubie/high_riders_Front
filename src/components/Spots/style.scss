@@ -4,6 +4,10 @@
   flex-direction: column;
   align-items: center;
 
+  &__moreinfos {
+    font-size: 0.8em;
+  }
+
   &__button__filter {
     width: 100%;
     border-radius: .2em;
